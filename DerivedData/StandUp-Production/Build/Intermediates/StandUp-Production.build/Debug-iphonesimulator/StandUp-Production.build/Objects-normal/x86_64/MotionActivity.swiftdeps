@@ -1,0 +1,333 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MotionActivity"
+provides-nominal:
+- "C18StandUp_Production14MotionActivity"
+provides-member:
+- ["C18StandUp_Production14MotionActivity", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "print"
+- "NSDate"
+- "BooleanLiteralType"
+- "String"
+- !private "Array"
+- "CMMotionActivityManager"
+- !private "NSCalendar"
+- !private "UnicodeScalarType"
+- "MotionActivity"
+- !private "StringLiteralType"
+- !private "NSTimeZone"
+- !private "=="
+- !private "NSOperationQueue"
+- !private "dispatch_get_main_queue"
+- !private "dispatch_async"
+depends-member:
+- !private ["PSs9AnyObject", "CMMotionActivityManager"]
+- !private ["PSs9AnyObject", "NSCalendar"]
+- !private ["PSs9AnyObject", "NSDate"]
+- !private ["PSs9AnyObject", "NSOperationQueue"]
+- !private ["PSs9AnyObject", "NSTimeZone"]
+- !private ["PSs9AnyObject", "automotive"]
+- !private ["PSs9AnyObject", "components"]
+- !private ["PSs9AnyObject", "currentCalendar"]
+- !private ["PSs9AnyObject", "dateFromComponents"]
+- !private ["PSs9AnyObject", "dispatch_async"]
+- !private ["PSs9AnyObject", "dispatch_get_main_queue"]
+- !private ["PSs9AnyObject", "hour"]
+- !private ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "isActivityAvailable"]
+- !private ["PSs9AnyObject", "mainQueue"]
+- !private ["PSs9AnyObject", "minute"]
+- !private ["PSs9AnyObject", "print"]
+- !private ["PSs9AnyObject", "running"]
+- !private ["PSs9AnyObject", "second"]
+- !private ["PSs9AnyObject", "startActivityUpdatesToQueue"]
+- !private ["PSs9AnyObject", "stationary"]
+- !private ["PSs9AnyObject", "systemTimeZone"]
+- !private ["PSs9AnyObject", "timeZone"]
+- !private ["PSs9AnyObject", "unknown"]
+- !private ["PSs9AnyObject", "walking"]
+- ["PSs9AnyObject", ""]
+- !private ["PSs23ArrayLiteralConvertible", "Day"]
+- !private ["PSs23ArrayLiteralConvertible", "Element"]
+- !private ["PSs23ArrayLiteralConvertible", "Hour"]
+- !private ["PSs23ArrayLiteralConvertible", "Minute"]
+- !private ["PSs23ArrayLiteralConvertible", "Month"]
+- !private ["PSs23ArrayLiteralConvertible", "Second"]
+- !private ["PSs23ArrayLiteralConvertible", "Year"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["CSo9CMLogItem", "automotive"]
+- !private ["CSo9CMLogItem", "running"]
+- !private ["CSo9CMLogItem", "stationary"]
+- !private ["CSo9CMLogItem", "unknown"]
+- !private ["CSo9CMLogItem", "walking"]
+- !private ["CSo16CMMotionActivity", "automotive"]
+- !private ["CSo16CMMotionActivity", "running"]
+- !private ["CSo16CMMotionActivity", "stationary"]
+- !private ["CSo16CMMotionActivity", "unknown"]
+- !private ["CSo16CMMotionActivity", "walking"]
+- !private ["CSo23CMMotionActivityManager", "isActivityAvailable"]
+- !private ["CSo23CMMotionActivityManager", "startActivityUpdatesToQueue"]
+- !private ["PSs11CVarArgType", "automotive"]
+- !private ["PSs11CVarArgType", "components"]
+- !private ["PSs11CVarArgType", "currentCalendar"]
+- !private ["PSs11CVarArgType", "dateFromComponents"]
+- !private ["PSs11CVarArgType", "hour"]
+- !private ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "isActivityAvailable"]
+- !private ["PSs11CVarArgType", "mainQueue"]
+- !private ["PSs11CVarArgType", "minute"]
+- !private ["PSs11CVarArgType", "running"]
+- !private ["PSs11CVarArgType", "second"]
+- !private ["PSs11CVarArgType", "startActivityUpdatesToQueue"]
+- !private ["PSs11CVarArgType", "stationary"]
+- !private ["PSs11CVarArgType", "systemTimeZone"]
+- !private ["PSs11CVarArgType", "timeZone"]
+- !private ["PSs11CVarArgType", "unknown"]
+- !private ["PSs11CVarArgType", "walking"]
+- !private ["PSs28CustomDebugStringConvertible", "Some"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "automotive"]
+- !private ["PSs23CustomStringConvertible", "components"]
+- !private ["PSs23CustomStringConvertible", "currentCalendar"]
+- !private ["PSs23CustomStringConvertible", "dateFromComponents"]
+- !private ["PSs23CustomStringConvertible", "hour"]
+- !private ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "isActivityAvailable"]
+- !private ["PSs23CustomStringConvertible", "mainQueue"]
+- !private ["PSs23CustomStringConvertible", "minute"]
+- !private ["PSs23CustomStringConvertible", "running"]
+- !private ["PSs23CustomStringConvertible", "second"]
+- !private ["PSs23CustomStringConvertible", "startActivityUpdatesToQueue"]
+- !private ["PSs23CustomStringConvertible", "stationary"]
+- !private ["PSs23CustomStringConvertible", "systemTimeZone"]
+- !private ["PSs23CustomStringConvertible", "timeZone"]
+- !private ["PSs23CustomStringConvertible", "unknown"]
+- !private ["PSs23CustomStringConvertible", "walking"]
+- !private ["PSs9Equatable", "Day"]
+- !private ["PSs9Equatable", "Element"]
+- !private ["PSs9Equatable", "Hour"]
+- !private ["PSs9Equatable", "Minute"]
+- !private ["PSs9Equatable", "Month"]
+- !private ["PSs9Equatable", "Second"]
+- !private ["PSs9Equatable", "Year"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "automotive"]
+- !private ["PSs9Equatable", "components"]
+- !private ["PSs9Equatable", "currentCalendar"]
+- !private ["PSs9Equatable", "dateFromComponents"]
+- !private ["PSs9Equatable", "hour"]
+- !private ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "isActivityAvailable"]
+- !private ["PSs9Equatable", "mainQueue"]
+- !private ["PSs9Equatable", "minute"]
+- !private ["PSs9Equatable", "running"]
+- !private ["PSs9Equatable", "second"]
+- !private ["PSs9Equatable", "startActivityUpdatesToQueue"]
+- !private ["PSs9Equatable", "stationary"]
+- !private ["PSs9Equatable", "systemTimeZone"]
+- !private ["PSs9Equatable", "timeZone"]
+- !private ["PSs9Equatable", "unknown"]
+- !private ["PSs9Equatable", "walking"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "automotive"]
+- !private ["PSs8Hashable", "components"]
+- !private ["PSs8Hashable", "currentCalendar"]
+- !private ["PSs8Hashable", "dateFromComponents"]
+- !private ["PSs8Hashable", "hour"]
+- !private ["PSs8Hashable", "init"]
+- !private ["PSs8Hashable", "isActivityAvailable"]
+- !private ["PSs8Hashable", "mainQueue"]
+- !private ["PSs8Hashable", "minute"]
+- !private ["PSs8Hashable", "running"]
+- !private ["PSs8Hashable", "second"]
+- !private ["PSs8Hashable", "startActivityUpdatesToQueue"]
+- !private ["PSs8Hashable", "stationary"]
+- !private ["PSs8Hashable", "systemTimeZone"]
+- !private ["PSs8Hashable", "timeZone"]
+- !private ["PSs8Hashable", "unknown"]
+- !private ["PSs8Hashable", "walking"]
+- !private ["SQ", "deinit"]
+- ["C18StandUp_Production14MotionActivity", "CMMotionActivityManager"]
+- !private ["C18StandUp_Production14MotionActivity", "NSCalendar"]
+- ["C18StandUp_Production14MotionActivity", "NSDate"]
+- !private ["C18StandUp_Production14MotionActivity", "NSOperationQueue"]
+- !private ["C18StandUp_Production14MotionActivity", "NSTimeZone"]
+- ["C18StandUp_Production14MotionActivity", "String"]
+- ["C18StandUp_Production14MotionActivity", "currentActivity"]
+- ["C18StandUp_Production14MotionActivity", "deinit"]
+- !private ["C18StandUp_Production14MotionActivity", "dispatch_async"]
+- !private ["C18StandUp_Production14MotionActivity", "dispatch_get_main_queue"]
+- ["C18StandUp_Production14MotionActivity", "init"]
+- ["C18StandUp_Production14MotionActivity", "midnightOfToday"]
+- !private ["C18StandUp_Production14MotionActivity", "print"]
+- !private ["CSo10NSCalendar", "components"]
+- !private ["CSo10NSCalendar", "currentCalendar"]
+- !private ["CSo10NSCalendar", "dateFromComponents"]
+- !private ["CSo10NSCalendar", "timeZone"]
+- !private ["VSC14NSCalendarUnit", "Day"]
+- !private ["VSC14NSCalendarUnit", "Element"]
+- !private ["VSC14NSCalendarUnit", "Hour"]
+- !private ["VSC14NSCalendarUnit", "Minute"]
+- !private ["VSC14NSCalendarUnit", "Month"]
+- !private ["VSC14NSCalendarUnit", "Second"]
+- !private ["VSC14NSCalendarUnit", "Year"]
+- !private ["PSo8NSCoding", "automotive"]
+- !private ["PSo8NSCoding", "components"]
+- !private ["PSo8NSCoding", "currentCalendar"]
+- !private ["PSo8NSCoding", "dateFromComponents"]
+- !private ["PSo8NSCoding", "hour"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "minute"]
+- !private ["PSo8NSCoding", "running"]
+- !private ["PSo8NSCoding", "second"]
+- !private ["PSo8NSCoding", "stationary"]
+- !private ["PSo8NSCoding", "systemTimeZone"]
+- !private ["PSo8NSCoding", "timeZone"]
+- !private ["PSo8NSCoding", "unknown"]
+- !private ["PSo8NSCoding", "walking"]
+- !private ["PSo9NSCopying", "automotive"]
+- !private ["PSo9NSCopying", "components"]
+- !private ["PSo9NSCopying", "currentCalendar"]
+- !private ["PSo9NSCopying", "dateFromComponents"]
+- !private ["PSo9NSCopying", "hour"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "minute"]
+- !private ["PSo9NSCopying", "running"]
+- !private ["PSo9NSCopying", "second"]
+- !private ["PSo9NSCopying", "stationary"]
+- !private ["PSo9NSCopying", "systemTimeZone"]
+- !private ["PSo9NSCopying", "timeZone"]
+- !private ["PSo9NSCopying", "unknown"]
+- !private ["PSo9NSCopying", "walking"]
+- !private ["CSo6NSDate", "init"]
+- !private ["CSo16NSDateComponents", "hour"]
+- !private ["CSo16NSDateComponents", "minute"]
+- !private ["CSo16NSDateComponents", "second"]
+- !private ["CSo8NSObject", "automotive"]
+- !private ["CSo8NSObject", "components"]
+- !private ["CSo8NSObject", "currentCalendar"]
+- !private ["CSo8NSObject", "dateFromComponents"]
+- !private ["CSo8NSObject", "hour"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isActivityAvailable"]
+- !private ["CSo8NSObject", "mainQueue"]
+- !private ["CSo8NSObject", "minute"]
+- !private ["CSo8NSObject", "running"]
+- !private ["CSo8NSObject", "second"]
+- !private ["CSo8NSObject", "startActivityUpdatesToQueue"]
+- !private ["CSo8NSObject", "stationary"]
+- !private ["CSo8NSObject", "systemTimeZone"]
+- !private ["CSo8NSObject", "timeZone"]
+- !private ["CSo8NSObject", "unknown"]
+- !private ["CSo8NSObject", "walking"]
+- !private ["PSo16NSObjectProtocol", "automotive"]
+- !private ["PSo16NSObjectProtocol", "components"]
+- !private ["PSo16NSObjectProtocol", "currentCalendar"]
+- !private ["PSo16NSObjectProtocol", "dateFromComponents"]
+- !private ["PSo16NSObjectProtocol", "hour"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isActivityAvailable"]
+- !private ["PSo16NSObjectProtocol", "mainQueue"]
+- !private ["PSo16NSObjectProtocol", "minute"]
+- !private ["PSo16NSObjectProtocol", "running"]
+- !private ["PSo16NSObjectProtocol", "second"]
+- !private ["PSo16NSObjectProtocol", "startActivityUpdatesToQueue"]
+- !private ["PSo16NSObjectProtocol", "stationary"]
+- !private ["PSo16NSObjectProtocol", "systemTimeZone"]
+- !private ["PSo16NSObjectProtocol", "timeZone"]
+- !private ["PSo16NSObjectProtocol", "unknown"]
+- !private ["PSo16NSObjectProtocol", "walking"]
+- !private ["CSo16NSOperationQueue", "mainQueue"]
+- !private ["PSo14NSSecureCoding", "automotive"]
+- !private ["PSo14NSSecureCoding", "components"]
+- !private ["PSo14NSSecureCoding", "currentCalendar"]
+- !private ["PSo14NSSecureCoding", "dateFromComponents"]
+- !private ["PSo14NSSecureCoding", "hour"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "minute"]
+- !private ["PSo14NSSecureCoding", "running"]
+- !private ["PSo14NSSecureCoding", "second"]
+- !private ["PSo14NSSecureCoding", "stationary"]
+- !private ["PSo14NSSecureCoding", "systemTimeZone"]
+- !private ["PSo14NSSecureCoding", "timeZone"]
+- !private ["PSo14NSSecureCoding", "unknown"]
+- !private ["PSo14NSSecureCoding", "walking"]
+- !private ["CSo10NSTimeZone", "systemTimeZone"]
+- !private ["PSs21NilLiteralConvertible", "Some"]
+- !private ["PSs13OptionSetType", "Day"]
+- !private ["PSs13OptionSetType", "Element"]
+- !private ["PSs13OptionSetType", "Hour"]
+- !private ["PSs13OptionSetType", "Minute"]
+- !private ["PSs13OptionSetType", "Month"]
+- !private ["PSs13OptionSetType", "Second"]
+- !private ["PSs13OptionSetType", "Year"]
+- !private ["Sq", "Some"]
+- !private ["PSs16RawRepresentable", "Day"]
+- !private ["PSs16RawRepresentable", "Element"]
+- !private ["PSs16RawRepresentable", "Hour"]
+- !private ["PSs16RawRepresentable", "Minute"]
+- !private ["PSs16RawRepresentable", "Month"]
+- !private ["PSs16RawRepresentable", "Second"]
+- !private ["PSs16RawRepresentable", "Year"]
+- !private ["PSs14SetAlgebraType", "Day"]
+- !private ["PSs14SetAlgebraType", "Element"]
+- !private ["PSs14SetAlgebraType", "Hour"]
+- !private ["PSs14SetAlgebraType", "Minute"]
+- !private ["PSs14SetAlgebraType", "Month"]
+- !private ["PSs14SetAlgebraType", "Second"]
+- !private ["PSs14SetAlgebraType", "Year"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "Some"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "init"]
+depends-nominal:
+- "PSs9AnyObject"
+- !private "PSs23ArrayLiteralConvertible"
+- !private "Sb"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- !private "CSo9CMLogItem"
+- !private "CSo16CMMotionActivity"
+- !private "CSo23CMMotionActivityManager"
+- !private "PSs11CVarArgType"
+- !private "PSs28CustomDebugStringConvertible"
+- !private "PSs23CustomStringConvertible"
+- !private "PSs9Equatable"
+- !private "PSs8Hashable"
+- !private "SQ"
+- "C18StandUp_Production14MotionActivity"
+- !private "CSo10NSCalendar"
+- !private "VSC14NSCalendarUnit"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo6NSDate"
+- !private "CSo16NSDateComponents"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "CSo16NSOperationQueue"
+- !private "PSo14NSSecureCoding"
+- !private "CSo10NSTimeZone"
+- !private "PSs21NilLiteralConvertible"
+- !private "PSs13OptionSetType"
+- !private "Sq"
+- !private "PSs16RawRepresentable"
+- !private "PSs14SetAlgebraType"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+interface-hash: "8da166104014d91b871859ed1b34e782"

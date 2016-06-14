@@ -1,0 +1,279 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MainViewController"
+provides-nominal:
+- "C18StandUp_Production18MainViewController"
+provides-member:
+- ["C18StandUp_Production18MainViewController", ""]
+provides-dynamic-lookup:
+- "activityManager"
+- "activityLabel"
+- "didReceiveMemoryWarning"
+- "viewDidLoad"
+depends-top-level:
+- "CMMotionActivityManager"
+- "UIViewController"
+- !private "*"
+- "MotionActivity"
+- "UILabel"
+- !private "print"
+- "MainViewController"
+- !private "NSDate"
+depends-member:
+- ["PSs9AnyObject", "CMMotionActivityManager"]
+- ["PSs9AnyObject", "MotionActivity"]
+- !private ["PSs9AnyObject", "NSDate"]
+- ["PSs9AnyObject", "activityLabel"]
+- ["PSs9AnyObject", "activityManager"]
+- !private ["PSs9AnyObject", "currentActivity"]
+- ["PSs9AnyObject", "didReceiveMemoryWarning"]
+- ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", "motionActivity"]
+- !private ["PSs9AnyObject", "print"]
+- !private ["PSs9AnyObject", "text"]
+- ["PSs9AnyObject", "viewDidLoad"]
+- ["PSs9AnyObject", ""]
+- ["CSo23CMMotionActivityManager", "init"]
+- ["PSs11CVarArgType", "CMMotionActivityManager"]
+- ["PSs11CVarArgType", "MotionActivity"]
+- !private ["PSs11CVarArgType", "NSDate"]
+- ["PSs11CVarArgType", "activityLabel"]
+- ["PSs11CVarArgType", "activityManager"]
+- ["PSs11CVarArgType", "didReceiveMemoryWarning"]
+- ["PSs11CVarArgType", "init"]
+- ["PSs11CVarArgType", "motionActivity"]
+- !private ["PSs11CVarArgType", "print"]
+- !private ["PSs11CVarArgType", "text"]
+- ["PSs11CVarArgType", "viewDidLoad"]
+- ["PSs11CVarArgType", ""]
+- ["PSs23CustomStringConvertible", "CMMotionActivityManager"]
+- ["PSs23CustomStringConvertible", "MotionActivity"]
+- !private ["PSs23CustomStringConvertible", "NSDate"]
+- ["PSs23CustomStringConvertible", "activityLabel"]
+- ["PSs23CustomStringConvertible", "activityManager"]
+- ["PSs23CustomStringConvertible", "didReceiveMemoryWarning"]
+- ["PSs23CustomStringConvertible", "init"]
+- ["PSs23CustomStringConvertible", "motionActivity"]
+- !private ["PSs23CustomStringConvertible", "print"]
+- !private ["PSs23CustomStringConvertible", "text"]
+- ["PSs23CustomStringConvertible", "viewDidLoad"]
+- ["PSs23CustomStringConvertible", ""]
+- ["PSs9Equatable", "CMMotionActivityManager"]
+- ["PSs9Equatable", "MotionActivity"]
+- !private ["PSs9Equatable", "NSDate"]
+- ["PSs9Equatable", "activityLabel"]
+- ["PSs9Equatable", "activityManager"]
+- ["PSs9Equatable", "didReceiveMemoryWarning"]
+- ["PSs9Equatable", "init"]
+- ["PSs9Equatable", "motionActivity"]
+- !private ["PSs9Equatable", "print"]
+- !private ["PSs9Equatable", "text"]
+- ["PSs9Equatable", "viewDidLoad"]
+- ["PSs9Equatable", ""]
+- ["PSs8Hashable", "CMMotionActivityManager"]
+- ["PSs8Hashable", "MotionActivity"]
+- !private ["PSs8Hashable", "NSDate"]
+- ["PSs8Hashable", "activityLabel"]
+- ["PSs8Hashable", "activityManager"]
+- ["PSs8Hashable", "didReceiveMemoryWarning"]
+- ["PSs8Hashable", "init"]
+- ["PSs8Hashable", "motionActivity"]
+- !private ["PSs8Hashable", "print"]
+- !private ["PSs8Hashable", "text"]
+- ["PSs8Hashable", "viewDidLoad"]
+- ["PSs8Hashable", ""]
+- ["C18StandUp_Production18MainViewController", "CMMotionActivityManager"]
+- ["C18StandUp_Production18MainViewController", "MotionActivity"]
+- !private ["C18StandUp_Production18MainViewController", "NSDate"]
+- ["C18StandUp_Production18MainViewController", "UILabel"]
+- ["C18StandUp_Production18MainViewController", "activityLabel"]
+- ["C18StandUp_Production18MainViewController", "activityManager"]
+- ["C18StandUp_Production18MainViewController", "deinit"]
+- ["C18StandUp_Production18MainViewController", "didReceiveMemoryWarning"]
+- ["C18StandUp_Production18MainViewController", "init"]
+- ["C18StandUp_Production18MainViewController", "motionActivity"]
+- !private ["C18StandUp_Production18MainViewController", "print"]
+- ["C18StandUp_Production18MainViewController", "viewDidLoad"]
+- !private ["C18StandUp_Production14MotionActivity", "currentActivity"]
+- ["C18StandUp_Production14MotionActivity", "init"]
+- ["PSo8NSCoding", "CMMotionActivityManager"]
+- ["PSo8NSCoding", "MotionActivity"]
+- !private ["PSo8NSCoding", "NSDate"]
+- ["PSo8NSCoding", "activityLabel"]
+- ["PSo8NSCoding", "activityManager"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "motionActivity"]
+- !private ["PSo8NSCoding", "print"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["CSo6NSDate", "init"]
+- ["PSo26NSExtensionRequestHandling", "CMMotionActivityManager"]
+- ["PSo26NSExtensionRequestHandling", "MotionActivity"]
+- !private ["PSo26NSExtensionRequestHandling", "NSDate"]
+- ["PSo26NSExtensionRequestHandling", "activityLabel"]
+- ["PSo26NSExtensionRequestHandling", "activityManager"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "motionActivity"]
+- !private ["PSo26NSExtensionRequestHandling", "print"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "CMMotionActivityManager"]
+- ["CSo8NSObject", "MotionActivity"]
+- !private ["CSo8NSObject", "NSDate"]
+- ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "activityLabel"]
+- ["CSo8NSObject", "activityManager"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "motionActivity"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "CMMotionActivityManager"]
+- ["PSo16NSObjectProtocol", "MotionActivity"]
+- !private ["PSo16NSObjectProtocol", "NSDate"]
+- ["PSo16NSObjectProtocol", "activityLabel"]
+- ["PSo16NSObjectProtocol", "activityManager"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "motionActivity"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo21UIAppearanceContainer", "CMMotionActivityManager"]
+- ["PSo21UIAppearanceContainer", "MotionActivity"]
+- !private ["PSo21UIAppearanceContainer", "NSDate"]
+- ["PSo21UIAppearanceContainer", "activityLabel"]
+- ["PSo21UIAppearanceContainer", "activityManager"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "motionActivity"]
+- !private ["PSo21UIAppearanceContainer", "print"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["PSo18UIContentContainer", "CMMotionActivityManager"]
+- ["PSo18UIContentContainer", "MotionActivity"]
+- !private ["PSo18UIContentContainer", "NSDate"]
+- ["PSo18UIContentContainer", "activityLabel"]
+- ["PSo18UIContentContainer", "activityManager"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "motionActivity"]
+- !private ["PSo18UIContentContainer", "print"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo18UIFocusEnvironment", "CMMotionActivityManager"]
+- ["PSo18UIFocusEnvironment", "MotionActivity"]
+- !private ["PSo18UIFocusEnvironment", "NSDate"]
+- ["PSo18UIFocusEnvironment", "activityLabel"]
+- ["PSo18UIFocusEnvironment", "activityManager"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "motionActivity"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["CSo7UILabel", "text"]
+- ["CSo11UIResponder", "CMMotionActivityManager"]
+- ["CSo11UIResponder", "MotionActivity"]
+- !private ["CSo11UIResponder", "NSDate"]
+- ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "activityLabel"]
+- ["CSo11UIResponder", "activityManager"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "motionActivity"]
+- !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["PSo16UIStateRestoring", "CMMotionActivityManager"]
+- ["PSo16UIStateRestoring", "MotionActivity"]
+- !private ["PSo16UIStateRestoring", "NSDate"]
+- ["PSo16UIStateRestoring", "activityLabel"]
+- ["PSo16UIStateRestoring", "activityManager"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "motionActivity"]
+- !private ["PSo16UIStateRestoring", "print"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- ["PSo18UITraitEnvironment", "CMMotionActivityManager"]
+- ["PSo18UITraitEnvironment", "MotionActivity"]
+- !private ["PSo18UITraitEnvironment", "NSDate"]
+- ["PSo18UITraitEnvironment", "activityLabel"]
+- ["PSo18UITraitEnvironment", "activityManager"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "motionActivity"]
+- !private ["PSo18UITraitEnvironment", "print"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "text"]
+- ["CSo16UIViewController", "CMMotionActivityManager"]
+- ["CSo16UIViewController", "MotionActivity"]
+- !private ["CSo16UIViewController", "NSDate"]
+- ["CSo16UIViewController", "UILabel"]
+- ["CSo16UIViewController", "activityLabel"]
+- ["CSo16UIViewController", "activityManager"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "motionActivity"]
+- !private ["CSo16UIViewController", "print"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["PSs12_Reflectable", "init"]
+- !private ["PSs12_Reflectable", "text"]
+depends-nominal:
+- "PSs9AnyObject"
+- "CSo23CMMotionActivityManager"
+- "PSs11CVarArgType"
+- "PSs23CustomStringConvertible"
+- "PSs9Equatable"
+- "PSs8Hashable"
+- "C18StandUp_Production18MainViewController"
+- "C18StandUp_Production14MotionActivity"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo6NSDate"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+interface-hash: "c240636f37bda1403b45920445f85e71"

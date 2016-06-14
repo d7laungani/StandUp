@@ -1,0 +1,10 @@
+version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
+options: "c93e7250908f2892022c1116e72a122c"
+build_time: [519196577, 134295000]
+inputs:
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/TimerViewController.swift": [519195965, 0]
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/MainViewController.swift": [519196572, 0]
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/HistoryViewController.swift": [519193963, 0]
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/MotionActivity.swift": [519196270, 0]
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/AppDelegate.swift": [519193653, 0]
+  "/Users/devesh/Desktop/Swift Apps/StandUp-Production/StandUp-Production/AboutViewController.swift": [519195974, 0]
