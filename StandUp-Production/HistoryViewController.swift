@@ -97,8 +97,24 @@ class HistoryViewController: UIViewController {
         }
         
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Hours Sat")
+        chartDataSet.colors = ChartColorTemplates.vordiplom()
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         barChartView.data = chartData
+        
+        
+        
+        // Bar Chart COnfiguration
+        barChartView.leftAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        //barChartView.legend.enabled = false
+        barChartView.xAxis.labelPosition = .Bottom
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.enabled = false
+        
+       
+        barChartView.scaleXEnabled = false
+        barChartView.scaleYEnabled = false
+        
         
         barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 2.3)
         

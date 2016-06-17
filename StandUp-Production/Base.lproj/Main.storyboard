@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="MainViewController" customModule="StandUp_Production" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                             <constraint firstItem="sTI-lA-AyH" firstAttribute="top" secondItem="A5M-7J-77L" secondAttribute="bottom" constant="45" id="rWH-HF-eZA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="activityLabel" destination="Bzu-Wt-AM5" id="b8L-pP-EVL"/>
                     </connections>
@@ -120,7 +120,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="Timer" selectedImage="Timer" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="-900" y="-1064"/>
         </scene>
-        <!--History View Controller-->
+        <!--History-->
         <scene sceneID="9Fb-ka-Kwb">
             <objects>
                 <viewController id="P23-vx-eG5" customClass="HistoryViewController" customModule="StandUp_Production" customModuleProvider="target" sceneMemberID="viewController">
@@ -160,19 +160,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbu-VI-vdJ" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="42" width="560" height="424"/>
+                                <rect key="frame" x="20" y="42" width="560" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="leading" secondItem="GQX-C3-Cra" secondAttribute="leadingMargin" id="Ppp-u1-I72"/>
-                            <constraint firstItem="ARD-9C-ihU" firstAttribute="top" secondItem="rbu-VI-vdJ" secondAttribute="bottom" constant="85" id="ijM-vb-tIf"/>
-                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="trailing" secondItem="GQX-C3-Cra" secondAttribute="trailingMargin" id="lrc-r0-Qw0"/>
-                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="top" secondItem="KE3-Mf-YTq" secondAttribute="bottom" constant="22" id="xUi-9K-3HI"/>
+                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="leading" secondItem="GQX-C3-Cra" secondAttribute="leadingMargin" id="8x4-jd-odE"/>
+                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="top" secondItem="KE3-Mf-YTq" secondAttribute="bottom" constant="22" id="bsw-dh-HVl"/>
+                            <constraint firstItem="ARD-9C-ihU" firstAttribute="top" secondItem="rbu-VI-vdJ" secondAttribute="bottom" constant="31" id="eG4-AO-fkO"/>
+                            <constraint firstItem="rbu-VI-vdJ" firstAttribute="trailing" secondItem="GQX-C3-Cra" secondAttribute="trailingMargin" id="wvF-36-h4m"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="hAS-DC-G1D"/>
+                    <tabBarItem key="tabBarItem" title="History" image="Graph" id="hAS-DC-G1D"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barChartView" destination="rbu-VI-vdJ" id="JFs-M0-qpO"/>
@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="S1h-pX-mdd"/>
+                    <tabBarItem key="tabBarItem" title="About" image="About" id="S1h-pX-mdd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CG-up-qXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,6 +204,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="About" width="25" height="25"/>
+        <image name="Graph" width="25" height="25"/>
+        <image name="Home" width="25" height="25"/>
+        <image name="Timer" width="25" height="25"/>
     </resources>
 </document>
