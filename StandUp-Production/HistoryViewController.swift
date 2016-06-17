@@ -18,30 +18,35 @@ class HistoryViewController: UIViewController {
     let motionActivity = MotionActivity()
     
     let historyProcessor = HistoryProcessor()
-
+    
     @IBOutlet weak var barChartView: BarChartView!
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-            MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
-                if (error == nil) {
-                    
-                    let activities = self.historyProcessor.getTransitionPoints(activities)
-                    let final = self.historyProcessor.calculateHoursSat(activities)
-                    
-                    let days: [String] = self.processDataForBarChart(final)
-                    let values: [Double] = self.processDataForBarChart(final)
-                    self.setChart(days, values: values)
-                }
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true) // No need for semicolon
+        barChartView.clear()
+        
+        barChartView.noDataText = "Data is not accessible at the moment"
+        MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
+            if (error == nil) {
+                
+                let activities = self.historyProcessor.getTransitionPoints(activities)
+                let final = self.historyProcessor.calculateHoursSat(activities)
+                
+                let days: [String] = self.processDataForBarChart(final)
+                let values: [Double] = self.processDataForBarChart(final)
+                self.setChart(days, values: values)
             }
-     
-            
+        }
+
         
         
-       
-                    
-            
     }
     
     func processDataForBarChart(data: [MyTuple]) -> [String] {
@@ -76,7 +81,7 @@ class HistoryViewController: UIViewController {
     
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,10 +90,10 @@ class HistoryViewController: UIViewController {
     
     
     func setChart(dataPoints: [String], values: [Double]) {
-        barChartView.noDataText = "You need to provide data for the chart."
         
         
-    
+        
+        
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -111,15 +116,15 @@ class HistoryViewController: UIViewController {
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.enabled = false
         
-       
+        
         barChartView.scaleXEnabled = false
         barChartView.scaleYEnabled = false
         
         
-        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 2.3)
+        barChartView.animate(xAxisDuration: 0.7, yAxisDuration: 1.5)
         
     }
-
-
+    
+    
 }
 
