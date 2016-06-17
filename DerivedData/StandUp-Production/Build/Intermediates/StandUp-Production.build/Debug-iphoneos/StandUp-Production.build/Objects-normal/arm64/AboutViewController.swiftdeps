@@ -7,8 +7,8 @@ provides-member:
 - ["C18StandUp_Production19AboutViewController", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "UIViewController"
 - "AboutViewController"
+- "UIViewController"
 depends-member:
 - ["C18StandUp_Production19AboutViewController", "deinit"]
 - ["C18StandUp_Production19AboutViewController", "init"]
@@ -70,4 +70,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/Charts.swiftmodule/arm64.swiftmodule"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-Swift.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-umbrella.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/module.modulemap"
 interface-hash: "d2153bcaca513d1c9d2a76c0b36f3932"

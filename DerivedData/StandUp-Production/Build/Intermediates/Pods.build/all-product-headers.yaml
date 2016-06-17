@@ -4,12 +4,12 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Charts.framework/Headers",
+      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers",
       'contents': [
         {
           'type': 'file',
           'name': "Charts-Swift.h",
-          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Charts.framework/Headers/Charts-Swift.h"
+          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-Swift.h"
         },
         {
           'type': 'file',
@@ -20,18 +20,18 @@
     },
     {
       'type': 'directory',
-      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Charts.framework/Modules",
+      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/module.modulemap"
+          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphoneos/Charts.build/module.modulemap"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Pods_StandUp_Production.framework/Headers",
+      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Pods_StandUp_Production.framework/Headers",
       'contents': [
         {
           'type': 'file',
@@ -41,18 +41,18 @@
         {
           'type': 'file',
           'name': "Pods_StandUp_Production-Swift.h",
-          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Pods_StandUp_Production.framework/Headers/Pods_StandUp_Production-Swift.h"
+          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Pods_StandUp_Production.framework/Headers/Pods_StandUp_Production-Swift.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Pods_StandUp_Production.framework/Modules",
+      'name': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Pods_StandUp_Production.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-StandUp-Production.build/module.modulemap"
+          'external-contents': "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphoneos/Pods-StandUp-Production.build/module.modulemap"
         }
       ]
     }

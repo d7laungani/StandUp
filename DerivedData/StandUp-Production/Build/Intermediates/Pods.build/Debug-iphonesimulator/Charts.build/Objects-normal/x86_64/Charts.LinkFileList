@@ -1,7 +1,4 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/Charts-dummy.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/AnimatedMoveViewJob.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/AnimatedViewPortJob.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/AnimatedZoomViewJob.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/BarChartData.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/BarChartDataEntry.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/BarChartDataProvider.o
@@ -29,7 +26,6 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartAnimator.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartAxisBase.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartAxisRendererBase.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartBaseDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartColorTemplates.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartComponentBase.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartData.o
@@ -39,9 +35,7 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartDataProvider.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartDataRendererBase.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartDefaultFillFormatter.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartDefaultXAxisValueFormatter.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartFill.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartFillFormatter.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartHighlight.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartHighlighter.o
@@ -49,7 +43,6 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartLegendRenderer.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartLimitLine.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartMarker.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartPlatform.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartRange.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartRendererBase.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartSelectionDetail.o
@@ -58,7 +51,6 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartUtils.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartViewBase.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartViewPortHandler.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartViewPortJob.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartXAxis.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartXAxisRenderer.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ChartXAxisRendererBarChart.o
@@ -76,27 +68,14 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/HorizontalBarChartHighlighter.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/HorizontalBarChartRenderer.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/HorizontalBarChartView.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IBarChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IBarLineScatterCandleBubbleChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IBubbleChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ICandleChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ILineChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ILineRadarChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ILineScatterCandleRadarChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IPieChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IRadarChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/IScatterChartDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineChartData.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineChartDataProvider.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineChartDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineChartRenderer.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineChartView.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineRadarChartDataSet.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineRadarChartRenderer.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineScatterCandleRadarChartDataSet.o
+/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineScatterCandleChartDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/LineScatterCandleRadarChartRenderer.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/MoveChartViewJob.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/PieChartData.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/PieChartDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/PieChartRenderer.o
@@ -111,5 +90,4 @@
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ScatterChartDataSet.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ScatterChartRenderer.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ScatterChartView.o
-/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/ZoomChartViewJob.o
 /Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Intermediates/Pods.build/Debug-iphonesimulator/Charts.build/Objects-normal/x86_64/Charts_vers.o

@@ -4,7 +4,7 @@
  use_frameworks!
 
 target 'StandUp-Production' do
-pod 'Charts'
+pod 'Charts', '~> 2.1.6'
 
 end
 

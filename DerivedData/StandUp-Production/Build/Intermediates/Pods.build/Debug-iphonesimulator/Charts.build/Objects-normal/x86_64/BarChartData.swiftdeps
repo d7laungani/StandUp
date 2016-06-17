@@ -6,18 +6,18 @@ provides-nominal:
 provides-member:
 - ["C6Charts12BarChartData", ""]
 provides-dynamic-lookup:
-- "groupSpace"
 - "isGrouped"
+- "groupSpace"
 depends-top-level:
+- "Bool"
+- "BarLineScatterCandleBubbleChartData"
+- "ChartDataSet"
+- "CGFloat"
 - !private "BooleanLiteralType"
 - !private "<="
-- !private ">"
-- "Bool"
 - "BarChartData"
-- "CGFloat"
+- !private ">"
 - "NSObject"
-- "IChartDataSet"
-- "BarLineScatterCandleBubbleChartData"
 - "String"
 depends-member:
 - ["PSs16AbsoluteValuable", "init"]
@@ -40,7 +40,7 @@ depends-member:
 - !private ["VSs10ArraySlice", "Index"]
 - ["C6Charts12BarChartData", "Bool"]
 - ["C6Charts12BarChartData", "CGFloat"]
-- ["C6Charts12BarChartData", "IChartDataSet"]
+- ["C6Charts12BarChartData", "ChartDataSet"]
 - ["C6Charts12BarChartData", "NSObject"]
 - ["C6Charts12BarChartData", "String"]
 - !private ["C6Charts12BarChartData", "_dataSets"]
@@ -51,7 +51,7 @@ depends-member:
 - ["C6Charts12BarChartData", "isGrouped"]
 - ["C6Charts35BarLineScatterCandleBubbleChartData", "Bool"]
 - ["C6Charts35BarLineScatterCandleBubbleChartData", "CGFloat"]
-- ["C6Charts35BarLineScatterCandleBubbleChartData", "IChartDataSet"]
+- ["C6Charts35BarLineScatterCandleBubbleChartData", "ChartDataSet"]
 - ["C6Charts35BarLineScatterCandleBubbleChartData", "NSObject"]
 - ["C6Charts35BarLineScatterCandleBubbleChartData", "String"]
 - !private ["C6Charts35BarLineScatterCandleBubbleChartData", "_dataSets"]
@@ -80,7 +80,7 @@ depends-member:
 - ["PSs11CVarArgType", ""]
 - ["C6Charts9ChartData", "Bool"]
 - ["C6Charts9ChartData", "CGFloat"]
-- ["C6Charts9ChartData", "IChartDataSet"]
+- ["C6Charts9ChartData", "ChartDataSet"]
 - ["C6Charts9ChartData", "NSObject"]
 - ["C6Charts9ChartData", "String"]
 - !private ["C6Charts9ChartData", "_dataSets"]
@@ -166,7 +166,7 @@ depends-member:
 - !private ["PSs16MutableSliceable", "count"]
 - ["CSo8NSObject", "Bool"]
 - ["CSo8NSObject", "CGFloat"]
-- ["CSo8NSObject", "IChartDataSet"]
+- ["CSo8NSObject", "ChartDataSet"]
 - ["CSo8NSObject", "NSObject"]
 - ["CSo8NSObject", "String"]
 - !private ["CSo8NSObject", "_dataSets"]
@@ -309,4 +309,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
-interface-hash: "f9bdec46d9050cb17d7835e36ab73215"
+interface-hash: "e92c2b04dd675ced4cec407764d39e4f"

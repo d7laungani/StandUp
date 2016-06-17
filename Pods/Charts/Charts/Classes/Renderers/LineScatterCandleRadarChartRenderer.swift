@@ -8,12 +8,12 @@
 //  A port of MPAndroidChart for iOS
 //  Licensed under Apache License 2.0
 //
-//  https://github.com/danielgindi/Charts
+//  https://github.com/danielgindi/ios-charts
 //
 
 import Foundation
 import CoreGraphics
-
+import UIKit
 
 public class LineScatterCandleRadarChartRenderer: ChartDataRendererBase
 {
@@ -27,7 +27,7 @@ public class LineScatterCandleRadarChartRenderer: ChartDataRendererBase
     /// :param: points
     /// :param: horizontal
     /// :param: vertical
-    public func drawHighlightLines(context context: CGContext, point: CGPoint, set: ILineScatterCandleRadarChartDataSet)
+    public func drawHighlightLines(context context: CGContext, point: CGPoint, set: LineScatterCandleChartDataSet)
     {
         // draw vertical highlight lines
         if set.isVerticalHighlightIndicatorEnabled

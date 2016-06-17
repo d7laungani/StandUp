@@ -19,13 +19,25 @@ class MainViewController: UIViewController {
     
     let motionActivity = MotionActivity()
     
+    let historyProcessor = HistoryProcessor()
+    
     
     @IBAction func startUpdates(sender: AnyObject) {
         
         
         self.startRecordingActivity(activityManager)
-        motionActivity.getHistoricalData(activityManager)
-    
+        //historyProcessor.getTransitionPoints( motionActivity.getHistoricalData(activityManager) )
+        /*
+        MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
+            if (error == nil) {
+            
+                let activities = self.historyProcessor.getTransitionPoints(activities)
+                 self.historyProcessor.calculateHoursSat(activities)
+            }
+        }
+        */
+        
+        
     }
     
     @IBAction func stopUpdates(sender: AnyObject) {
@@ -36,10 +48,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        let fromDate = NSDate(timeIntervalSinceNow: -86400 * 7)
+        let fromDate = NSDate(timeIntervalSinceNow: -86400 * 7 )
         print(fromDate)
+        print(HistoryProcessor.findMidnightOfDay(fromDate))
         
-        
+        //historyProcessor.midnightOfToday()
         
         
         

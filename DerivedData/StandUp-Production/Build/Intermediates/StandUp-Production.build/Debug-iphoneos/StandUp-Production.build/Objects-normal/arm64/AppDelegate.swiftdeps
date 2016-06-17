@@ -6,22 +6,22 @@ provides-nominal:
 provides-member:
 - ["C18StandUp_Production11AppDelegate", ""]
 provides-dynamic-lookup:
+- "applicationDidEnterBackground"
+- "application"
+- "applicationWillTerminate"
 - "window"
 - "applicationDidBecomeActive"
-- "applicationWillTerminate"
-- "applicationDidEnterBackground"
-- "applicationWillResignActive"
-- "application"
 - "applicationWillEnterForeground"
+- "applicationWillResignActive"
 depends-top-level:
-- "UIWindow"
-- "NSObject"
-- "UIApplication"
-- "UIApplicationDelegate"
-- "UIResponder"
-- "AnyObject"
 - "Bool"
+- "UIApplication"
+- "NSObject"
+- "AnyObject"
+- "UIWindow"
+- "UIApplicationDelegate"
 - "AppDelegate"
+- "UIResponder"
 - !private "BooleanLiteralType"
 depends-member:
 - ["PSs9AnyObject", "application"]
@@ -208,4 +208,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/Charts.swiftmodule/arm64.swiftmodule"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-Swift.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-umbrella.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/module.modulemap"
 interface-hash: "eb6deb7e97b205db2b1f8c4c6c87743c"

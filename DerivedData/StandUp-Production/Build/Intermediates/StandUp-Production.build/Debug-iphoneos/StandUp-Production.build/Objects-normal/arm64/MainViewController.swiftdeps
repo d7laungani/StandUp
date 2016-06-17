@@ -6,31 +6,33 @@ provides-nominal:
 provides-member:
 - ["C18StandUp_Production18MainViewController", ""]
 provides-dynamic-lookup:
-- "stopUpdates"
-- "activityManager"
-- "startUpdates"
-- "viewDidLoad"
-- "activityLabel"
 - "startRecordingActivity"
+- "viewDidLoad"
+- "stopUpdates"
+- "startUpdates"
+- "activityManager"
+- "activityLabel"
 depends-top-level:
-- "MainViewController"
-- "AnyObject"
-- "UIViewController"
-- "CMMotionActivityManager"
+- !private "*"
 - !private "StringLiteralType"
 - !private "=="
-- !private "NSOperationQueue"
-- !private "*"
-- !private "dispatch_async"
-- "MotionActivity"
-- "Void"
-- !private "dispatch_get_main_queue"
+- "AnyObject"
 - !private "print"
+- "CMMotionActivityManager"
+- "MainViewController"
 - !private "NSDate"
-- "UILabel"
 - "BooleanLiteralType"
+- "MotionActivity"
+- "UIViewController"
+- !private "NSOperationQueue"
+- "UILabel"
+- !private "dispatch_get_main_queue"
+- !private "dispatch_async"
+- "HistoryProcessor"
+- "Void"
 depends-member:
 - ["PSs9AnyObject", "CMMotionActivityManager"]
+- ["PSs9AnyObject", "HistoryProcessor"]
 - ["PSs9AnyObject", "MotionActivity"]
 - !private ["PSs9AnyObject", "NSDate"]
 - !private ["PSs9AnyObject", "NSOperationQueue"]
@@ -39,7 +41,8 @@ depends-member:
 - !private ["PSs9AnyObject", "automotive"]
 - !private ["PSs9AnyObject", "dispatch_async"]
 - !private ["PSs9AnyObject", "dispatch_get_main_queue"]
-- !private ["PSs9AnyObject", "getHistoricalData"]
+- !private ["PSs9AnyObject", "findMidnightOfDay"]
+- ["PSs9AnyObject", "historyProcessor"]
 - ["PSs9AnyObject", "init"]
 - !private ["PSs9AnyObject", "isActivityAvailable"]
 - !private ["PSs9AnyObject", "mainQueue"]
@@ -75,6 +78,7 @@ depends-member:
 - !private ["CSo23CMMotionActivityManager", "startActivityUpdatesToQueue"]
 - !private ["CSo23CMMotionActivityManager", "stopActivityUpdates"]
 - ["PSs11CVarArgType", "CMMotionActivityManager"]
+- ["PSs11CVarArgType", "HistoryProcessor"]
 - ["PSs11CVarArgType", "MotionActivity"]
 - !private ["PSs11CVarArgType", "NSDate"]
 - !private ["PSs11CVarArgType", "NSOperationQueue"]
@@ -83,6 +87,7 @@ depends-member:
 - !private ["PSs11CVarArgType", "automotive"]
 - !private ["PSs11CVarArgType", "dispatch_async"]
 - !private ["PSs11CVarArgType", "dispatch_get_main_queue"]
+- ["PSs11CVarArgType", "historyProcessor"]
 - ["PSs11CVarArgType", "init"]
 - !private ["PSs11CVarArgType", "isActivityAvailable"]
 - !private ["PSs11CVarArgType", "mainQueue"]
@@ -102,6 +107,7 @@ depends-member:
 - ["PSs11CVarArgType", ""]
 - !private ["PSs28CustomDebugStringConvertible", "Some"]
 - ["PSs23CustomStringConvertible", "CMMotionActivityManager"]
+- ["PSs23CustomStringConvertible", "HistoryProcessor"]
 - ["PSs23CustomStringConvertible", "MotionActivity"]
 - !private ["PSs23CustomStringConvertible", "NSDate"]
 - !private ["PSs23CustomStringConvertible", "NSOperationQueue"]
@@ -111,6 +117,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "automotive"]
 - !private ["PSs23CustomStringConvertible", "dispatch_async"]
 - !private ["PSs23CustomStringConvertible", "dispatch_get_main_queue"]
+- ["PSs23CustomStringConvertible", "historyProcessor"]
 - ["PSs23CustomStringConvertible", "init"]
 - !private ["PSs23CustomStringConvertible", "isActivityAvailable"]
 - !private ["PSs23CustomStringConvertible", "mainQueue"]
@@ -129,6 +136,7 @@ depends-member:
 - !private ["PSs23CustomStringConvertible", "walking"]
 - ["PSs23CustomStringConvertible", ""]
 - ["PSs9Equatable", "CMMotionActivityManager"]
+- ["PSs9Equatable", "HistoryProcessor"]
 - ["PSs9Equatable", "MotionActivity"]
 - !private ["PSs9Equatable", "NSDate"]
 - !private ["PSs9Equatable", "NSOperationQueue"]
@@ -138,6 +146,7 @@ depends-member:
 - !private ["PSs9Equatable", "automotive"]
 - !private ["PSs9Equatable", "dispatch_async"]
 - !private ["PSs9Equatable", "dispatch_get_main_queue"]
+- ["PSs9Equatable", "historyProcessor"]
 - ["PSs9Equatable", "init"]
 - !private ["PSs9Equatable", "isActivityAvailable"]
 - !private ["PSs9Equatable", "mainQueue"]
@@ -156,6 +165,7 @@ depends-member:
 - !private ["PSs9Equatable", "walking"]
 - ["PSs9Equatable", ""]
 - ["PSs8Hashable", "CMMotionActivityManager"]
+- ["PSs8Hashable", "HistoryProcessor"]
 - ["PSs8Hashable", "MotionActivity"]
 - !private ["PSs8Hashable", "NSDate"]
 - !private ["PSs8Hashable", "NSOperationQueue"]
@@ -165,6 +175,7 @@ depends-member:
 - !private ["PSs8Hashable", "automotive"]
 - !private ["PSs8Hashable", "dispatch_async"]
 - !private ["PSs8Hashable", "dispatch_get_main_queue"]
+- ["PSs8Hashable", "historyProcessor"]
 - ["PSs8Hashable", "init"]
 - !private ["PSs8Hashable", "isActivityAvailable"]
 - !private ["PSs8Hashable", "mainQueue"]
@@ -182,9 +193,12 @@ depends-member:
 - ["PSs8Hashable", "viewDidLoad"]
 - !private ["PSs8Hashable", "walking"]
 - ["PSs8Hashable", ""]
+- !private ["C18StandUp_Production16HistoryProcessor", "findMidnightOfDay"]
+- ["C18StandUp_Production16HistoryProcessor", "init"]
 - !private ["SQ", "deinit"]
 - ["C18StandUp_Production18MainViewController", "AnyObject"]
 - ["C18StandUp_Production18MainViewController", "CMMotionActivityManager"]
+- ["C18StandUp_Production18MainViewController", "HistoryProcessor"]
 - ["C18StandUp_Production18MainViewController", "MotionActivity"]
 - !private ["C18StandUp_Production18MainViewController", "NSDate"]
 - !private ["C18StandUp_Production18MainViewController", "NSOperationQueue"]
@@ -195,6 +209,7 @@ depends-member:
 - ["C18StandUp_Production18MainViewController", "deinit"]
 - !private ["C18StandUp_Production18MainViewController", "dispatch_async"]
 - !private ["C18StandUp_Production18MainViewController", "dispatch_get_main_queue"]
+- ["C18StandUp_Production18MainViewController", "historyProcessor"]
 - ["C18StandUp_Production18MainViewController", "init"]
 - ["C18StandUp_Production18MainViewController", "motionActivity"]
 - !private ["C18StandUp_Production18MainViewController", "print"]
@@ -202,9 +217,9 @@ depends-member:
 - ["C18StandUp_Production18MainViewController", "startUpdates"]
 - ["C18StandUp_Production18MainViewController", "stopUpdates"]
 - ["C18StandUp_Production18MainViewController", "viewDidLoad"]
-- !private ["C18StandUp_Production14MotionActivity", "getHistoricalData"]
 - ["C18StandUp_Production14MotionActivity", "init"]
 - ["PSo8NSCoding", "CMMotionActivityManager"]
+- ["PSo8NSCoding", "HistoryProcessor"]
 - ["PSo8NSCoding", "MotionActivity"]
 - !private ["PSo8NSCoding", "NSDate"]
 - !private ["PSo8NSCoding", "NSOperationQueue"]
@@ -213,6 +228,7 @@ depends-member:
 - !private ["PSo8NSCoding", "automotive"]
 - !private ["PSo8NSCoding", "dispatch_async"]
 - !private ["PSo8NSCoding", "dispatch_get_main_queue"]
+- ["PSo8NSCoding", "historyProcessor"]
 - ["PSo8NSCoding", "init"]
 - ["PSo8NSCoding", "motionActivity"]
 - !private ["PSo8NSCoding", "print"]
@@ -234,6 +250,7 @@ depends-member:
 - !private ["PSo9NSCopying", "walking"]
 - !private ["CSo6NSDate", "init"]
 - ["PSo26NSExtensionRequestHandling", "CMMotionActivityManager"]
+- ["PSo26NSExtensionRequestHandling", "HistoryProcessor"]
 - ["PSo26NSExtensionRequestHandling", "MotionActivity"]
 - !private ["PSo26NSExtensionRequestHandling", "NSDate"]
 - !private ["PSo26NSExtensionRequestHandling", "NSOperationQueue"]
@@ -241,6 +258,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "activityManager"]
 - !private ["PSo26NSExtensionRequestHandling", "dispatch_async"]
 - !private ["PSo26NSExtensionRequestHandling", "dispatch_get_main_queue"]
+- ["PSo26NSExtensionRequestHandling", "historyProcessor"]
 - ["PSo26NSExtensionRequestHandling", "init"]
 - ["PSo26NSExtensionRequestHandling", "motionActivity"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
@@ -251,6 +269,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", ""]
 - ["CSo8NSObject", "AnyObject"]
 - ["CSo8NSObject", "CMMotionActivityManager"]
+- ["CSo8NSObject", "HistoryProcessor"]
 - ["CSo8NSObject", "MotionActivity"]
 - !private ["CSo8NSObject", "NSDate"]
 - !private ["CSo8NSObject", "NSOperationQueue"]
@@ -261,6 +280,7 @@ depends-member:
 - !private ["CSo8NSObject", "automotive"]
 - !private ["CSo8NSObject", "dispatch_async"]
 - !private ["CSo8NSObject", "dispatch_get_main_queue"]
+- ["CSo8NSObject", "historyProcessor"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "isActivityAvailable"]
 - !private ["CSo8NSObject", "mainQueue"]
@@ -278,6 +298,7 @@ depends-member:
 - ["CSo8NSObject", "viewDidLoad"]
 - !private ["CSo8NSObject", "walking"]
 - ["PSo16NSObjectProtocol", "CMMotionActivityManager"]
+- ["PSo16NSObjectProtocol", "HistoryProcessor"]
 - ["PSo16NSObjectProtocol", "MotionActivity"]
 - !private ["PSo16NSObjectProtocol", "NSDate"]
 - !private ["PSo16NSObjectProtocol", "NSOperationQueue"]
@@ -286,6 +307,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "automotive"]
 - !private ["PSo16NSObjectProtocol", "dispatch_async"]
 - !private ["PSo16NSObjectProtocol", "dispatch_get_main_queue"]
+- ["PSo16NSObjectProtocol", "historyProcessor"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "isActivityAvailable"]
 - !private ["PSo16NSObjectProtocol", "mainQueue"]
@@ -316,6 +338,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo12UIAppearance", "text"]
 - ["PSo21UIAppearanceContainer", "CMMotionActivityManager"]
+- ["PSo21UIAppearanceContainer", "HistoryProcessor"]
 - ["PSo21UIAppearanceContainer", "MotionActivity"]
 - !private ["PSo21UIAppearanceContainer", "NSDate"]
 - !private ["PSo21UIAppearanceContainer", "NSOperationQueue"]
@@ -323,6 +346,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "activityManager"]
 - !private ["PSo21UIAppearanceContainer", "dispatch_async"]
 - !private ["PSo21UIAppearanceContainer", "dispatch_get_main_queue"]
+- ["PSo21UIAppearanceContainer", "historyProcessor"]
 - ["PSo21UIAppearanceContainer", "init"]
 - ["PSo21UIAppearanceContainer", "motionActivity"]
 - !private ["PSo21UIAppearanceContainer", "print"]
@@ -333,6 +357,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", ""]
 - ["PSo18UIContentContainer", "CMMotionActivityManager"]
+- ["PSo18UIContentContainer", "HistoryProcessor"]
 - ["PSo18UIContentContainer", "MotionActivity"]
 - !private ["PSo18UIContentContainer", "NSDate"]
 - !private ["PSo18UIContentContainer", "NSOperationQueue"]
@@ -340,6 +365,7 @@ depends-member:
 - ["PSo18UIContentContainer", "activityManager"]
 - !private ["PSo18UIContentContainer", "dispatch_async"]
 - !private ["PSo18UIContentContainer", "dispatch_get_main_queue"]
+- ["PSo18UIContentContainer", "historyProcessor"]
 - ["PSo18UIContentContainer", "init"]
 - ["PSo18UIContentContainer", "motionActivity"]
 - !private ["PSo18UIContentContainer", "print"]
@@ -351,6 +377,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "text"]
 - !private ["PSo13UIDynamicItem", "text"]
 - ["PSo18UIFocusEnvironment", "CMMotionActivityManager"]
+- ["PSo18UIFocusEnvironment", "HistoryProcessor"]
 - ["PSo18UIFocusEnvironment", "MotionActivity"]
 - !private ["PSo18UIFocusEnvironment", "NSDate"]
 - !private ["PSo18UIFocusEnvironment", "NSOperationQueue"]
@@ -358,6 +385,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "activityManager"]
 - !private ["PSo18UIFocusEnvironment", "dispatch_async"]
 - !private ["PSo18UIFocusEnvironment", "dispatch_get_main_queue"]
+- ["PSo18UIFocusEnvironment", "historyProcessor"]
 - ["PSo18UIFocusEnvironment", "init"]
 - ["PSo18UIFocusEnvironment", "motionActivity"]
 - !private ["PSo18UIFocusEnvironment", "print"]
@@ -370,6 +398,7 @@ depends-member:
 - !private ["CSo7UILabel", "text"]
 - ["CSo11UIResponder", "AnyObject"]
 - ["CSo11UIResponder", "CMMotionActivityManager"]
+- ["CSo11UIResponder", "HistoryProcessor"]
 - ["CSo11UIResponder", "MotionActivity"]
 - !private ["CSo11UIResponder", "NSDate"]
 - !private ["CSo11UIResponder", "NSOperationQueue"]
@@ -379,6 +408,7 @@ depends-member:
 - ["CSo11UIResponder", "activityManager"]
 - !private ["CSo11UIResponder", "dispatch_async"]
 - !private ["CSo11UIResponder", "dispatch_get_main_queue"]
+- ["CSo11UIResponder", "historyProcessor"]
 - ["CSo11UIResponder", "init"]
 - ["CSo11UIResponder", "motionActivity"]
 - !private ["CSo11UIResponder", "print"]
@@ -388,6 +418,7 @@ depends-member:
 - !private ["CSo11UIResponder", "text"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["PSo16UIStateRestoring", "CMMotionActivityManager"]
+- ["PSo16UIStateRestoring", "HistoryProcessor"]
 - ["PSo16UIStateRestoring", "MotionActivity"]
 - !private ["PSo16UIStateRestoring", "NSDate"]
 - !private ["PSo16UIStateRestoring", "NSOperationQueue"]
@@ -395,6 +426,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "activityManager"]
 - !private ["PSo16UIStateRestoring", "dispatch_async"]
 - !private ["PSo16UIStateRestoring", "dispatch_get_main_queue"]
+- ["PSo16UIStateRestoring", "historyProcessor"]
 - ["PSo16UIStateRestoring", "init"]
 - ["PSo16UIStateRestoring", "motionActivity"]
 - !private ["PSo16UIStateRestoring", "print"]
@@ -404,6 +436,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
 - ["PSo18UITraitEnvironment", "CMMotionActivityManager"]
+- ["PSo18UITraitEnvironment", "HistoryProcessor"]
 - ["PSo18UITraitEnvironment", "MotionActivity"]
 - !private ["PSo18UITraitEnvironment", "NSDate"]
 - !private ["PSo18UITraitEnvironment", "NSOperationQueue"]
@@ -411,6 +444,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "activityManager"]
 - !private ["PSo18UITraitEnvironment", "dispatch_async"]
 - !private ["PSo18UITraitEnvironment", "dispatch_get_main_queue"]
+- ["PSo18UITraitEnvironment", "historyProcessor"]
 - ["PSo18UITraitEnvironment", "init"]
 - ["PSo18UITraitEnvironment", "motionActivity"]
 - !private ["PSo18UITraitEnvironment", "print"]
@@ -423,6 +457,7 @@ depends-member:
 - !private ["CSo6UIView", "text"]
 - ["CSo16UIViewController", "AnyObject"]
 - ["CSo16UIViewController", "CMMotionActivityManager"]
+- ["CSo16UIViewController", "HistoryProcessor"]
 - ["CSo16UIViewController", "MotionActivity"]
 - !private ["CSo16UIViewController", "NSDate"]
 - !private ["CSo16UIViewController", "NSOperationQueue"]
@@ -432,6 +467,7 @@ depends-member:
 - ["CSo16UIViewController", "activityManager"]
 - !private ["CSo16UIViewController", "dispatch_async"]
 - !private ["CSo16UIViewController", "dispatch_get_main_queue"]
+- ["CSo16UIViewController", "historyProcessor"]
 - ["CSo16UIViewController", "init"]
 - ["CSo16UIViewController", "motionActivity"]
 - !private ["CSo16UIViewController", "print"]
@@ -459,6 +495,7 @@ depends-nominal:
 - "PSs23CustomStringConvertible"
 - "PSs9Equatable"
 - "PSs8Hashable"
+- "C18StandUp_Production16HistoryProcessor"
 - !private "SQ"
 - "C18StandUp_Production18MainViewController"
 - "C18StandUp_Production14MotionActivity"
@@ -498,4 +535,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
-interface-hash: "dc7492c8ef16b61f6ee8136e6ec4bd5e"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/Charts.swiftmodule/arm64.swiftmodule"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-Swift.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Headers/Charts-umbrella.h"
+- "/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphoneos/Charts/Charts.framework/Modules/module.modulemap"
+interface-hash: "38761e646b1ce9d4fd08066c6750ec3c"

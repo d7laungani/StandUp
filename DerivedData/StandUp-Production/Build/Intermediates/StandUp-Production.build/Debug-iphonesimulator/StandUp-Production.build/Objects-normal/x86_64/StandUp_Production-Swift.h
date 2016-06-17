@@ -87,6 +87,7 @@ typedef int swift_int3  __attribute__((__ext_vector_type__(3)));
 typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import Foundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -132,10 +133,24 @@ SWIFT_CLASS("_TtC18StandUp_Production18MainViewController")
 @interface MainViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UILabel * __null_unspecified activityLabel;
 @property (nonatomic, readonly, strong) CMMotionActivityManager * __nonnull activityManager;
+- (IBAction)startUpdates:(id __nonnull)sender;
+- (IBAction)stopUpdates:(id __nonnull)sender;
 - (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
+- (void)startRecordingActivity:(CMMotionActivityManager * __nonnull)activityManager;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NSDate (SWIFT_EXTENSION(StandUp_Production))
+- (NSInteger)yearsFrom:(NSDate * __nonnull)date;
+- (NSInteger)monthsFrom:(NSDate * __nonnull)date;
+- (NSInteger)weeksFrom:(NSDate * __nonnull)date;
+- (NSInteger)daysFrom:(NSDate * __nonnull)date;
+- (NSInteger)hoursFrom:(NSDate * __nonnull)date;
+- (NSInteger)minutesFrom:(NSDate * __nonnull)date;
+- (NSInteger)secondsFrom:(NSDate * __nonnull)date;
+- (NSString * __nonnull)offsetFrom:(NSDate * __nonnull)date;
 @end
 
 

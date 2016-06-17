@@ -12,97 +12,42 @@ import CoreMotion
 
 class MotionActivity {
     
-    var activityBeingViewed = false
     
-    private var currentActivityString = "default"
+    var historyProcessor = HistoryProcessor()
     
-    func midnightOfToday () -> NSDate {
+    class func getHistoricalData(activityManager: CMMotionActivityManager, getHistCompletionHandler : (activities: [CMMotionActivity] , error: NSError? ) -> Void ){
         
+        let cal: NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
         
-        let cal = NSCalendar.currentCalendar()
-        let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
-        comps.hour = 0
-        comps.minute = 0
-        comps.second = 0
-        let timeZone = NSTimeZone.systemTimeZone()
-        cal.timeZone = timeZone
+       
         
-        let midnightOfToday = cal.dateFromComponents(comps)!
+        let fromDate = HistoryProcessor.findMidnightOfDay(NSDate(timeIntervalSinceNow: -86400 * 7 ) )
+      let tillDate: NSDate = cal.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: NSCalendarOptions())!
+        var activities = [CMMotionActivity]()
         
-        return midnightOfToday
+        //print("from date is \(fromDate)")
+        //print("till date is \(tillDate)")
         
-        
-    }
-    
-    
-    
-    func getHistoricalData(activityManager: CMMotionActivityManager ) -> Void {
-        
-        let fromDate = NSDate(timeIntervalSinceNow: -86400 * 7)
-
-        
-        activityManager.queryActivityStartingFromDate(fromDate, toDate: NSDate(), toQueue: NSOperationQueue.mainQueue()) { (data, error) -> Void in
+        activityManager.queryActivityStartingFromDate(fromDate, toDate: tillDate, toQueue: NSOperationQueue.mainQueue()) { (data, error) -> Void in
             if (error == nil) {
                 
                 if let info = data! as? [CMMotionActivity] {
                     
-                    print("Count of Acitivity information is \(info.count)")
-                    
-                    var count = 0
-                    
-                    
-                    var transition = false
-                    
-                    var beforeTransitionDate : NSDate = NSDate()
-                   
-                    
-                    
-                    for x in info {
-                        
-                        print(x)
-                        
-                        if (x.confidence == .High) {
-                            let minsFrom = abs(beforeTransitionDate.minutesFrom(x.startDate))
-                            
-                            if ( (x.stationary == true) && (transition == false) && (x.automotive == false) ){
-                                //print(beforeTransitionDate.minutesFrom(x.startDate) < 1)
-                                
-                                if (!(minsFrom < 1)) {
-                                    
-                                    print("Stationary time is \(x.startDate) ")
-                                    beforeTransitionDate = x.startDate
-                                    transition = true
-                                    
-                                }
-                            }
-                            
-                            else if ( (x.stationary == false) && (transition == true) ) {
-                                
-                                if (!(minsFrom < 1)) {
-                                    print("Transition occured and movement has now occured")
-                                    print(x.startDate)
-                                    beforeTransitionDate = x.startDate
-                                    transition = false
-                                }
-                            }
-                        
-                        }
-                        
-                       
-                        
-                       
-                        
-                    }
-                    
+                    activities = info
                    
                 }
                 
                 
                 
             }
+            
+            getHistCompletionHandler(activities: activities, error: error )
         }
         
-        }
+        
+    
+       
+    }
         
         
         

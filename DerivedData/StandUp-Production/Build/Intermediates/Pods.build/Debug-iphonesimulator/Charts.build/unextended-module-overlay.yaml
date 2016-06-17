@@ -3,7 +3,7 @@
   'case-sensitive': 'false',
   'roots': [{
     'type': 'directory',
-    'name': '/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Charts.framework/Modules'
+    'name': '/Users/devesh/Desktop/Swift Apps/StandUp-Production/DerivedData/StandUp-Production/Build/Products/Debug-iphonesimulator/Charts/Charts.framework/Modules'
     'contents': [{
       'type': 'file',
       'name': 'module.modulemap',

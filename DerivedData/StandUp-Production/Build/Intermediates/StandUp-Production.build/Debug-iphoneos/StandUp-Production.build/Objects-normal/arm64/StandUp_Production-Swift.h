@@ -117,16 +117,20 @@ SWIFT_CLASS("_TtC18StandUp_Production11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class CMMotionActivityManager;
+@class BarChartView;
 
 SWIFT_CLASS("_TtC18StandUp_Production21HistoryViewController")
 @interface HistoryViewController : UIViewController
+@property (nonatomic, readonly, strong) CMMotionActivityManager * __nonnull activityManager;
+@property (nonatomic, weak) IBOutlet BarChartView * __null_unspecified barChartView;
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
+- (void)setChart:(NSArray<NSString *> * __nonnull)dataPoints values:(NSArray<NSNumber *> * __nonnull)values;
 - (nonnull instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class CMMotionActivityManager;
 @class UILabel;
 
 SWIFT_CLASS("_TtC18StandUp_Production18MainViewController")
