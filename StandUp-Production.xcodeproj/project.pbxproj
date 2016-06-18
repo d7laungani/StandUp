@@ -20,6 +20,7 @@
 		FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */; };
 		FA58E6751D1261E800C75B2D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58E6741D1261E800C75B2D /* Charts.framework */; };
 		FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */; };
+		FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		FA58E6741D1261E800C75B2D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "Pods/../build/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryProcessor.swift; sourceTree = "<group>"; };
+		FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,15 +96,12 @@
 		FA34B89B1D0FBF350082F616 /* StandUp-Production */ = {
 			isa = PBXGroup;
 			children = (
-				FA34B89C1D0FBF350082F616 /* AppDelegate.swift */,
+				FA58E6881D15388600C75B2D /* Supporting Files */,
 				FA34B8B41D0FC22C0082F616 /* ViewControllers */,
 				FA34B8A21D0FBF350082F616 /* Main.storyboard */,
 				FA34B8A51D0FBF350082F616 /* Assets.xcassets */,
-				FA34B8A71D0FBF350082F616 /* LaunchScreen.storyboard */,
-				FA34B8AA1D0FBF350082F616 /* Info.plist */,
-				FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */,
-				FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */,
-				FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */,
+				FA58E6871D15387800C75B2D /* Models */,
+				FA58E6861D15386B00C75B2D /* Extensions */,
 			);
 			path = "StandUp-Production";
 			sourceTree = "<group>";
@@ -114,8 +113,36 @@
 				FA34B8A01D0FBF350082F616 /* HistoryViewController.swift */,
 				FA34B8B01D0FC08C0082F616 /* AboutViewController.swift */,
 				FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */,
+				FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA58E6861D15386B00C75B2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		FA58E6871D15387800C75B2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */,
+				FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FA58E6881D15388600C75B2D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA34B89C1D0FBF350082F616 /* AppDelegate.swift */,
+				FA34B8A71D0FBF350082F616 /* LaunchScreen.storyboard */,
+				FA34B8AA1D0FBF350082F616 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +181,11 @@
 					FA34B8981D0FBF350082F616 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 3FNKL5DKHS;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -249,6 +281,7 @@
 				FA34B89D1D0FBF350082F616 /* AppDelegate.swift in Sources */,
 				FA34B8B11D0FC08C0082F616 /* AboutViewController.swift in Sources */,
 				FA34B89F1D0FBF350082F616 /* MainViewController.swift in Sources */,
+				FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
