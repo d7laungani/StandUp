@@ -40,16 +40,68 @@ class HistoryProcessor {
         
     }
     
+    func getTotalSittingSecs (activities: [CMMotionActivity] )  -> Int? {
+        
+        var previousPointDate : NSDate = NSDate()
+        
+        var totalSittingSecs = 0
+        
+        if (activities.count < 1) {
+            
+            return nil
+        }
+        
+        var isMoving = true
+        
+        var secsFrom = 0
+        for x in activities {
+            
+            
+            if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
+                
+               
+                
+                if ( (x.stationary == true) && (isMoving == true) || (x.automotive == true) ){
+                    
+                    previousPointDate = x.startDate
+                    isMoving = false
+                    
+                    
+                }
+                    
+                else if ( (x.stationary == false) && (isMoving == false) ) {
+                    
+                   
+                    secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
+                    totalSittingSecs += secsFrom
+                    isMoving = true
+                    
+                   
+                }
+                
+            }
+            
+            
+            
+            
+            
+        }
+        
+        print(totalSittingSecs)
+        return totalSittingSecs
+        
+    }
     
     
-    func getTransitionPoints (activities: [CMMotionActivity] )  -> [NSDate:Int] {
+    
+    func getTransitionPoints (activities: [CMMotionActivity] )  -> [NSDate:Int]? {
         
         
-        
-        
-        //print("Count of Acitivity information is \(activities.count)")
-        
-        var count = 0
+        if (activities.count < 1) {
+            
+                return nil
+        }
+    
         
         
         var transition = false
@@ -63,10 +115,10 @@ class HistoryProcessor {
         for x in activities {
             
             //print(x)
-            
-            if (x.confidence == .High) {
+            //if (x.confidence == .High) {
+            if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
                 let minsFrom = abs(beforeTransitionDate.minutesFrom(x.startDate))
-                
+               // print(x)
                 if ( (x.stationary == true) && (transition == false) && (x.automotive == false) ){
                     //print(beforeTransitionDate.minutesFrom(x.startDate) < 1)
                     
@@ -125,7 +177,7 @@ class HistoryProcessor {
             
             
             let componentsOfCurrentDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: x.0)
-            let componentsOfPreviousDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: previousTransition.0)
+            //let componentsOfPreviousDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: previousTransition.0)
             
             //let secondsDifference = previousTransition.0.secondsFrom(x.0)
             let secondsDifference = x.0.secondsFrom(previousTransition.0)
@@ -153,7 +205,7 @@ class HistoryProcessor {
             
             if (seconds > 0) {
                 
-                var hours  = (seconds / (60 * 60))
+                let hours  = (seconds / (60 * 60))
                 
                 hoursSat.append((index, hours))
             }
