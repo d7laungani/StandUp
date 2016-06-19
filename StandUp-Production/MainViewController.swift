@@ -10,10 +10,11 @@ import UIKit
 import CoreMotion
 
 class MainViewController: UIViewController {
-
+    
     
     @IBOutlet weak var activityLabel: UILabel!
     
+    @IBOutlet weak var hoursSatLabel: UILabel!
     
     let activityManager = CMMotionActivityManager()
     
@@ -29,11 +30,11 @@ class MainViewController: UIViewController {
         //historyProcessor.getTransitionPoints( motionActivity.getHistoricalData(activityManager) )
         /*
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
-            if (error == nil) {
-            
-                let activities = self.historyProcessor.getTransitionPoints(activities)
-                 self.historyProcessor.calculateHoursSat(activities)
-            }
+        if (error == nil) {
+        
+        let activities = self.historyProcessor.getTransitionPoints(activities)
+        self.historyProcessor.calculateHoursSat(activities)
+        }
         }
         */
         
@@ -42,28 +43,63 @@ class MainViewController: UIViewController {
     
     @IBAction func stopUpdates(sender: AnyObject) {
         
-       activityManager.stopActivityUpdates()
+        activityManager.stopActivityUpdates()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        let fromDate = NSDate(timeIntervalSinceNow: -86400 * 7 )
-        print(fromDate)
-        print(HistoryProcessor.findMidnightOfDay(fromDate))
-        
-        //historyProcessor.midnightOfToday()
         
         
         
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true) // No need for semicolon
+        
+        hoursSatLabel.text = " "
+        
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+        
+        
+        comps.hour = 6
+        comps.minute = 0
+        comps.second = 0
+        
+        
+        
+        let morningOfDay = cal.dateFromComponents(comps)!
+        print(morningOfDay)
+        
+        
+        
+        MotionActivity.getHistoricalData(activityManager,fromDate: morningOfDay,tillDate: NSDate()) { (activities, error) -> Void in
+            if ((error == nil)){
+                
+                
+                self.historyProcessor.getTotalSittingSecs(activities)
+                
+                if let activities = self.historyProcessor.getTransitionPoints(activities){
+                    let final = self.historyProcessor.calculateHoursSat(activities)
+                     self.hoursSatLabel.text = String(final[0].1)
+                }
+                
+                
+                
+                
+            }
+        }
         
         
     }
 
     
+    
     func startRecordingActivity (activityManager: CMMotionActivityManager ) -> Void {
         
-     
+        
         
         if(CMMotionActivityManager.isActivityAvailable()){
             print("YES!")
@@ -72,7 +108,7 @@ class MainViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                         if(data.stationary == true){
                             self.activityLabel.text = "Stationary"
-                           
+                            
                         } else if (data.walking == true){
                             self.activityLabel.text = "Walking"
                         } else if (data.running == true){
@@ -90,7 +126,7 @@ class MainViewController: UIViewController {
             
         }
     }
-
-
+    
+    
 }
 
