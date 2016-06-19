@@ -21,6 +21,7 @@
 		FA58E6751D1261E800C75B2D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58E6741D1261E800C75B2D /* Charts.framework */; };
 		FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */; };
 		FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */; };
+		FA58E68A1D16799100C75B2D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6891D16799100C75B2D /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FA58E6741D1261E800C75B2D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "Pods/../build/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryProcessor.swift; sourceTree = "<group>"; };
 		FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		FA58E6891D16799100C75B2D /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				FA34B8A51D0FBF350082F616 /* Assets.xcassets */,
 				FA58E6871D15387800C75B2D /* Models */,
 				FA58E6861D15386B00C75B2D /* Extensions */,
+				FA58E6891D16799100C75B2D /* CustomCell.swift */,
 			);
 			path = "StandUp-Production";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				FA34B8B61D0FC4B60082F616 /* MotionActivity.swift in Sources */,
 				FA34B8B31D0FC09E0082F616 /* TimerViewController.swift in Sources */,
+				FA58E68A1D16799100C75B2D /* CustomCell.swift in Sources */,
 				FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */,
 				FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */,
 				FA34B8A11D0FBF350082F616 /* HistoryViewController.swift in Sources */,
