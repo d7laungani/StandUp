@@ -1,12 +1,15 @@
 PODS:
   - Charts (2.1.6)
+  - PermissionScope (1.0.2)
 
 DEPENDENCIES:
   - Charts (~> 2.1.6)
+  - PermissionScope
 
 SPEC CHECKSUMS:
   Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  PermissionScope: 860828c5516d349b6f49e5491799cfef33c5ccc7
 
-PODFILE CHECKSUM: 4a029f2479947dc46cb1f1e10c4acf52bb025b19
+PODFILE CHECKSUM: 84c7c2d74e2a18bbf4999113c0645293bd610ca5
 
 COCOAPODS: 1.0.1
