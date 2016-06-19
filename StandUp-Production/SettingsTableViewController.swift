@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+class CustomCell: UITableViewCell {
+    @IBOutlet weak var switchModule: UISwitch!
+    @IBOutlet weak var myCellLabel: UILabel!
+}
+
 class SettingsTableViewController: UITableViewController {
     
     
