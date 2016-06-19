@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreMotion
+import PermissionScope
 
 class MainViewController: UIViewController {
     
-    
+    let pscope = PermissionScope()
     @IBOutlet weak var activityLabel: UILabel!
     
     @IBOutlet weak var hoursSatLabel: UILabel!
@@ -50,8 +51,22 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         
+        // Set up permissions
+       
+        pscope.addPermission(NotificationsPermission(notificationCategories: nil),
+            message: "We use this to help you live longer")
+        pscope.addPermission(LocationAlwaysPermission(),
+            message: "We use this to give you more accurate feedback")
         
+        pscope.addPermission(MotionPermission(),
+            message: "Past Data is important to determining progression")
         
+        // Show dialog with callbacks
+        pscope.show({ finished, results in
+            print("got results \(results)")
+            }, cancelled: { (results) -> Void in
+                print("thing was cancelled")
+        })
         
     }
     
@@ -126,6 +141,11 @@ class MainViewController: UIViewController {
             
         }
     }
+    
+    
+    
+    
+    
     
     
 }
