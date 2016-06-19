@@ -9,9 +9,22 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    
+    
+    @IBOutlet weak var sleepingTimes: UITableViewCell!
+    
+    @IBOutlet weak var locationUpdates: UITableViewCell!
 
+    @IBOutlet weak var feedback: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationUpdates.textLabel?.text = "Location Updates enabled"
+        
+        sleepingTimes.textLabel?.text = "Sleeping Times"
+        
+        feedback.textLabel?.text = "Feedback"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,9 +37,24 @@ class SettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
-
+    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 4
@@ -37,17 +65,19 @@ class SettingsTableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        
 
         // Configure the cell...
+        
+        locationUpdates.textLabel?.text = "Location Updates Enabled1"
 
-        return cell
+        return locationUpdates
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
