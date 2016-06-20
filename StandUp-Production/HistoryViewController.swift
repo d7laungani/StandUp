@@ -9,9 +9,11 @@
 import UIKit
 import Charts
 import CoreMotion
+import PermissionScope
 
 class HistoryViewController: UIViewController {
     
+    let pscope = PermissionScope()
     
     let activityManager = CMMotionActivityManager()
     
@@ -19,12 +21,13 @@ class HistoryViewController: UIViewController {
     
     let historyProcessor = HistoryProcessor()
     
+    
     @IBOutlet weak var barChartView: BarChartView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
+        pscope.addPermission(MotionPermission(),
+            message: "Past Data is important to determining progression")
         
     }
     
@@ -36,12 +39,16 @@ class HistoryViewController: UIViewController {
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
                 
-                let activities = self.historyProcessor.getTransitionPoints(activities)
-                let final = self.historyProcessor.calculateHoursSat(activities)
+                //self.historyProcessor.getTotalSittingSecs(activities)
+
                 
-                let days: [String] = self.processDataForBarChart(final)
-                let values: [Double] = self.processDataForBarChart(final)
-                self.setChart(days, values: values)
+                if let final = self.historyProcessor.getTotalSittingSecs(activities) {
+                    
+                    
+                    let days: [String] = self.processDataForBarChart(final)
+                    let values: [Double] = self.processDataForBarChart(final)
+                    self.setChart(days, values: values)
+                }
             }
         }
 
