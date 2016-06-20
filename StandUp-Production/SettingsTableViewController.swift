@@ -7,15 +7,18 @@
 //
 
 import UIKit
-
+import PermissionScope
 
 class CustomCell: UITableViewCell {
     @IBOutlet weak var switchModule: UISwitch!
-    @IBOutlet weak var myCellLabel: UILabel!
+    
 }
 
 class SettingsTableViewController: UITableViewController {
+    var permaScope = PermissionScope()
     
+    
+    @IBOutlet weak var locationUpdatesLabel: UILabel!
     
     @IBOutlet weak var sleepingTimes: UITableViewCell!
     
@@ -23,14 +26,61 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var feedback: UITableViewCell!
     
+    @IBAction func locationUpdatesToggle(sender: UISwitch) {
+        permaScope.viewControllerForAlerts = self
+        
+        if sender.on {
+            // turn on notifications
+            if PermissionScope().statusLocationAlways() == .Authorized {
+                UIApplication.sharedApplication().registerForRemoteNotifications()
+            } else {
+                permaScope.requestLocationAlways()
+                permaScope.onCancel = { results in
+                    print("Request was cancelled with results \(results)")
+                    sender.on = false
+                }
+                permaScope.onDisabledOrDenied = { results in
+                    print("Request was denied or disabled with results \(results)")
+                    sender.on = false
+                }
+                
+                
+                // Show dialog with callbacks
+                permaScope.show({ finished, results in
+                    print("got results \(results)")
+                    }, cancelled: { (results) -> Void in
+                        print("thing was cancelled")
+                })
+                
+                
+
+            }
+        } else {
+            // turn off notifications
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationUpdates.textLabel?.text = "Location Updates enabled"
         
-        sleepingTimes.textLabel?.text = "Sleeping Times"
         
-        feedback.textLabel?.text = "Feedback"
+        
+        // Location Updates Cell
+        
+        locationUpdatesLabel.text = "Location Updates enabled"
+        
+  
+        let locationUpdatesSwitch = locationUpdates.contentView.viewWithTag(1) as! UISwitch
+        if PermissionScope().statusLocationAlways() == .Authorized {
+            
+            locationUpdatesSwitch.on = true
+        }
+        
+        
+        
+            
+       // locationUpdates.taf
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
