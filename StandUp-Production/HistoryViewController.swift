@@ -60,10 +60,21 @@ class HistoryViewController: UIViewController {
         
         var days:[String] = []
         
+        let cal = NSCalendar.currentCalendar()
+        
+        let formatter = NSDateFormatter()
+       
+
+        formatter.dateFormat = "EEE"
+        
         for (day, _) in data {
             
+            let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+             comps.day = day
             
-            days.append(String(day))
+            let dayDate = cal.dateFromComponents(comps)!
+                
+            days.append(formatter.stringFromDate(dayDate))
             
         }
         
