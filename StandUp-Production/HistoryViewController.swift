@@ -35,7 +35,7 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(true) // No need for semicolon
         barChartView.clear()
         
-        barChartView.noDataText = "Data is not accessible at the moment"
+        barChartView.noDataText = "Data is loading up"
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
                 
@@ -119,7 +119,7 @@ class HistoryViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Hours Sat")
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Hours Spent Sitting")
         chartDataSet.colors = ChartColorTemplates.vordiplom()
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         barChartView.data = chartData
@@ -133,12 +133,15 @@ class HistoryViewController: UIViewController {
         barChartView.xAxis.labelPosition = .Bottom
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.enabled = false
-        
+        barChartView.leftAxis.enabled = false
         
         barChartView.scaleXEnabled = false
         barChartView.scaleYEnabled = false
         
+        barChartView.leftAxis.labelPosition = .OutsideChart
         
+        
+        barChartView.descriptionText = " "
         barChartView.animate(xAxisDuration: 0.7, yAxisDuration: 1.5)
         
     }
