@@ -28,17 +28,7 @@ class MainViewController: UIViewController {
         
         
         self.startRecordingActivity(activityManager)
-        //historyProcessor.getTransitionPoints( motionActivity.getHistoricalData(activityManager) )
-        /*
-        MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
-        if (error == nil) {
-        
-        let activities = self.historyProcessor.getTransitionPoints(activities)
-        self.historyProcessor.calculateHoursSat(activities)
-        }
-        }
-        */
-        
+         
         
     }
     
@@ -58,8 +48,6 @@ class MainViewController: UIViewController {
         pscope.addPermission(LocationAlwaysPermission(),
             message: "We use this to give you more accurate feedback")
         
-        pscope.addPermission(MotionPermission(),
-            message: "Past Data is important to determining progression")
         
         // Show dialog with callbacks
         pscope.show({ finished, results in
@@ -94,10 +82,11 @@ class MainViewController: UIViewController {
             if ((error == nil)){
                 
                 
-                self.historyProcessor.getTotalSittingSecs(activities)
                 
-                if let activities = self.historyProcessor.getTransitionPoints(activities){
-                    let final = self.historyProcessor.calculateHoursSat(activities)
+                
+                if let final =  self.historyProcessor.getTotalSittingSecs(activities) {
+
+                
                      self.hoursSatLabel.text = String(final[0].1)
                 }
                 
