@@ -8,15 +8,15 @@
 
 import UIKit
 import PermissionScope
+import MessageUI
 
 class CustomCell: UITableViewCell {
     @IBOutlet weak var switchModule: UISwitch!
     
 }
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController,  MFMailComposeViewControllerDelegate {
     var permaScope = PermissionScope()
-    
     
     @IBOutlet weak var locationUpdatesLabel: UILabel!
     
@@ -26,6 +26,7 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var feedback: UITableViewCell!
     
+    @IBOutlet weak var feedbackCell: UITableViewCell!
     @IBAction func locationUpdatesToggle(sender: UISwitch) {
         permaScope.viewControllerForAlerts = self
         
@@ -60,6 +61,14 @@ class SettingsTableViewController: UITableViewController {
         }
         
     }
+    
+   
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    var startWorkTime = NSDate()
+    var endWorkTime = NSDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +87,7 @@ class SettingsTableViewController: UITableViewController {
         }
         
         
+       locationUpdates.selectionStyle = UITableViewCellSelectionStyle.None
         
             
        // locationUpdates.taf
@@ -95,19 +105,58 @@ class SettingsTableViewController: UITableViewController {
     }
     
     
+    /*
+    
+    @IBAction func unwindWithSelectedTime(segue:UIStoryboardSegue) {
+        if let workTimePickerViewController = segue.sourceViewController as? WorkTimeViewController,
+            startWorkTime =  workTimePickerViewController.startWorkTime , endWorkTime = workTimePickerViewController.endWorkTime {
+                defaults.setObject(startWorkTime.date, forKey: "startWorkTimeDate")
+                defaults.setObject(endWorkTime.date, forKey: "startWorkTimeDate")
+                print(startWorkTime.date)
+        }
     
     
+    }
+    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print(indexPath.row)
+        print(indexPath.section)
+        
+        if ( (indexPath.row == 0) && (indexPath.section == 3) ) {
+            
+            
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                self.showSendMailErrorAlert()
+            }
+        }
+    }
     
     
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["d7laungani@hotmail.com"])
+        mailComposerVC.setSubject("Feedback for Standup 1.0 ")
+        mailComposerVC.setMessageBody(" ", isHTML: false)
+        
+        return mailComposerVC
+    }
     
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
     
-    
-    
-    
-    
-    
-    
-    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     // MARK: - Table view data source
     /*
