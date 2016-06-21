@@ -77,7 +77,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         
         // Location Updates Cell
         
-        locationUpdatesLabel.text = "Location Updates enabled"
+        locationUpdatesLabel.text = "Location Updates Enabled"
         
   
         let locationUpdatesSwitch = locationUpdates.contentView.viewWithTag(1) as! UISwitch
@@ -105,24 +105,34 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     }
     
     
-    /*
+    
     
     @IBAction func unwindWithSelectedTime(segue:UIStoryboardSegue) {
+        
+        /*
+        
+        let rootVC = self.navigationController!.topViewController
+        if rootVC!.isKindOfClass(WorkTimeViewController) {
+            performSegueWithIdentifier("saveWorkTime", sender: self)
+        }
+
+        */ 
+        
         if let workTimePickerViewController = segue.sourceViewController as? WorkTimeViewController,
+            
             startWorkTime =  workTimePickerViewController.startWorkTime , endWorkTime = workTimePickerViewController.endWorkTime {
+                print("reached here")
                 defaults.setObject(startWorkTime.date, forKey: "startWorkTimeDate")
                 defaults.setObject(endWorkTime.date, forKey: "startWorkTimeDate")
-                print(startWorkTime.date)
+                //print(startWorkTime.date)
         }
     
     
     }
-    */
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(indexPath.row)
-        print(indexPath.section)
         
         if ( (indexPath.row == 0) && (indexPath.section == 3) ) {
             
