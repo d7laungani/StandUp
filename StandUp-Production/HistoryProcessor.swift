@@ -40,7 +40,16 @@ class HistoryProcessor {
         
     }
     
-    func getTotalSittingSecs (activities: [CMMotionActivity] )  -> Int? {
+    func getTotalSittingSecs (activities: [CMMotionActivity] )  -> [MyTuple]? {
+        
+        
+        
+        let cal = NSCalendar.currentCalendar()
+        
+        var secondsSat = [Int](count: 31, repeatedValue: 0)
+        
+        
+        
         
         var previousPointDate : NSDate = NSDate()
         
@@ -57,11 +66,22 @@ class HistoryProcessor {
         for x in activities {
             
             
+            
+            
+            let componentsOfCurrentDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: x.startDate)
+            
+          
+            
+            //print("Seconds difference is \(secondsDifference)")
+            //print("Current Day is \(componentsOfCurrentDate.day)")
+            
+           
+
             if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
                 
                
                 
-                if ( (x.stationary == true) && (isMoving == true) || (x.automotive == true) ){
+                if ( ( (x.stationary == true) && (isMoving == true) ) || ( (x.automotive == true) && (isMoving == true) ) ){
                     
                     previousPointDate = x.startDate
                     isMoving = false
@@ -69,13 +89,14 @@ class HistoryProcessor {
                     
                 }
                     
-                else if ( (x.stationary == false) && (isMoving == false) ) {
+                else if ( (x.stationary == false || x.running == true || x.walking == true || x.cycling == true) && (isMoving == false) ) {
                     
                    
                     secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
                     totalSittingSecs += secsFrom
+                    secondsSat[componentsOfCurrentDate.day] = secondsSat[componentsOfCurrentDate.day] + secsFrom
+
                     isMoving = true
-                    
                    
                 }
                 
@@ -86,117 +107,6 @@ class HistoryProcessor {
             
             
         }
-        
-        print(totalSittingSecs)
-        return totalSittingSecs
-        
-    }
-    
-    
-    
-    func getTransitionPoints (activities: [CMMotionActivity] )  -> [NSDate:Int]? {
-        
-        
-        if (activities.count < 1) {
-            
-                return nil
-        }
-    
-        
-        
-        var transition = false
-        
-        var beforeTransitionDate : NSDate = NSDate()
-        
-        var transitionPoints: [NSDate:Int] = Dictionary()
-        
-        
-        
-        for x in activities {
-            
-            //print(x)
-            //if (x.confidence == .High) {
-            if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
-                let minsFrom = abs(beforeTransitionDate.minutesFrom(x.startDate))
-               // print(x)
-                if ( (x.stationary == true) && (transition == false) && (x.automotive == false) ){
-                    //print(beforeTransitionDate.minutesFrom(x.startDate) < 1)
-                    
-                    if (!(minsFrom < 1)) {
-                        
-                        //print("Stationary time is \(x.startDate) ")
-                        beforeTransitionDate = x.startDate
-                        transition = true
-                        transitionPoints[x.startDate] = 1
-                        
-                    }
-                }
-                    
-                else if ( (x.stationary == false) && (transition == true) ) {
-                    
-                    if (!(minsFrom < 1)) {
-                        //print("Transition occured and movement has now occured")
-                        // print(x.startDate)
-                        beforeTransitionDate = x.startDate
-                        transition = false
-                        transitionPoints[ x.startDate] = 0
-                    }
-                }
-                
-            }
-            
-            
-            
-            
-            
-        }
-        
-        
-        //let sortedDict = transitionPoints.sort { $0.0.secondsFrom($1.0) < 0 }
-        
-        
-        return transitionPoints
-        
-        
-        
-        
-    }
-    
-    func calculateHoursSat ( transitionPoints: [NSDate:Int]) -> [MyTuple] {
-        
-        let sortedDict = transitionPoints.sort { $0.0.secondsFrom($1.0) < 0 }
-        
-        let cal = NSCalendar.currentCalendar()
-        
-        var secondsSat = [Int](count: 31, repeatedValue: 0)
-        
-        var previousTransition = sortedDict[0]
-        
-        for x in sortedDict {
-            
-            
-            
-            let componentsOfCurrentDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: x.0)
-            //let componentsOfPreviousDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: previousTransition.0)
-            
-            //let secondsDifference = previousTransition.0.secondsFrom(x.0)
-            let secondsDifference = x.0.secondsFrom(previousTransition.0)
-            
-            //print("Seconds difference is \(secondsDifference)")
-            //print("Current Day is \(componentsOfCurrentDate.day)")
-            
-            if ( (secondsDifference > 1) && (previousTransition.1 == 1) ) {
-                
-                secondsSat[componentsOfCurrentDate.day] = secondsSat[componentsOfCurrentDate.day] + secondsDifference
-                
-                
-            }
-            
-            previousTransition = x
-            
-            
-        }
-        
         
         var hoursSat:[MyTuple] = []
         
@@ -214,10 +124,16 @@ class HistoryProcessor {
             
         }
         print(hoursSat)
+
         
+        //print(secondsSat)
+        print(totalSittingSecs)
         return hoursSat
         
     }
+    
+    
+    
     
     
     
