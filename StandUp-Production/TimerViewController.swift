@@ -36,21 +36,20 @@ class TimerViewController: UIViewController {
     }
     
     
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUIElements()
-        
-        
+        self.hideKeyboardWhenTappedAround()         
     }
     
     func setupUIElements () {
         
         
         for button in daysButtons {
-           
+            
             button.layer.cornerRadius = 5
             button.layer.borderWidth = 1.1
             button.layer.borderColor = UIColor.blueColor().CGColor
@@ -60,7 +59,7 @@ class TimerViewController: UIViewController {
         
         
     }
-
+    
     
     
 }
