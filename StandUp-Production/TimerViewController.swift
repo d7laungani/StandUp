@@ -37,13 +37,26 @@ class TimerViewController: UIViewController {
     
     
     
+    @IBAction func startNotifications(sender: UIButton) {
+             // self.setupNotificationSettings()
+        self.scheduleLocalNotification()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUIElements()
-        self.hideKeyboardWhenTappedAround()         
-    }
+        self.hideKeyboardWhenTappedAround()
+        
+        let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
+        
+        /*
+        if (notificationSettings.types == UIUserNotificationType.None){
+            self.setupNotificationSettings()
+        }
+        self.scheduleLocalNotification()
+        */
+            }
     
     func setupUIElements () {
         
@@ -60,6 +73,31 @@ class TimerViewController: UIViewController {
         
     }
     
+    
+    
+    func scheduleLocalNotification() {
+        var localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+        localNotification.repeatInterval = NSCalendarUnit.Day
+        localNotification.alertBody = "Why not take a break and walk around a little."
+        localNotification.alertAction = "View List"
+        localNotification.category = "standingReminderCategory"
+        localNotification.timeZone = NSCalendar.currentCalendar().timeZone
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    
+    
+    
+    func fixNotificationDate(dateToFix: NSDate) -> NSDate {
+        let unitFlags: NSCalendarUnit = [.Second, .Hour, .Day, .Month, .Year]
+        let dateComponents = NSCalendar.currentCalendar().components(unitFlags, fromDate: startTime)
+        dateComponents.second = 0
+        
+        var fixedDate: NSDate! = NSCalendar.currentCalendar().dateFromComponents(dateComponents)
+        
+        return fixedDate
+    }
     
     
 }
