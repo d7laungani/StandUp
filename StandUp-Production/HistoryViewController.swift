@@ -40,7 +40,7 @@ class HistoryViewController: UIViewController {
             if (error == nil) {
                 
                 //self.historyProcessor.getTotalSittingSecs(activities)
-
+                
                 
                 if let final = self.historyProcessor.getTotalSittingSecs(activities) {
                     
@@ -51,7 +51,7 @@ class HistoryViewController: UIViewController {
                 }
             }
         }
-
+        
         
         
     }
@@ -63,17 +63,17 @@ class HistoryViewController: UIViewController {
         let cal = NSCalendar.currentCalendar()
         
         let formatter = NSDateFormatter()
-       
-
+        
+        
         formatter.dateFormat = "EEE"
         
         for (day, _) in data {
             
             let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
-             comps.day = day
+            comps.day = day
             
             let dayDate = cal.dateFromComponents(comps)!
-                
+            
             days.append(formatter.stringFromDate(dayDate))
             
         }

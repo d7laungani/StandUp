@@ -10,6 +10,12 @@ import UIKit
 import CoreMotion
 import PermissionScope
 
+let defaults = NSUserDefaults.standardUserDefaults()
+
+let startTime = defaults.objectForKey("startWorkTimeDate") as? NSDate ?? NSDate()
+
+let endTime = defaults.objectForKey("endWorkTimeDate") as? NSDate ?? NSDate()
+
 class MainViewController: UIViewController {
     
     let pscope = PermissionScope()
@@ -28,7 +34,7 @@ class MainViewController: UIViewController {
         
         
         self.startRecordingActivity(activityManager)
-         
+        
         
     }
     
@@ -42,7 +48,7 @@ class MainViewController: UIViewController {
         
         
         // Set up permissions
-       
+        
         pscope.addPermission(NotificationsPermission(notificationCategories: nil),
             message: "We use this to help you live longer")
         pscope.addPermission(LocationAlwaysPermission(),
@@ -78,16 +84,16 @@ class MainViewController: UIViewController {
         
         
         
-        MotionActivity.getHistoricalData(activityManager,fromDate: morningOfDay,tillDate: NSDate()) { (activities, error) -> Void in
+        MotionActivity.getHistoricalData(activityManager,fromDate: startTime,tillDate: endTime) { (activities, error) -> Void in
             if ((error == nil)){
                 
                 
                 
                 
                 if let final =  self.historyProcessor.getTotalSittingSecs(activities) {
-
-                
-                     self.hoursSatLabel.text = String(final[0].1)
+                    
+                    
+                    self.hoursSatLabel.text = String(final[0].1)
                 }
                 
                 
@@ -98,7 +104,7 @@ class MainViewController: UIViewController {
         
         
     }
-
+    
     
     
     func startRecordingActivity (activityManager: CMMotionActivityManager ) -> Void {

@@ -20,29 +20,29 @@ class MotionActivity {
         fromDate : NSDate = HistoryProcessor.findMidnightOfDay(NSDate(timeIntervalSinceNow: -86400 * 7 ) ),
         tillDate: NSDate = cal.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: NSCalendarOptions())!,
         getHistCompletionHandler : (activities: [CMMotionActivity] , error: NSError? ) -> Void ){
-        
-        var activities = [CMMotionActivity]()
-        
-        print("from date is \(fromDate)")
-        print("till date is \(tillDate)")
-        
-        activityManager.queryActivityStartingFromDate(fromDate, toDate: tillDate, toQueue: NSOperationQueue.mainQueue()) { (data, error) -> Void in
             
+            var activities = [CMMotionActivity]()
             
-            if (error == nil) {
+            print("from date is \(fromDate)")
+            print("till date is \(tillDate)")
+            
+            activityManager.queryActivityStartingFromDate(fromDate, toDate: tillDate, toQueue: NSOperationQueue.mainQueue()) { (data, error) -> Void in
                 
-                activities = data! as [CMMotionActivity]
                 
+                if (error == nil) {
+                    
+                    activities = data! as [CMMotionActivity]
+                    
+                    
+                    
+                }
                 
-
+                getHistCompletionHandler(activities: activities, error: error )
             }
             
-            getHistCompletionHandler(activities: activities, error: error )
-        }
-        
-        
-        
-        
+            
+            
+            
     }
     
     enum activityError: ErrorType {

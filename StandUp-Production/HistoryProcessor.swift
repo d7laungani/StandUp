@@ -70,16 +70,16 @@ class HistoryProcessor {
             
             let componentsOfCurrentDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: x.startDate)
             
-          
+            
             
             //print("Seconds difference is \(secondsDifference)")
             //print("Current Day is \(componentsOfCurrentDate.day)")
             
-           
-
+            
+            
             if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
                 
-               
+                
                 
                 if ( ( (x.stationary == true) && (isMoving == true) ) || ( (x.automotive == true) && (isMoving == true) ) ){
                     
@@ -91,13 +91,13 @@ class HistoryProcessor {
                     
                 else if ( (x.stationary == false || x.running == true || x.walking == true || x.cycling == true) && (isMoving == false) ) {
                     
-                   
+                    
                     secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
                     totalSittingSecs += secsFrom
                     secondsSat[componentsOfCurrentDate.day] = secondsSat[componentsOfCurrentDate.day] + secsFrom
-
+                    
                     isMoving = true
-                   
+                    
                 }
                 
             }
@@ -124,7 +124,7 @@ class HistoryProcessor {
             
         }
         print(hoursSat)
-
+        
         
         //print(secondsSat)
         print(totalSittingSecs)
