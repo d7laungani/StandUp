@@ -6,6 +6,7 @@
 target 'StandUp-Production' do
 pod 'Charts', '~> 2.1.6'
 pod 'PermissionScope'
+pod 'SCLAlertView', '~> 0.4.3'
 
 end
 
