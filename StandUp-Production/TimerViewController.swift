@@ -36,10 +36,10 @@ class TimerViewController: UIViewController {
     }
     
     
-    
-    @IBAction func startNotifications(sender: UIButton) {
-             // self.setupNotificationSettings()
+    @IBAction func startNotification(sender: UIButton) {
+        
         self.scheduleLocalNotification()
+        print("local notification set")
     }
     
     override func viewDidLoad() {
@@ -48,8 +48,8 @@ class TimerViewController: UIViewController {
         setupUIElements()
         self.hideKeyboardWhenTappedAround()
         
-        let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
         
+         //self.scheduleLocalNotification()
         /*
         if (notificationSettings.types == UIUserNotificationType.None){
             self.setupNotificationSettings()
@@ -63,9 +63,10 @@ class TimerViewController: UIViewController {
         
         for button in daysButtons {
             
-            button.layer.cornerRadius = 5
+            button.layer.cornerRadius = 0
             button.layer.borderWidth = 1.1
-            button.layer.borderColor = UIColor.blueColor().CGColor
+            button.layer.borderColor = UIColor(hexString: "43D4E6").CGColor
+            
             
             
         }
@@ -83,6 +84,7 @@ class TimerViewController: UIViewController {
         localNotification.alertAction = "View List"
         localNotification.category = "standingReminderCategory"
         localNotification.timeZone = NSCalendar.currentCalendar().timeZone
+        localNotification.userInfo = ["view" : "alertView"]
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
