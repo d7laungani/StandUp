@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -69,17 +70,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-                if #available(iOS 8.2, *) {
+        if #available(iOS 8.2, *) {
             UIAlertView(title: notification.alertTitle, message: notification.alertBody, delegate: nil, cancelButtonTitle: "OK").show()
         } else {
             print("Received Local Notification:")
             print(notification.alertBody)
         }
+        
+        if ( application.applicationState == UIApplicationState.Active)
+        {
+            print("Active")
+            // App is foreground and notification is recieved,
+            // Show a alert.
+        }
+        else if( application.applicationState == UIApplicationState.Background)
+        {
+            print("Background")
+            // App is in background and notification is received,
+            // You can fetch required data here don't do anything with UI.
+        }
+        else if( application.applicationState == UIApplicationState.Inactive)
+        {
+            print("Inactive")
+            // App came in foreground by used clicking on notification,
+            // Use userinfo for redirecting to specific view controller.
+            print(notification.userInfo)
+            self.redirectToPage(notification.userInfo)
+        }
     }
     
     func registerForLocalNotifications() {
         
-        print("reached here")
+        
+        
         // Specify the notification actions.
         let willStandAction = UIMutableUserNotificationAction()
         willStandAction.identifier = "willStand"
@@ -96,9 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         willNotStandAction.authenticationRequired = false
         
         
-        
-        
-        
         // Create a category with the above actions
         let standingReminderCategory = UIMutableUserNotificationCategory()
         standingReminderCategory.identifier = "standingReminderCategory"
@@ -112,5 +132,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }
     
+    
+    
+    
+    func redirectToPage(userInfo:[NSObject : AnyObject]!)
+    {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        var viewControllerToBrRedirectedTo:UIViewController! = sb.instantiateViewControllerWithIdentifier("TabBarController")
+        
+        
+        if userInfo != nil
+        {
+            if let pageType = userInfo["view"]
+            {
+                if pageType as! String == "alertView"
+                {
+                    //viewControllerToBrRedirectedTo = SettingsTableViewController()
+                }
+            }
+        }
+        
+        if viewControllerToBrRedirectedTo != nil
+        {
+            print("reached here")
+            if self.window != nil && self.window?.rootViewController != nil
+                
+            {
+                let rootVC = self.window?.rootViewController!
+                print(rootVC)
+                if rootVC is UITabBarController
+                {
+                    self.window?.rootViewController?.presentViewController(viewControllerToBrRedirectedTo, animated: true, completion: nil)
+                    
+                    /*
+                    else
+                    {
+                    rootVC?.presentViewController(viewControllerToBrRedirectedTo, animated: true, completion: { () -> Void in
+                    
+                    print("Presented view Controller")
+                    
+                    })
+                    }
+                    */
+                    
+                    
+                }
+            }
+            
+            //Create Alert View
+            
+            let alertCtrl = UIAlertController(title: "Make a Decision"  , message: "You better be standing", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alertCtrl.addAction(UIAlertAction(title: "Will Stand Up", style: .Destructive, handler: nil))
+            alertCtrl.addAction(UIAlertAction(title: "Will not Stand Up", style: .Destructive, handler: nil))
+            
+            
+            // Add Alert View on top of screen
+            var presentedVC = self.window?.rootViewController
+            while (presentedVC!.presentedViewController != nil)  {
+                presentedVC = presentedVC!.presentedViewController
+            }
+            // presentedVC!.presentViewController(alertCtrl, animated: true, completion: nil)
+            requestRecieved()
+            
+            
+        }
+    }
+    func requestRecieved()  {
+        let alert = SCLAlertView()
+        alert.addButton("Stand Up") {
+            print("accest")
+        }
+        
+        
+        
+        alert.showTitle(
+            "Time to Stand Up",
+            subTitle: "Stay Healthy"   ,
+            duration: 0 ,
+            completeText: "Not Right Now",
+            style: .Info,
+            colorStyle: 0x43d4e6,
+            colorTextButton: 0xFFFFFF
+        )
+        
+        
+        
+        
+        
+    }
 }
 
