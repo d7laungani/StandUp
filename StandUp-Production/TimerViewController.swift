@@ -9,23 +9,44 @@
 import UIKit
 import QuartzCore
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, UITextFieldDelegate {
     
     
     
     
-    let step: Float = 5
+    
+    var settings = defaults.objectForKey("Settings") as? TimerSettings
+    
     @IBOutlet var daysButtons: [UIButton]!
     
+    
+    
     @IBOutlet weak var intervalLabel: UILabel!
+    
+    @IBOutlet weak var notificationMessage: UITextField!{
+        didSet {
+            notificationMessage.delegate = self
+        }
+    }
+    
+    
+    @IBAction func saveNotificationMessage(sender: UITextField) {
+        
+        
+        settings?.notificationMessage = sender.text
+        
+        
+        
+    }
     
     
     @IBAction func timeIntervalSlider(sender: UISlider) {
         
         
-        
+        let step: Float = 5
         let roundedValue = round(sender.value / step) * step
         sender.value = roundedValue
+        sender.continuous = true
         
         let s: Int = 00
         let m: Int = Int(roundedValue)
@@ -39,7 +60,7 @@ class TimerViewController: UIViewController {
     @IBAction func startNotification(sender: UIButton) {
         
         self.scheduleLocalNotification()
-        print("local notification set")
+        
     }
     
     override func viewDidLoad() {
@@ -48,15 +69,10 @@ class TimerViewController: UIViewController {
         setupUIElements()
         self.hideKeyboardWhenTappedAround()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
-         //self.scheduleLocalNotification()
-        /*
-        if (notificationSettings.types == UIUserNotificationType.None){
-            self.setupNotificationSettings()
-        }
-        self.scheduleLocalNotification()
-        */
-            }
+    }
     
     func setupUIElements () {
         
@@ -74,7 +90,10 @@ class TimerViewController: UIViewController {
         
     }
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
     
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
@@ -102,4 +121,39 @@ class TimerViewController: UIViewController {
     }
     
     
+    
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        /*
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        self.view.frame.origin.y -= 50
+        
+        
+        //self.view.frame.origin.y += 20
+        print("Keyboard size will show\(keyboardSize.height)")
+        
+        }
+        */
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()  {
+            if (keyboardSize.height > 10) {
+                self.view.frame.origin.y -= 70
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        /*
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        // self.view.frame.origin.y += keyboardSize.height * 2
+        self.view.frame.origin.y += 50
+        print("Keyboard size will hide\(keyboardSize.height)")
+        }
+        */
+        
+        self.view.frame.origin.y += 70
+        
+    }
 }
