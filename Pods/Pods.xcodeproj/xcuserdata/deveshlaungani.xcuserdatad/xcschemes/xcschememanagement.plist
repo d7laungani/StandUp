@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Charts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PermissionScope.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +22,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5D1C5B8604C56EA8CFF0BAF74EA7C0BF</key>
+		<key>5E24D7A62423D639A4911EC82B3E7752</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64EFF154CBF3E077C7E71876A151EBBB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9C8332116325D44F3C7EA23DE69121A4</key>
+		<key>6CAB29FA6C5BEFF5CCE2AB5189494D5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

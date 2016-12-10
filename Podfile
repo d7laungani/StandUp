@@ -4,7 +4,7 @@
  use_frameworks!
 
 target 'StandUp-Production' do
-pod 'Charts'
+
 pod 'PermissionScope'
 pod 'SCLAlertView'
 

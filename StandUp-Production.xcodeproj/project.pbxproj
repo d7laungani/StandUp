@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55B199531DF7C9ED00A40C1B /* ABNScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B199521DF7C9ED00A40C1B /* ABNScheduler.swift */; };
 		55B199551DF7C9F600A40C1B /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B199541DF7C9F600A40C1B /* TimerSettings.swift */; };
+		55BEE7921DFC1543006B8DEE /* ScrollableGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEE7911DFC1543006B8DEE /* ScrollableGraphView.swift */; };
 		9CF0A784A28D4E629BD45E04 /* Pods_StandUp_Production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */; };
 		FA34B89D1D0FBF350082F616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B89C1D0FBF350082F616 /* AppDelegate.swift */; };
 		FA34B89F1D0FBF350082F616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B89E1D0FBF350082F616 /* MainViewController.swift */; };
@@ -16,11 +17,9 @@
 		FA34B8A41D0FBF350082F616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA34B8A21D0FBF350082F616 /* Main.storyboard */; };
 		FA34B8A61D0FBF350082F616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA34B8A51D0FBF350082F616 /* Assets.xcassets */; };
 		FA34B8A91D0FBF350082F616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA34B8A71D0FBF350082F616 /* LaunchScreen.storyboard */; };
-		FA34B8B11D0FC08C0082F616 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B01D0FC08C0082F616 /* AboutViewController.swift */; };
 		FA34B8B31D0FC09E0082F616 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */; };
 		FA34B8B61D0FC4B60082F616 /* MotionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */; };
 		FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */; };
-		FA58E6751D1261E800C75B2D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58E6741D1261E800C75B2D /* Charts.framework */; };
 		FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */; };
 		FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */; };
 		FA58E68C1D18F61500C75B2D /* WorkTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E68B1D18F61500C75B2D /* WorkTimeViewController.swift */; };
@@ -31,6 +30,7 @@
 		47B205163BEC869283FC8A8E /* Pods-StandUp-Production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandUp-Production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandUp-Production/Pods-StandUp-Production.debug.xcconfig"; sourceTree = "<group>"; };
 		55B199521DF7C9ED00A40C1B /* ABNScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABNScheduler.swift; sourceTree = "<group>"; };
 		55B199541DF7C9F600A40C1B /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
+		55BEE7911DFC1543006B8DEE /* ScrollableGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollableGraphView.swift; sourceTree = "<group>"; };
 		715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandUp_Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA34B8991D0FBF350082F616 /* StandUp-Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StandUp-Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA34B89C1D0FBF350082F616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +40,6 @@
 		FA34B8A51D0FBF350082F616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA34B8A81D0FBF350082F616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA34B8AA1D0FBF350082F616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA34B8B01D0FC08C0082F616 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivity.swift; sourceTree = "<group>"; };
 		FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
@@ -55,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA58E6751D1261E800C75B2D /* Charts.framework in Frameworks */,
 				9CF0A784A28D4E629BD45E04 /* Pods_StandUp_Production.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +106,7 @@
 				FA34B8A51D0FBF350082F616 /* Assets.xcassets */,
 				FA58E6871D15387800C75B2D /* Models */,
 				FA58E6861D15386B00C75B2D /* Extensions */,
+				55BEE7911DFC1543006B8DEE /* ScrollableGraphView.swift */,
 			);
 			path = "StandUp-Production";
 			sourceTree = "<group>";
@@ -117,7 +116,6 @@
 			children = (
 				FA34B89E1D0FBF350082F616 /* MainViewController.swift */,
 				FA34B8A01D0FBF350082F616 /* HistoryViewController.swift */,
-				FA34B8B01D0FC08C0082F616 /* AboutViewController.swift */,
 				FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */,
 				FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */,
 				FA58E68B1D18F61500C75B2D /* WorkTimeViewController.swift */,
@@ -191,6 +189,7 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 3FNKL5DKHS;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -287,12 +286,12 @@
 				FA34B8B61D0FC4B60082F616 /* MotionActivity.swift in Sources */,
 				FA34B8B31D0FC09E0082F616 /* TimerViewController.swift in Sources */,
 				FA58E68C1D18F61500C75B2D /* WorkTimeViewController.swift in Sources */,
+				55BEE7921DFC1543006B8DEE /* ScrollableGraphView.swift in Sources */,
 				55B199531DF7C9ED00A40C1B /* ABNScheduler.swift in Sources */,
 				FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */,
 				FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */,
 				FA34B8A11D0FBF350082F616 /* HistoryViewController.swift in Sources */,
 				FA34B89D1D0FBF350082F616 /* AppDelegate.swift in Sources */,
-				FA34B8B11D0FC08C0082F616 /* AboutViewController.swift in Sources */,
 				FA34B89F1D0FBF350082F616 /* MainViewController.swift in Sources */,
 				FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */,
 			);
@@ -412,10 +411,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Charts",
-				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3FNKL5DKHS;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "StandUp-Production/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -431,10 +429,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Charts",
-				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3FNKL5DKHS;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "StandUp-Production/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

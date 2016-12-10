@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Charts
 import CoreMotion
 import PermissionScope
 
@@ -21,8 +20,11 @@ class HistoryViewController: UIViewController {
     
     let historyProcessor = HistoryProcessor()
     
+    //lazy var graphView:ScrollableGraphView = ScrollableGraphView ()
     
-    @IBOutlet weak var barChartView: BarChartView!
+    
+    @IBOutlet weak var graphView: ScrollableGraphView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,9 +35,7 @@ class HistoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
-        barChartView.clear()
-        
-        barChartView.noDataText = "Data is loading up"
+      
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
                 
@@ -47,10 +47,48 @@ class HistoryViewController: UIViewController {
                     
                     let days: [String] = self.processDataForBarChart(final)
                     let values: [Double] = self.processDataForBarChart(final)
-                    self.setChart(days, values: values)
+                    
+                    //self.graphView = ScrollableGraphView(frame: self.view.frame)
+                    //self.graphView = ScrollableGraphView(self.graphView.frame)
+                    self.setupchartUI(graphView: self.graphView)
+                    self.graphView.set(data: values, withLabels: days)
+                  
+                    //self.view.addSubview(self.graphView)
                 }
             }
         }
+        
+        
+        
+    }
+    
+    
+    func setupchartUI (graphView: ScrollableGraphView) {
+        
+        graphView.backgroundFillColor = UIColor.hexStringToUIColor(hex: "#333333")
+        
+        graphView.rangeMax = 50
+        
+        graphView.lineWidth = 1
+        graphView.lineColor = UIColor.hexStringToUIColor(hex: "#777777")
+        graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
+        
+        graphView.shouldFill = true
+        graphView.fillType = ScrollableGraphViewFillType.gradient
+        graphView.fillColor = UIColor.hexStringToUIColor(hex: "#555555")
+        graphView.fillGradientType = ScrollableGraphViewGradientType.linear
+        graphView.fillGradientStartColor = UIColor.hexStringToUIColor(hex: "#555555")
+        graphView.fillGradientEndColor = UIColor.hexStringToUIColor(hex: "#444444")
+        
+        graphView.dataPointSpacing = 80
+        graphView.dataPointSize = 2
+        graphView.dataPointFillColor = UIColor.white
+        
+        graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
+        graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
+        graphView.referenceLineLabelColor = UIColor.white
+        graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
+
         
         
         
@@ -107,45 +145,5 @@ class HistoryViewController: UIViewController {
     
     
     
-    func setChart(_ dataPoints: [String], values: [Double]) {
-        
-        
-        
-        
-        var dataEntries: [BarChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-           // let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
-            //dataEntries.append(dataEntry)
-        }
-        
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Hours Spent Sitting")
-        chartDataSet.colors = ChartColorTemplates.vordiplom()
-        let chartData = BarChartData(dataSet: chartDataSet)
-        barChartView.data = chartData
-        
-        
-        
-        // Bar Chart COnfiguration
-        barChartView.leftAxis.drawGridLinesEnabled = false
-        barChartView.rightAxis.drawGridLinesEnabled = false
-        //barChartView.legend.enabled = false
-        barChartView.xAxis.labelPosition = .bottom
-        barChartView.xAxis.drawGridLinesEnabled = false
-        barChartView.rightAxis.enabled = false
-        barChartView.leftAxis.enabled = false
-        
-        barChartView.scaleXEnabled = false
-        barChartView.scaleYEnabled = false
-        
-        barChartView.leftAxis.labelPosition = .outsideChart
-        
-        
-        barChartView.descriptionText = " "
-        barChartView.animate(xAxisDuration: 0.7, yAxisDuration: 1.5)
-        
-    }
-    
     
 }
-

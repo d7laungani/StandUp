@@ -54,6 +54,8 @@ class MainViewController: UIViewController {
         pscope.addPermission(LocationAlwaysPermission(),
             message: "We use this to give you more accurate feedback")
         
+       
+        
         
         // Show dialog with callbacks
         pscope.show({ finished, results in

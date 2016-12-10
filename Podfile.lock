@@ -1,20 +1,15 @@
 PODS:
-  - Charts (3.0.0):
-    - Charts/Core (= 3.0.0)
-  - Charts/Core (3.0.0)
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
-  - Charts
   - PermissionScope
   - SCLAlertView
 
 SPEC CHECKSUMS:
-  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 69479a715d5724a75f50c94ded02534f531710e7
+PODFILE CHECKSUM: 0bc083077d7749bc8cade54b7365d6f9eac7f7d1
 
 COCOAPODS: 1.1.1

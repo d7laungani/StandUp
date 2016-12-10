@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 
+
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
     
@@ -79,9 +80,12 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         for button in daysButtons {
             
-            button.layer.cornerRadius = 0
-            button.layer.borderWidth = 1.1
-            button.layer.borderColor = UIColor.hexStringToUIColor(hex: "43D4E6").cgColor
+            
+            button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+            button.layer.cornerRadius = 0.5 * button.bounds.size.width
+            button.clipsToBounds = true
+            button.layer.borderWidth = 2.0
+            button.layer.borderColor = UIColor.white.cgColor
             
             
             
