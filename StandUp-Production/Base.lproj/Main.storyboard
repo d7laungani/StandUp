@@ -248,7 +248,6 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="P23-vx-eG5" kind="relationship" relationship="viewControllers" id="MkG-jp-Rgg"/>
                         <segue destination="9kf-yw-482" kind="relationship" relationship="viewControllers" id="BFC-VF-kCZ"/>
-                        <segue destination="8zV-Nt-uSN" kind="relationship" relationship="viewControllers" id="c1f-N8-RO8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -522,26 +521,6 @@
             </objects>
             <point key="canvasLocation" x="1328" y="-1524"/>
         </scene>
-        <!--About-->
-        <scene sceneID="V11-JV-Pea">
-            <objects>
-                <viewController id="8zV-Nt-uSN" customClass="AboutViewController" customModule="StandUp_Production" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ydu-lx-SDA"/>
-                        <viewControllerLayoutGuide type="bottom" id="AYc-W6-yD3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zdb-gx-39C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="About" image="About" id="S1h-pX-mdd"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6CG-up-qXf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2073" y="-712"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="6dl-Ll-RMH">
             <objects>
@@ -563,7 +542,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="About" width="25" height="25"/>
         <image name="Graph" width="25" height="25"/>
         <image name="Home" width="25" height="25"/>
         <image name="Settings" width="25" height="25"/>
