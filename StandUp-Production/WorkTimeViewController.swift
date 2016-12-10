@@ -18,11 +18,17 @@ class WorkTimeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let now: NSDate! = NSDate()
+        let calendar = Calendar.current
+        let now: Date! = Date()
         
-        let date9h = calendar.dateBySettingHour(9, minute: 0, second: 0, ofDate: now, options: NSCalendarOptions.MatchFirst)!
-        let date17h = calendar.dateBySettingHour(17, minute: 0, second: 0, ofDate: now, options: NSCalendarOptions.MatchFirst)!
+        
+        //let date9h = calendar.Date(bySettingHour: 9,minute:0,second:0, of: Calendar.Options.matchFirst)
+        
+        //public func date(bySettingHour hour: Int, minute: Int, second: Int, of date: Date, matchingPolicy: Calendar.MatchingPolicy = default, repeatedTimePolicy: Calendar.RepeatedTimePolicy = default, direction: Calendar.SearchDirection = default) -> Date?
+
+        
+        let date9h = calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now)!
+        let date17h = calendar.date(bySettingHour: 17, minute: 0, second: 0, of: now)!
         
         startWorkTime.date = date9h
         endWorkTime.date = date17h

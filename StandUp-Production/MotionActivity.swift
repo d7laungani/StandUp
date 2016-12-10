@@ -14,19 +14,19 @@ class MotionActivity {
     
     
     var historyProcessor = HistoryProcessor()
-    static let cal: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-    class func getHistoricalData(activityManager: CMMotionActivityManager,
+    static let cal: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+    class func getHistoricalData(_ activityManager: CMMotionActivityManager,
         
-        fromDate : NSDate = HistoryProcessor.findMidnightOfDay(NSDate(timeIntervalSinceNow: -86400 * 7 ) ),
-        tillDate: NSDate = cal.dateBySettingHour(0, minute: 0, second: 0, ofDate: NSDate(), options: NSCalendarOptions())!,
-        getHistCompletionHandler : (activities: [CMMotionActivity] , error: NSError? ) -> Void ){
+        fromDate : Date = HistoryProcessor.findMidnightOfDay(Date(timeIntervalSinceNow: -86400 * 7 ) ),
+        tillDate: Date = (cal as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: Date(), options: NSCalendar.Options())!,
+        getHistCompletionHandler : @escaping (_ activities: [CMMotionActivity] , _ error: NSError? ) -> Void ){
             
             var activities = [CMMotionActivity]()
             
             print("from date is \(fromDate)")
             print("till date is \(tillDate)")
             
-            activityManager.queryActivityStartingFromDate(fromDate, toDate: tillDate, toQueue: NSOperationQueue.mainQueue()) { (data, error) -> Void in
+            activityManager.queryActivityStarting(from: fromDate, to: tillDate, to: OperationQueue.main) { (data, error) -> Void in
                 
                 
                 if (error == nil) {
@@ -37,7 +37,7 @@ class MotionActivity {
                     
                 }
                 
-                getHistCompletionHandler(activities: activities, error: error )
+                getHistCompletionHandler(activities, error as NSError? )
             }
             
             
@@ -45,9 +45,9 @@ class MotionActivity {
             
     }
     
-    enum activityError: ErrorType {
+    enum activityError: Error {
         
-        case NoActivities
+        case noActivities
         
     }
     

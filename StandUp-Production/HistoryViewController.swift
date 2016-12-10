@@ -31,7 +31,7 @@ class HistoryViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
         barChartView.clear()
         
@@ -56,25 +56,25 @@ class HistoryViewController: UIViewController {
         
     }
     
-    func processDataForBarChart(data: [MyTuple]) -> [String] {
+    func processDataForBarChart(_ data: [MyTuple]) -> [String] {
         
         var days:[String] = []
         
-        let cal = NSCalendar.currentCalendar()
+        let cal = Calendar.current
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         
         
         formatter.dateFormat = "EEE"
         
         for (day, _) in data {
             
-            let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+            var comps = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: Date())
             comps.day = day
             
-            let dayDate = cal.dateFromComponents(comps)!
+            let dayDate = cal.date(from: comps)!
             
-            days.append(formatter.stringFromDate(dayDate))
+            days.append(formatter.string(from: dayDate))
             
         }
         
@@ -82,7 +82,7 @@ class HistoryViewController: UIViewController {
         
     }
     
-    func processDataForBarChart(data: [MyTuple]) -> [Double]  {
+    func processDataForBarChart(_ data: [MyTuple]) -> [Double]  {
         
         var values:[Double] = []
         
@@ -107,7 +107,7 @@ class HistoryViewController: UIViewController {
     
     
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(_ dataPoints: [String], values: [Double]) {
         
         
         
@@ -115,13 +115,13 @@ class HistoryViewController: UIViewController {
         var dataEntries: [BarChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
-            dataEntries.append(dataEntry)
+           // let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            //dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Hours Spent Sitting")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Hours Spent Sitting")
         chartDataSet.colors = ChartColorTemplates.vordiplom()
-        let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
+        let chartData = BarChartData(dataSet: chartDataSet)
         barChartView.data = chartData
         
         
@@ -130,7 +130,7 @@ class HistoryViewController: UIViewController {
         barChartView.leftAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.drawGridLinesEnabled = false
         //barChartView.legend.enabled = false
-        barChartView.xAxis.labelPosition = .Bottom
+        barChartView.xAxis.labelPosition = .bottom
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.rightAxis.enabled = false
         barChartView.leftAxis.enabled = false
@@ -138,7 +138,7 @@ class HistoryViewController: UIViewController {
         barChartView.scaleXEnabled = false
         barChartView.scaleYEnabled = false
         
-        barChartView.leftAxis.labelPosition = .OutsideChart
+        barChartView.leftAxis.labelPosition = .outsideChart
         
         
         barChartView.descriptionText = " "

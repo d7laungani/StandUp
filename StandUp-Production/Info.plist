@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>View your sitting/standing duration</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -23,9 +25,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>"We need your location for some aweomse features"</string>
+	<string>&quot;We need your location for some aweome features&quot;</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>"We need your location for some awesome features"</string>
+	<string>&quot;We need your location for some awesome features&quot;</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

@@ -10,11 +10,11 @@ import UIKit
 import CoreMotion
 import PermissionScope
 
-let defaults = NSUserDefaults.standardUserDefaults()
+let defaults = UserDefaults.standard
 
-let startTime = defaults.objectForKey("startWorkTimeDate") as? NSDate ?? NSDate()
+let startTime = defaults.object(forKey: "startWorkTimeDate") as? Date ?? Date()
 
-let endTime = defaults.objectForKey("endWorkTimeDate") as? NSDate ?? NSDate()
+let endTime = defaults.object(forKey: "endWorkTimeDate") as? Date ?? Date()
 
 class MainViewController: UIViewController {
     
@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     let historyProcessor = HistoryProcessor()
     
     
-    @IBAction func startUpdates(sender: AnyObject) {
+    @IBAction func startUpdates(_ sender: AnyObject) {
         
         
         self.startRecordingActivity(activityManager)
@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         
     }
     
-    @IBAction func stopUpdates(sender: AnyObject) {
+    @IBAction func stopUpdates(_ sender: AnyObject) {
         
         activityManager.stopActivityUpdates()
     }
@@ -64,13 +64,13 @@ class MainViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
         
         hoursSatLabel.text = " "
         
-        let cal = NSCalendar.currentCalendar()
-        let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: NSDate())
+        let cal = Calendar.current
+        var comps = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: Date())
         
         
         comps.hour = 6
@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
         
         
         
-        let morningOfDay = cal.dateFromComponents(comps)!
+        let morningOfDay = cal.date(from: comps)!
         print(morningOfDay)
         
         
@@ -107,15 +107,15 @@ class MainViewController: UIViewController {
     
     
     
-    func startRecordingActivity (activityManager: CMMotionActivityManager ) -> Void {
+    func startRecordingActivity (_ activityManager: CMMotionActivityManager ) -> Void {
         
         
         
         if(CMMotionActivityManager.isActivityAvailable()){
             print("YES!")
-            activityManager.startActivityUpdatesToQueue(NSOperationQueue.mainQueue()) { data in
+            activityManager.startActivityUpdates(to: OperationQueue.main) { data in
                 if let data = data {
-                    dispatch_async(dispatch_get_main_queue()) {
+                    DispatchQueue.main.async {
                         if(data.stationary == true){
                             self.activityLabel.text = "Stationary"
                             

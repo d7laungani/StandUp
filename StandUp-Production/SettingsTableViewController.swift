@@ -27,22 +27,22 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     @IBOutlet weak var feedback: UITableViewCell!
     
     @IBOutlet weak var feedbackCell: UITableViewCell!
-    @IBAction func locationUpdatesToggle(sender: UISwitch) {
+    @IBAction func locationUpdatesToggle(_ sender: UISwitch) {
         permaScope.viewControllerForAlerts = self
         
-        if sender.on {
+        if sender.isOn {
             // turn on notifications
-            if PermissionScope().statusLocationAlways() == .Authorized {
-                UIApplication.sharedApplication().registerForRemoteNotifications()
+            if PermissionScope().statusLocationAlways() == PermissionStatus.authorized {
+                UIApplication.shared.registerForRemoteNotifications()
             } else {
                 permaScope.requestLocationAlways()
                 permaScope.onCancel = { results in
                     print("Request was cancelled with results \(results)")
-                    sender.on = false
+                    sender.isOn = false
                 }
                 permaScope.onDisabledOrDenied = { results in
                     print("Request was denied or disabled with results \(results)")
-                    sender.on = false
+                    sender.isOn = false
                 }
                 
                 
@@ -64,10 +64,10 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     
     
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
-    var startWorkTime = NSDate()
-    var endWorkTime = NSDate()
+    var startWorkTime = Date()
+    var endWorkTime = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,13 +81,13 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         
         
         let locationUpdatesSwitch = locationUpdates.contentView.viewWithTag(1) as! UISwitch
-        if PermissionScope().statusLocationAlways() == .Authorized {
+        if PermissionScope().statusLocationAlways() == PermissionStatus.authorized {
             
-            locationUpdatesSwitch.on = true
+            locationUpdatesSwitch.isOn = true
         }
         
         
-        locationUpdates.selectionStyle = UITableViewCellSelectionStyle.None
+        locationUpdates.selectionStyle = UITableViewCellSelectionStyle.none
         
         
         // locationUpdates.taf
@@ -107,7 +107,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     
     
     
-    @IBAction func unwindWithSelectedTime(segue:UIStoryboardSegue) {
+    @IBAction func unwindWithSelectedTime(_ segue:UIStoryboardSegue) {
         
         /*
         
@@ -118,12 +118,12 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         
         */
         
-        if let workTimePickerViewController = segue.sourceViewController as? WorkTimeViewController,
+        if let workTimePickerViewController = segue.source as? WorkTimeViewController,
             
-            startWorkTime =  workTimePickerViewController.startWorkTime , endWorkTime = workTimePickerViewController.endWorkTime {
+            let startWorkTime =  workTimePickerViewController.startWorkTime , let endWorkTime = workTimePickerViewController.endWorkTime {
                 print("reached here")
-                defaults.setObject(startWorkTime.date, forKey: "startWorkTimeDate")
-                defaults.setObject(endWorkTime.date, forKey: "endWorkTimeDate")
+                defaults.set(startWorkTime.date, forKey: "startWorkTimeDate")
+                defaults.set(endWorkTime.date, forKey: "endWorkTimeDate")
                 print(startWorkTime.date)
                 print(endWorkTime.date)
         }
@@ -132,7 +132,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         if ( (indexPath.row == 0) && (indexPath.section == 3) ) {
@@ -140,7 +140,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
-                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                self.present(mailComposeViewController, animated: true, completion: nil)
             } else {
                 self.showSendMailErrorAlert()
             }
@@ -165,8 +165,8 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table view data source

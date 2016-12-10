@@ -15,42 +15,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     
-    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Calling our local method to register for local notifications.
         self.registerForLocalNotifications()
         return true
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
     
-    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
         // Point for handling the local notification Action. Provided alongside creating the notification.
         if identifier == "ShowDetails" {
             // Showing reminder details in an alertview
@@ -61,15 +61,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } else if identifier == "willStand" {
             // Snooze the reminder for 5 minutes
-            notification.fireDate = NSDate().dateByAddingTimeInterval(60*5)
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            notification.fireDate = Date().addingTimeInterval(60*5)
+            UIApplication.shared.scheduleLocalNotification(notification)
         } else if identifier == "willNotStand" {
             // Confirmed the reminder. Mark the reminder as complete maybe?
         }
         completionHandler()
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         if #available(iOS 8.2, *) {
             UIAlertView(title: notification.alertTitle, message: notification.alertBody, delegate: nil, cancelButtonTitle: "OK").show()
         } else {
@@ -77,19 +77,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(notification.alertBody)
         }
         
-        if ( application.applicationState == UIApplicationState.Active)
+        if ( application.applicationState == UIApplicationState.active)
         {
             print("Active")
             // App is foreground and notification is recieved,
             // Show a alert.
         }
-        else if( application.applicationState == UIApplicationState.Background)
+        else if( application.applicationState == UIApplicationState.background)
         {
             print("Background")
             // App is in background and notification is received,
             // You can fetch required data here don't do anything with UI.
         }
-        else if( application.applicationState == UIApplicationState.Inactive)
+        else if( application.applicationState == UIApplicationState.inactive)
         {
             print("Inactive")
             // App came in foreground by used clicking on notification,
@@ -107,39 +107,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let willStandAction = UIMutableUserNotificationAction()
         willStandAction.identifier = "willStand"
         willStandAction.title = "OK, got it"
-        willStandAction.activationMode = UIUserNotificationActivationMode.Background
-        willStandAction.destructive = false
-        willStandAction.authenticationRequired = false
+        willStandAction.activationMode = UIUserNotificationActivationMode.background
+        willStandAction.isDestructive = false
+        willStandAction.isAuthenticationRequired = false
         
         let willNotStandAction = UIMutableUserNotificationAction()
         willNotStandAction.identifier = "willNotStand"
         willNotStandAction.title = "Cannot"
-        willNotStandAction.activationMode = UIUserNotificationActivationMode.Background
-        willNotStandAction.destructive = false
-        willNotStandAction.authenticationRequired = false
+        willNotStandAction.activationMode = UIUserNotificationActivationMode.background
+        willNotStandAction.isDestructive = false
+        willNotStandAction.isAuthenticationRequired = false
         
         
         // Create a category with the above actions
         let standingReminderCategory = UIMutableUserNotificationCategory()
         standingReminderCategory.identifier = "standingReminderCategory"
-        standingReminderCategory.setActions([willNotStandAction, willStandAction], forContext: UIUserNotificationActionContext.Default)
-        standingReminderCategory.setActions([willNotStandAction, willStandAction], forContext: UIUserNotificationActionContext.Minimal)
+        standingReminderCategory.setActions([willNotStandAction, willStandAction], for: UIUserNotificationActionContext.default)
+        standingReminderCategory.setActions([willNotStandAction, willStandAction], for: UIUserNotificationActionContext.minimal)
         
         // Register for notification: This will prompt for the user's consent to receive notifications from this app.
-        let notificationSettings =  UIUserNotificationSettings(forTypes: [.Alert, .Badge , .Sound], categories: NSSet(array:[standingReminderCategory]) as? Set<UIUserNotificationCategory>)
+        let notificationSettings =  UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: NSSet(array:[standingReminderCategory]) as? Set<UIUserNotificationCategory>)
         //*NOTE*
         // Registering UIUserNotificationSettings more than once results in previous settings being overwritten.
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        UIApplication.shared.registerUserNotificationSettings(notificationSettings)
     }
     
     
     
     
-    func redirectToPage(userInfo:[NSObject : AnyObject]!)
+    func redirectToPage(_ userInfo:[AnyHashable: Any]!)
     {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        var viewControllerToBrRedirectedTo:UIViewController! = sb.instantiateViewControllerWithIdentifier("TabBarController")
+        let viewControllerToBrRedirectedTo:UIViewController! = sb.instantiateViewController(withIdentifier: "TabBarController")
         
         
         if userInfo != nil
@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(rootVC)
                 if rootVC is UITabBarController
                 {
-                    self.window?.rootViewController?.presentViewController(viewControllerToBrRedirectedTo, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(viewControllerToBrRedirectedTo, animated: true, completion: nil)
                     
                     /*
                     else
@@ -182,10 +182,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             //Create Alert View
             
-            let alertCtrl = UIAlertController(title: "Make a Decision"  , message: "You better be standing", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertCtrl = UIAlertController(title: "Make a Decision"  , message: "You better be standing", preferredStyle: UIAlertControllerStyle.alert)
             
-            alertCtrl.addAction(UIAlertAction(title: "Will Stand Up", style: .Destructive, handler: nil))
-            alertCtrl.addAction(UIAlertAction(title: "Will not Stand Up", style: .Destructive, handler: nil))
+            alertCtrl.addAction(UIAlertAction(title: "Will Stand Up", style: .destructive, handler: nil))
+            alertCtrl.addAction(UIAlertAction(title: "Will not Stand Up", style: .destructive, handler: nil))
             
             
             // Add Alert View on top of screen
@@ -212,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             subTitle: "Stay Healthy"   ,
             duration: 0 ,
             completeText: "Not Right Now",
-            style: .Info,
+            style: .info,
             colorStyle: 0x43d4e6,
             colorTextButton: 0xFFFFFF
         )

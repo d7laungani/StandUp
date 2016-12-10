@@ -15,20 +15,20 @@ class HistoryProcessor {
     
     
     
-    static func findMidnightOfDay (date: NSDate) -> NSDate {
+    static func findMidnightOfDay (_ date: Date) -> Date {
         
         
-        let cal = NSCalendar.currentCalendar()
-        let comps = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: date)
+        let cal = Calendar.current
+        var comps = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: date)
         
         
         comps.hour = 0
         comps.minute = 0
         comps.second = 0
-        comps.day = comps.day + 1
+        comps.day = comps.day! + 1
         
         
-        let midnightOfDay = cal.dateFromComponents(comps)!
+        let midnightOfDay = cal.date(from: comps)!
         
         
         
@@ -40,18 +40,18 @@ class HistoryProcessor {
         
     }
     
-    func getTotalSittingSecs (activities: [CMMotionActivity] )  -> [MyTuple]? {
+    func getTotalSittingSecs (_ activities: [CMMotionActivity] )  -> [MyTuple]? {
         
         
         
-        let cal = NSCalendar.currentCalendar()
+        let cal = Calendar.current
         
-        var secondsSat = [Int](count: 31, repeatedValue: 0)
-        
-        
+        var secondsSat = [Int](repeating: 0, count: 31)
         
         
-        var previousPointDate : NSDate = NSDate()
+        
+        
+        var previousPointDate : Date = Date()
         
         var totalSittingSecs = 0
         
@@ -63,12 +63,13 @@ class HistoryProcessor {
         var isMoving = true
         
         var secsFrom = 0
+        
         for x in activities {
             
             
             
             
-            let componentsOfCurrentDate = cal.components([.Year, .Month, .Day, .Hour, .Minute, .Second], fromDate: x.startDate)
+            let componentsOfCurrentDate = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: x.startDate)
             
             
             
@@ -77,7 +78,7 @@ class HistoryProcessor {
             
             
             
-            if ( (x.confidence == .Medium) || (x.confidence == .High) ) {
+            if ( (x.confidence == .medium) || (x.confidence == .high) ) {
                 
                 
                 
@@ -94,7 +95,7 @@ class HistoryProcessor {
                     
                     secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
                     totalSittingSecs += secsFrom
-                    secondsSat[componentsOfCurrentDate.day] = secondsSat[componentsOfCurrentDate.day] + secsFrom
+                    secondsSat[componentsOfCurrentDate.day!] = secondsSat[componentsOfCurrentDate.day!] + secsFrom
                     
                     isMoving = true
                     
@@ -110,7 +111,7 @@ class HistoryProcessor {
         
         var hoursSat:[MyTuple] = []
         
-        for(index, seconds)in secondsSat.enumerate() {
+        for(index, seconds)in secondsSat.enumerated() {
             
             
             if (seconds > 0) {

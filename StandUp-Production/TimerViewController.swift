@@ -15,7 +15,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    var settings = defaults.objectForKey("Settings") as? TimerSettings
+    var settings = defaults.object(forKey: "Settings") as? TimerSettings
     
     @IBOutlet var daysButtons: [UIButton]!
     
@@ -30,7 +30,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func saveNotificationMessage(sender: UITextField) {
+    @IBAction func saveNotificationMessage(_ sender: UITextField) {
         
         
         settings?.notificationMessage = sender.text
@@ -40,13 +40,13 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func timeIntervalSlider(sender: UISlider) {
+    @IBAction func timeIntervalSlider(_ sender: UISlider) {
         
         
         let step: Float = 5
         let roundedValue = round(sender.value / step) * step
         sender.value = roundedValue
-        sender.continuous = true
+        sender.isContinuous = true
         
         let s: Int = 00
         let m: Int = Int(roundedValue)
@@ -57,7 +57,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func startNotification(sender: UIButton) {
+    @IBAction func startNotification(_ sender: UIButton) {
         
         self.scheduleLocalNotification()
         
@@ -69,8 +69,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         setupUIElements()
         self.hideKeyboardWhenTappedAround()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -81,7 +81,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             
             button.layer.cornerRadius = 0
             button.layer.borderWidth = 1.1
-            button.layer.borderColor = UIColor(hexString: "43D4E6").CGColor
+            button.layer.borderColor = UIColor.hexStringToUIColor(hex: "43D4E6").cgColor
+            
             
             
             
@@ -90,32 +91,32 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
     }
     
     func scheduleLocalNotification() {
-        var localNotification = UILocalNotification()
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-        localNotification.repeatInterval = NSCalendarUnit.Day
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = Date(timeIntervalSinceNow: 10)
+        localNotification.repeatInterval = NSCalendar.Unit.day
         localNotification.alertBody = "Why not take a break and walk around a little."
         localNotification.alertAction = "View List"
         localNotification.category = "standingReminderCategory"
-        localNotification.timeZone = NSCalendar.currentCalendar().timeZone
+        localNotification.timeZone = Calendar.current.timeZone
         localNotification.userInfo = ["view" : "alertView"]
         
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
     }
     
     
     
-    func fixNotificationDate(dateToFix: NSDate) -> NSDate {
-        let unitFlags: NSCalendarUnit = [.Second, .Hour, .Day, .Month, .Year]
-        let dateComponents = NSCalendar.currentCalendar().components(unitFlags, fromDate: startTime)
+    func fixNotificationDate(_ dateToFix: Date) -> Date {
+        let unitFlags: NSCalendar.Unit = [.second, .hour, .day, .month, .year]
+        var dateComponents = (Calendar.current as NSCalendar).components(unitFlags, from: startTime)
         dateComponents.second = 0
         
-        var fixedDate: NSDate! = NSCalendar.currentCalendar().dateFromComponents(dateComponents)
+        var fixedDate: Date! = Calendar.current.date(from: dateComponents)
         
         return fixedDate
     }
@@ -123,7 +124,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         
         /*
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -135,7 +136,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         }
         */
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()  {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue  {
             if (keyboardSize.height > 10) {
                 self.view.frame.origin.y -= 70
             }
@@ -143,7 +144,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         
         /*
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -156,4 +157,43 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         self.view.frame.origin.y += 70
         
     }
+}
+
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UIColor {
+    
+    
+   static func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
 }
