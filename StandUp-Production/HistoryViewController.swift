@@ -20,10 +20,7 @@ class HistoryViewController: UIViewController {
     
     let historyProcessor = HistoryProcessor()
     
-    //lazy var graphView:ScrollableGraphView = ScrollableGraphView ()
     
-    
-    @IBOutlet weak var graphView: ScrollableGraphView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +33,7 @@ class HistoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
       
+        
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
                 
@@ -48,12 +46,12 @@ class HistoryViewController: UIViewController {
                     let days: [String] = self.processDataForBarChart(final)
                     let values: [Double] = self.processDataForBarChart(final)
                     
-                    //self.graphView = ScrollableGraphView(frame: self.view.frame)
+                    let graphView = ScrollableGraphView(frame: self.view.frame)
                     //self.graphView = ScrollableGraphView(self.graphView.frame)
-                    self.setupchartUI(graphView: self.graphView)
-                    self.graphView.set(data: values, withLabels: days)
+                    self.setupchartUI(graphView: graphView)
+                    graphView.set(data: values, withLabels: days)
                   
-                    //self.view.addSubview(self.graphView)
+                    self.view.addSubview(graphView)
                 }
             }
         }
@@ -62,13 +60,16 @@ class HistoryViewController: UIViewController {
         
     }
     
+   
+    
     
     func setupchartUI (graphView: ScrollableGraphView) {
         
+        graphView.rangeMax = 12
+        
         graphView.backgroundFillColor = UIColor.hexStringToUIColor(hex: "#333333")
         
-        graphView.rangeMax = 50
-        
+                
         graphView.lineWidth = 1
         graphView.lineColor = UIColor.hexStringToUIColor(hex: "#777777")
         graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
