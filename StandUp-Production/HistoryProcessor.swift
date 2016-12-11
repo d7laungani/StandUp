@@ -64,6 +64,8 @@ class HistoryProcessor {
         
         var secsFrom = 0
         
+        let componentsOfPreviousDate = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: previousPointDate)
+        
         for x in activities {
             
             
@@ -71,14 +73,19 @@ class HistoryProcessor {
             
             let componentsOfCurrentDate = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: x.startDate)
             
-            
-            
-            //print("Seconds difference is \(secondsDifference)")
-            //print("Current Day is \(componentsOfCurrentDate.day)")
+        
             
             
             if (componentsOfCurrentDate.hour! < 9 || componentsOfCurrentDate.hour! > 17) {
-                
+                if (componentsOfPreviousDate.day != componentsOfCurrentDate.day) {
+                    
+                    secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
+                    totalSittingSecs += secsFrom
+                    secondsSat[componentsOfPreviousDate.day!] = secondsSat[componentsOfPreviousDate.day!] + secsFrom
+                    
+                    isMoving = true
+                    
+                }
                 continue;
             }
             
@@ -120,7 +127,7 @@ class HistoryProcessor {
         for(index, seconds)in secondsSat.enumerated() {
             
             
-            if (seconds > 0) {
+            if (seconds > 0 && seconds < 86400) {
                 
                 let hours  = (seconds / (60 * 60))
                 
@@ -132,9 +139,8 @@ class HistoryProcessor {
         }
         print(hoursSat)
         
-        
-        //print(secondsSat)
-        print(totalSittingSecs)
+     
+      
         return hoursSat
         
     }
