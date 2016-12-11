@@ -1,15 +1,18 @@
 PODS:
+  - IQKeyboardManagerSwift (4.0.7)
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - PermissionScope
   - SCLAlertView
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 0bc083077d7749bc8cade54b7365d6f9eac7f7d1
+PODFILE CHECKSUM: 433e48829dca79bb77ea86b1c284aad912c7be2a
 
 COCOAPODS: 1.1.1

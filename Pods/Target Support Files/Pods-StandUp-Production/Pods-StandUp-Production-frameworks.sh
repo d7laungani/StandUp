@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PermissionScope/PermissionScope.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PermissionScope/PermissionScope.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
 fi

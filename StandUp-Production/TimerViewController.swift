@@ -13,7 +13,7 @@ import QuartzCore
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
     
-    
+     weak var activeField: UITextField?
     
     
     var settings = defaults.object(forKey: "Settings") as? TimerSettings
@@ -40,8 +40,11 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+       // self.deregisterFromKeyboardNotifications()
+    }
     
-    @IBAction func timeIntervalSlider(_ sender: UISlider) {
+      @IBAction func timeIntervalSlider(_ sender: UISlider) {
         
         
         let step: Float = 5
@@ -70,11 +73,10 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         setupUIElements()
         self.hideKeyboardWhenTappedAround()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+         //self.registerForKeyboardNotifications()
         
     }
-    
     func setupUIElements () {
         
         
@@ -124,43 +126,76 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         return fixedDate
     }
-    
-    
-    
-    
-    func keyboardWillShow(_ notification: Notification) {
+    func animateTextField(textField: UITextField, up: Bool)
+    {
+        let movementDistance:CGFloat = -130
+        let movementDuration: Double = 0.3
         
-        /*
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-        self.view.frame.origin.y -= 50
-        
-        
-        //self.view.frame.origin.y += 20
-        print("Keyboard size will show\(keyboardSize.height)")
-        
+        var movement:CGFloat = 0
+        if up
+        {
+            movement = movementDistance
         }
-        */
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue  {
-            if (keyboardSize.height > 10) {
-                self.view.frame.origin.y -= 70
+        else
+        {
+            movement = -movementDistance
+        }
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+   
+    
+    /*
+    // Kyeboard moving up and down stuff
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.activeField = nil
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.activeField = textField
+    }
+    
+    
+    func registerForKeyboardNotifications()
+    {
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: Selector("keyboardDidShow:"), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    func deregisterFromKeyboardNotifications()
+    {
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+        if let activeField = self.activeField, let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            self.scrollView.contentInset = contentInsets
+            self.scrollView.scrollIndicatorInsets = contentInsets
+            var aRect = self.view.frame
+            aRect.size.height -= keyboardSize.size.height
+            if (!aRect.contains(activeField.frame.origin)) {
+                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
             }
         }
-        
     }
     
-    func keyboardWillHide(_ notification: Notification) {
-        
-        /*
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-        // self.view.frame.origin.y += keyboardSize.height * 2
-        self.view.frame.origin.y += 50
-        print("Keyboard size will hide\(keyboardSize.height)")
-        }
-        */
-        
-        self.view.frame.origin.y += 70
-        
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
     }
+    */
 }
 
 // Put this piece of code anywhere you like

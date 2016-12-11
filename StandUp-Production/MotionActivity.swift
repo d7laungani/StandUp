@@ -22,9 +22,9 @@ class MotionActivity {
         getHistCompletionHandler : @escaping (_ activities: [CMMotionActivity] , _ error: NSError? ) -> Void ){
             
             var activities = [CMMotionActivity]()
-        
+           // print("activity date is form ")
             //print("from date is \(fromDate)")
-            //print("till date is \(tillDate)")
+           // print("till date is \(tillDate)")
             
             activityManager.queryActivityStarting(from: fromDate, to: tillDate, to: OperationQueue.main) { (data, error) -> Void in
                 

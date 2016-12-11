@@ -9,22 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StandUp-Production/TimerViewController.swift"
-            timestampString = "503084244.036951"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "keyboardWillHide(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
             timestampString = "503061660.501266"
             startingColumnNumber = "9223372036854775807"
@@ -81,6 +65,54 @@
             endingLineNumber = "68"
             landmarkName = "setupchartUI(graphView:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StandUp-Production/TimerViewController.swift"
+            timestampString = "503189090.655343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "TimerViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StandUp_Production.TimerViewController.keyboardWillShow (Foundation.Notification) -&gt; ()"
+                  moduleName = "StandUp-Production"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/deveshlaungani/Desktop/Swift%20Apps/StandUp-Production/StandUp-Production/TimerViewController.swift"
+                  timestampString = "503188022.385306"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StandUp_Production.TimerViewController.keyboardWillShow (Foundation.Notification) -&gt; ()"
+                  moduleName = "StandUp-Production"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/deveshlaungani/Desktop/Swift%20Apps/StandUp-Production/StandUp-Production/TimerViewController.swift"
+                  timestampString = "503188022.388267"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "676">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -77,6 +77,12 @@ class HistoryProcessor {
             //print("Current Day is \(componentsOfCurrentDate.day)")
             
             
+            if (componentsOfCurrentDate.hour! < 9 || componentsOfCurrentDate.hour! > 17) {
+                
+                continue;
+            }
+            
+            
             
             if ( (x.confidence == .medium) || (x.confidence == .high) ) {
                 
