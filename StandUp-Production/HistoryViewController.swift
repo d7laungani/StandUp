@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import PermissionScope
+import ScrollableGraphView
 
 class HistoryViewController: UIViewController {
     
@@ -20,7 +21,10 @@ class HistoryViewController: UIViewController {
     
     let historyProcessor = HistoryProcessor()
     
+    @IBOutlet weak var timerBtn: UIButton!
     
+
+    @IBOutlet weak var graphView1: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +36,12 @@ class HistoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
-      
+        //let graphView = ScrollableGraphView(frame:self.graphView1.frame)
         
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
                 
-                //self.historyProcessor.getTotalSittingSecs(activities)
+                
                 
                 
                 if let final = self.historyProcessor.getTotalSittingSecs(activities) {
@@ -46,12 +50,14 @@ class HistoryViewController: UIViewController {
                     let days: [String] = self.processDataForBarChart(final)
                     let values: [Double] = self.processDataForBarChart(final)
                     
-                    let graphView = ScrollableGraphView(frame: self.view.frame)
-                    //self.graphView = ScrollableGraphView(self.graphView.frame)
+                    let graphView = ScrollableGraphView(frame: self.graphView1.frame)
+            
                     self.setupchartUI(graphView: graphView)
                     graphView.set(data: values, withLabels: days)
-                  
+                    
                     self.view.addSubview(graphView)
+                    //graphView.addSubview(self.timerBtn)
+                
                 }
             }
         }
@@ -65,8 +71,8 @@ class HistoryViewController: UIViewController {
     
     func setupchartUI (graphView: ScrollableGraphView) {
         
-        graphView.rangeMax = 12
         
+        graphView.rangeMax = 9
         graphView.backgroundFillColor = UIColor.hexStringToUIColor(hex: "#333333")
         
                 

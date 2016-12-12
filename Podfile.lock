@@ -2,17 +2,20 @@ PODS:
   - IQKeyboardManagerSwift (4.0.7)
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
+  - ScrollableGraphView (3.0.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
   - PermissionScope
   - SCLAlertView
+  - ScrollableGraphView
 
 SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  ScrollableGraphView: 9b0ff86f9193068ffaf7e7ea875dcd297d7e8ded
 
-PODFILE CHECKSUM: 433e48829dca79bb77ea86b1c284aad912c7be2a
+PODFILE CHECKSUM: 5eb062671b1aa36568916a2c9ef01b70d73a2d23
 
 COCOAPODS: 1.1.1

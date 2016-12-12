@@ -1,4 +1,3 @@
-
 import UIKit
 
 // MARK: - ScrollableGraphView
@@ -47,8 +46,6 @@ import UIKit
     @IBInspectable open var barLineWidth: CGFloat = 1
     /// The colour of the bar outline
     @IBInspectable open var barLineColor: UIColor = UIColor.darkGray
-    /// Whether the bars should be drawn with rounded corners
-    @IBInspectable open var shouldRoundBarCorners: Bool = false
     
     // Fill Styles
     // ###########
@@ -225,7 +222,7 @@ import UIKit
     open var dataPointLabelFont: UIFont? = UIFont.systemFont(ofSize: 10)
     /// Used to force the graph to show every n-th dataPoint label
     @IBInspectable open var dataPointLabelsSparsity: Int = 1
-    
+  
     // MARK: - Private State
     // #####################
     
@@ -333,13 +330,13 @@ import UIKit
         #if TARGET_INTERFACE_BUILDER
             self.offsetWidth = 0
         #else
-            if (direction == .rightToLeft) {
-                self.offsetWidth = self.contentSize.width - viewportWidth
-            }
-                // Otherwise start of all the way to the left.
-            else {
-                self.offsetWidth = 0
-            }
+        if (direction == .rightToLeft) {
+            self.offsetWidth = self.contentSize.width - viewportWidth
+        }
+            // Otherwise start of all the way to the left.
+        else {
+            self.offsetWidth = 0
+        }
         #endif
         
         // Set the scrollview offset.
@@ -373,9 +370,9 @@ import UIKit
         // Create all the GraphPoints which which are used for drawing.
         for i in 0 ..< data.count {
             #if TARGET_INTERFACE_BUILDER
-                let value = data[i]
+            let value = data[i]
             #else
-                let value = (shouldAnimateOnStartup) ? self.range.min : data[i]
+            let value = (shouldAnimateOnStartup) ? self.range.min : data[i]
             #endif
             
             let position = calculatePosition(atIndex: i, value: value)
@@ -401,10 +398,10 @@ import UIKit
         updateOffsetWidths()
         
         #if !TARGET_INTERFACE_BUILDER
-            // Animation loop for when the range adapts
-            displayLink = CADisplayLink(target: self, selector: #selector(animationUpdate))
-            displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
-            displayLink.isPaused = true
+        // Animation loop for when the range adapts
+        displayLink = CADisplayLink(target: self, selector: #selector(animationUpdate))
+        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+        displayLink.isPaused = true
         #endif
         
         isCurrentlySettingUp = false
@@ -476,8 +473,7 @@ import UIKit
                                        barWidth: barWidth,
                                        barColor: barColor,
                                        barLineWidth: barLineWidth,
-                                       barLineColor: barLineColor,
-                                       shouldRoundCorners: shouldRoundBarCorners)
+                                       barLineColor: barLineColor)
             barLayer?.graphViewDrawingDelegate = self
             drawingView.layer.insertSublayer (barLayer!, below: lineLayer)
         }
@@ -922,17 +918,17 @@ import UIKit
     // If the active points (the points we can actually see) change, then we need to update the path.
     private func activePointsDidChange() {
         
-        let deactivatedPoints = determineDeactivatedPoints()
-        let activatedPoints = determineActivatedPoints()
-        
-        updatePaths()
-        if(shouldShowLabels) {
-            let deactivatedLabelPoints = filterPointsForLabels(fromPoints: deactivatedPoints)
-            let activatedLabelPoints = filterPointsForLabels(fromPoints: activatedPoints)
-            updateLabels(deactivatedPoints: deactivatedLabelPoints, activatedPoints: activatedLabelPoints)
-        }
-    }
-    
+      let deactivatedPoints = determineDeactivatedPoints()
+      let activatedPoints = determineActivatedPoints()
+      
+      updatePaths()
+      if(shouldShowLabels) {
+        let deactivatedLabelPoints = filterPointsForLabels(fromPoints: deactivatedPoints)
+        let activatedLabelPoints = filterPointsForLabels(fromPoints: activatedPoints)
+        updateLabels(deactivatedPoints: deactivatedLabelPoints, activatedPoints: activatedLabelPoints)
+      }
+  }
+  
     private func rangeDidChange() {
         
         // If shouldAnimateOnAdapt is enabled it will kickoff any animations that need to occur.
@@ -955,7 +951,7 @@ import UIKit
             // Need to update the graph points so they are in their right positions for the new viewport.
             // Animate them into position if animation is enabled, but make sure to stop any current animations first.
             #if !TARGET_INTERFACE_BUILDER
-                dequeueAllAnimations()
+            dequeueAllAnimations()
             #endif
             startAnimations()
             
@@ -1007,8 +1003,6 @@ import UIKit
             
             label.frame = CGRect(origin: CGPoint(x: position.x - label.frame.width / 2, y: position.y + dataPointLabelTopMargin), size: label.frame.size)
             
-            let _ = labelsView.subviews.filter { $0.frame == label.frame }.map { $0.removeFromSuperview() }
-            
             labelsView.addSubview(label)
         }
     }
@@ -1042,7 +1036,7 @@ import UIKit
         
         return Array(activatedPoints)
     }
-    
+  
     private func filterPointsForLabels(fromPoints points:[Int]) -> [Int] {
         
         if(self.dataPointLabelsSparsity == 1) {
@@ -1050,15 +1044,15 @@ import UIKit
         }
         return points.filter({ $0 % self.dataPointLabelsSparsity == 0 })
     }
-    
+  
     private func startAnimations(withStaggerValue stagger: Double = 0) {
         
         var pointsToAnimate = 0 ..< 0
         
         #if !TARGET_INTERFACE_BUILDER
-            if (shouldAnimateOnAdapt || (dataNeedsReloading && shouldAnimateOnStartup)) {
-                pointsToAnimate = activePointsInterval
-            }
+        if (shouldAnimateOnAdapt || (dataNeedsReloading && shouldAnimateOnStartup)) {
+            pointsToAnimate = activePointsInterval
+        }
         #endif
         
         // For any visible points, kickoff the animation to their new position after the axis' min/max has changed.
@@ -1323,16 +1317,14 @@ private class BarDrawingLayer: ScrollableGraphViewDrawingLayer {
     
     private var barPath = UIBezierPath()
     private var barWidth: CGFloat = 4
-    private var shouldRoundCorners = false
     
-    init(frame: CGRect, barWidth: CGFloat, barColor: UIColor, barLineWidth: CGFloat, barLineColor: UIColor, shouldRoundCorners: Bool) {
+    init(frame: CGRect, barWidth: CGFloat, barColor: UIColor, barLineWidth: CGFloat, barLineColor: UIColor) {
         super.init(viewportWidth: frame.size.width, viewportHeight: frame.size.height)
         
         self.barWidth = barWidth
         self.lineWidth = barLineWidth
         self.strokeColor = barLineColor.cgColor
         self.fillColor = barColor.cgColor
-        self.shouldRoundCorners = shouldRoundCorners
         
         self.lineJoin = lineJoin
         self.lineCap = lineCap
@@ -1344,21 +1336,23 @@ private class BarDrawingLayer: ScrollableGraphViewDrawingLayer {
     
     private func createBarPath(centre: CGPoint) -> UIBezierPath {
         
+        let squarePath = UIBezierPath()
+        
+        squarePath.move(to: centre)
         let barWidthOffset: CGFloat = self.barWidth / 2
         
-        let origin = CGPoint(x: centre.x - barWidthOffset, y: centre.y)
-        let size = CGSize(width: barWidth, height: zeroYPosition - centre.y)
-        let rect = CGRect(origin: origin, size: size)
+        let topLeft = CGPoint(x: centre.x - barWidthOffset, y: centre.y)
+        let topRight = CGPoint(x: centre.x + barWidthOffset, y: centre.y)
+        let bottomLeft = CGPoint(x: centre.x - barWidthOffset, y: zeroYPosition)
+        let bottomRight = CGPoint(x: centre.x + barWidthOffset, y: zeroYPosition)
         
-        let barPath: UIBezierPath = {
-            if shouldRoundCorners {
-                return UIBezierPath(roundedRect: rect, cornerRadius: barWidthOffset)
-            } else {
-                return UIBezierPath(rect: rect)
-            }
-        }()
+        squarePath.move(to: topLeft)
+        squarePath.addLine(to: topRight)
+        squarePath.addLine(to: bottomRight)
+        squarePath.addLine(to: bottomLeft)
+        squarePath.addLine(to: topLeft)
         
-        return barPath
+        return squarePath
     }
     
     private func createPath () -> UIBezierPath {

@@ -8,5 +8,6 @@ target 'StandUp-Production' do
 pod 'PermissionScope'
 pod 'SCLAlertView'
 pod 'IQKeyboardManagerSwift'
+pod 'ScrollableGraphView'
 end
 
