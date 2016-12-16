@@ -29,14 +29,46 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        pscope.addPermission(MotionPermission(),
-            message: "Past Data is important to determining progression")
+        
+        if (pscope.statusMotion() != .unauthorized) {
+            print("Authorized")
+            setGraph()
+        }
+            
+        else {
+            
+            print("Un authorized")
+            pscope.addPermission(MotionPermission(),
+                                 message: "Past Data is important to determining progression")
+            print("motion data not activated")
+            
+            // Show dialog with callbacks
+            pscope.show({ finished, results in
+                print("got results \(results)")
+                self.setGraph()
+            }, cancelled: { (results) -> Void in
+                print("thing was cancelled")
+            })
+            
+            
+            
+            
+        }
+
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true) // No need for semicolon
-        //let graphView = ScrollableGraphView(frame:self.graphView1.frame)
+        
+        if (pscope.statusMotion() == .authorized) {
+            setGraph()
+        }
+        
+    }
+    
+   
+    func setGraph () {
         
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
             if (error == nil) {
@@ -51,22 +83,22 @@ class HistoryViewController: UIViewController {
                     let values: [Double] = self.processDataForBarChart(final)
                     
                     let graphView = ScrollableGraphView(frame: self.graphView1.frame)
-            
+                    
                     self.setupchartUI(graphView: graphView)
                     graphView.set(data: values, withLabels: days)
                     
                     self.view.addSubview(graphView)
                     //graphView.addSubview(self.timerBtn)
-                
+                    
                 }
             }
         }
+
         
         
         
     }
     
-   
     
     
     func setupchartUI (graphView: ScrollableGraphView) {

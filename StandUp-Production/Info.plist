@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMotionUsageDescription</key>
+	<string>We need access to your motion data </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location for some aweome features</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location for some aweome features</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -22,12 +28,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>"We need your location for some aweome features"</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>"We need your location for some awesome features"</string>
-	<key>NSMotionUsageDescription</key>
-	<string></string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

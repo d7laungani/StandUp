@@ -8,11 +8,11 @@
 
 import UIKit
 import QuartzCore
-
+import PermissionScope
 
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
-    
+    let pscope = PermissionScope()
      weak var activeField: UITextField?
     
     
@@ -31,6 +31,10 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func setNotification(_ sender: Any) {
+        self.scheduleLocalNotification()
+        
+    }
     @IBAction func saveNotificationMessage(_ sender: UITextField) {
         
         
@@ -74,6 +78,23 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         
+        // Set up permissions
+        
+        pscope.addPermission(NotificationsPermission(notificationCategories: nil),
+                             message: "We use this to help you live longer")
+        pscope.addPermission(LocationAlwaysPermission(),
+                             message: "We use this to give you more accurate feedback")
+        
+        
+        
+        
+        // Show dialog with callbacks
+        pscope.show({ finished, results in
+            print("got results \(results)")
+        }, cancelled: { (results) -> Void in
+            print("thing was cancelled")
+        })
+
          //self.registerForKeyboardNotifications()
         
     }

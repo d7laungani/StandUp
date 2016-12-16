@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreMotion
-import PermissionScope
+
 
 let defaults = UserDefaults.standard
 
@@ -18,7 +18,7 @@ let endTime = defaults.object(forKey: "endWorkTimeDate") as? Date ?? Date()
 
 class MainViewController: UIViewController {
     
-    let pscope = PermissionScope()
+    
     @IBOutlet weak var activityLabel: UILabel!
     
     @IBOutlet weak var hoursSatLabel: UILabel!
@@ -46,24 +46,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Set up permissions
-        
-        pscope.addPermission(NotificationsPermission(notificationCategories: nil),
-            message: "We use this to help you live longer")
-        pscope.addPermission(LocationAlwaysPermission(),
-            message: "We use this to give you more accurate feedback")
-        
-       
-        
-        
-        // Show dialog with callbacks
-        pscope.show({ finished, results in
-            print("got results \(results)")
-            }, cancelled: { (results) -> Void in
-                print("thing was cancelled")
-        })
-        
+              
     }
     
     override func viewWillAppear(_ animated: Bool) {

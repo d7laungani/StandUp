@@ -129,10 +129,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         standingReminderCategory.setActions([willNotStandAction, willStandAction], for: UIUserNotificationActionContext.minimal)
         
         // Register for notification: This will prompt for the user's consent to receive notifications from this app.
-        let notificationSettings =  UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: NSSet(array:[standingReminderCategory]) as? Set<UIUserNotificationCategory>)
+        //let notificationSettings =  UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: NSSet(array:[standingReminderCategory]) as? Set<UIUserNotificationCategory>)
         //*NOTE*
         // Registering UIUserNotificationSettings more than once results in previous settings being overwritten.
-        UIApplication.shared.registerUserNotificationSettings(notificationSettings)
+        //UIApplication.shared.registerUserNotificationSettings(notificationSettings)
     }
     
     
