@@ -13,6 +13,7 @@ class WorkTimeViewController: UIViewController {
     @IBOutlet weak var startWorkTime: UIDatePicker!
     @IBOutlet weak var endWorkTime: UIDatePicker!
     
+     var settings = defaults.object(forKey: "Settings") as? TimerSettings
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,7 @@ class WorkTimeViewController: UIViewController {
         let now: Date! = Date()
         
         
-        //let date9h = calendar.Date(bySettingHour: 9,minute:0,second:0, of: Calendar.Options.matchFirst)
-        
-        //public func date(bySettingHour hour: Int, minute: Int, second: Int, of date: Date, matchingPolicy: Calendar.MatchingPolicy = default, repeatedTimePolicy: Calendar.RepeatedTimePolicy = default, direction: Calendar.SearchDirection = default) -> Date?
-
-        
+            
         let date9h = calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now)!
         let date17h = calendar.date(bySettingHour: 17, minute: 0, second: 0, of: now)!
         
@@ -39,7 +36,34 @@ class WorkTimeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+    @IBAction func startTimeModified(_ sender: Any) {
+        
+        guard let datePicker = sender as? UIDatePicker else {
+            return
+        }
+        
+        // Remove seconds to ensure correct time
+        
+        let date = datePicker.date.removeSeconds()
+        
+        settings?.startTime = date
+        
+    }
     
+    @IBAction func endTimeModified(_ sender: Any) {
+        
+        guard let datePicker = sender as? UIDatePicker else {
+            return
+        }
+        
+        // Remove seconds to ensure correct time
+        
+        let date = datePicker.date.removeSeconds()
+        
+        settings?.endTime = date
+        
+    }
     
     /*
     // MARK: - Navigation
