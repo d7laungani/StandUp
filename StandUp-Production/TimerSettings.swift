@@ -27,13 +27,20 @@ class TimerSettings {
     }
     
     
-    var daysEnabled = [Days]()
+    var daysEnabled = [Bool]()
     
     var notificationMessage: String? = "Why not take a break and walk around a little."
     
     var timerInterval = 45
     
     var sound : String? = " "
+    
+    init() {
+        
+        
+        daysEnabled = Array(repeating: false, count: 5)
+        
+    }
     
     
     
