@@ -35,6 +35,10 @@ class TimerSettings {
     
     var sound : String? = " "
     
+    var startTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date())!
+    
+    var endTime: Date = Calendar.current.date(bySettingHour: 17, minute: 0, second: 0, of: Date())!
+    
     init() {
         
         
