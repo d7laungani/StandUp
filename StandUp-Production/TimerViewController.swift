@@ -44,6 +44,16 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func updateDays(_ sender: Any) {
+        
+        guard let button = sender as? UIButton else {
+            return
+        }
+        
+        settings?.daysEnabled[button.tag] = button.isSelected
+        
+        
+    }
     override func viewWillDisappear(_ animated: Bool) {
        // self.deregisterFromKeyboardNotifications()
     }
@@ -60,6 +70,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         let m: Int = Int(roundedValue)
         
         let formattedDuration = String(format: "%0d:%02d", m, s)
+        
+        settings?.timerInterval = m
         
         intervalLabel.text = formattedDuration
     }
@@ -124,6 +136,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     func scheduleLocalNotification() {
+        
         let localNotification = UILocalNotification()
         localNotification.fireDate = Date(timeIntervalSinceNow: 10)
         localNotification.repeatInterval = NSCalendar.Unit.day
