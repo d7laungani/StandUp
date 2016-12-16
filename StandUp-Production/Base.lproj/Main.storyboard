@@ -528,6 +528,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="488149200.783494">
                                     <!--2016-06-20 21:00:00 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="endTimeModified:" destination="5RA-Ml-1ct" eventType="valueChanged" id="PKc-kO-G58"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUJ-Ho-5p5">
                                 <rect key="frame" x="20" y="81" width="560" height="21"/>
@@ -556,6 +559,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="488120400.30902398">
                                     <!--2016-06-20 13:00:00 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="startTimeModified:" destination="5RA-Ml-1ct" eventType="valueChanged" id="O5X-8c-x3A"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
