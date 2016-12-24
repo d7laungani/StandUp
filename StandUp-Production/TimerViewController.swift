@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 import PermissionScope
+import ChameleonFramework
 
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
@@ -85,7 +86,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.flatPurple
         setupUIElements()
         self.hideKeyboardWhenTappedAround()
         
@@ -106,7 +107,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         }, cancelled: { (results) -> Void in
             print("thing was cancelled")
         })
-
+        
+        
          //self.registerForKeyboardNotifications()
         
     }
@@ -115,12 +117,15 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         for button in daysButtons {
             
+            let contrastColor = ContrastColorOf(view.backgroundColor!, returnFlat: false)
             
             button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
             button.layer.cornerRadius = 0.5 * button.bounds.size.width
             button.clipsToBounds = true
             button.layer.borderWidth = 2.0
-            button.layer.borderColor = UIColor.white.cgColor
+            //button.layer.borderColor = UIColor.white.cgColor
+            button.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
+            button.layer.borderColor = contrastColor.cgColor
             
             
             

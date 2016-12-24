@@ -1,21 +1,35 @@
 PODS:
-  - IQKeyboardManagerSwift (4.0.7)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - IQKeyboardManagerSwift (4.0.8)
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
-  - ScrollableGraphView (3.0.0)
+  - ScrollableGraphView (3.1.0)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - IQKeyboardManagerSwift
   - PermissionScope
   - SCLAlertView
   - ScrollableGraphView
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
-  IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  ScrollableGraphView: 9b0ff86f9193068ffaf7e7ea875dcd297d7e8ded
+  ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
 
-PODFILE CHECKSUM: 5eb062671b1aa36568916a2c9ef01b70d73a2d23
+PODFILE CHECKSUM: 13cc4380a06cc6130cb0beb54b879f25a804244f
 
 COCOAPODS: 1.1.1

@@ -9,6 +9,7 @@
 import UIKit
 import PermissionScope
 import MessageUI
+import ChameleonFramework
 
 class CustomCell: UITableViewCell {
     @IBOutlet weak var switchModule: UISwitch!
@@ -72,8 +73,10 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+     
+        self.navigationController?.navigationBar.tintColor = UIColor.flatPurple
+       
+        self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
         
         // Location Updates Cell
         
