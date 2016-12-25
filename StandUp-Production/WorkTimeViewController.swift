@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class WorkTimeViewController: UIViewController {
     
@@ -47,7 +48,7 @@ class WorkTimeViewController: UIViewController {
         
         let date = datePicker.date.removeSeconds()
         
-        settings?.startTime = date
+        Defaults[.settings]?.startTime = date
         
     }
     
@@ -61,7 +62,7 @@ class WorkTimeViewController: UIViewController {
         
         let date = datePicker.date.removeSeconds()
         
-        settings?.endTime = date
+        Defaults[.settings]?.endTime = date
         
     }
     

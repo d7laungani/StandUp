@@ -10,14 +10,14 @@ import UIKit
 import QuartzCore
 import PermissionScope
 import ChameleonFramework
+import SwiftyUserDefaults
 
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
     let pscope = PermissionScope()
-     weak var activeField: UITextField?
+    weak var activeField: UITextField?
     
     
-    var settings = defaults.object(forKey: "Settings") as? TimerSettings
     
     @IBOutlet var daysButtons: [UIButton]!
     
@@ -39,7 +39,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveNotificationMessage(_ sender: UITextField) {
         
         
-        settings?.notificationMessage = sender.text
+        Defaults[.settings]?.notificationMessage = sender.text
         
         
         
@@ -51,7 +51,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        settings?.daysEnabled[button.tag] = button.isSelected
+        Defaults[.settings]?.daysEnabled[button.tag] = button.isSelected
         
         
     }
@@ -72,7 +72,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         let formattedDuration = String(format: "%0d:%02d", m, s)
         
-        settings?.timerInterval = m
+        Defaults[.settings]?.timerInterval = m
         
         intervalLabel.text = formattedDuration
     }
