@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
 extension UserDefaults {
     subscript(key: DefaultsKey<TimerSettings?>) -> TimerSettings? {
