@@ -17,7 +17,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     let pscope = PermissionScope()
     weak var activeField: UITextField?
     
-    
+    var settings = Defaults[.settings]
     
     @IBOutlet var daysButtons: [UIButton]!
     
@@ -39,7 +39,9 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveNotificationMessage(_ sender: UITextField) {
         
         
-        Defaults[.settings]?.notificationMessage = sender.text
+        settings?.notificationMessage = sender.text
+        print("text is " + sender.text!)
+        print("updated value is " + (Defaults[.settings]?.notificationMessage)!)
         
         
         
@@ -51,12 +53,15 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        Defaults[.settings]?.daysEnabled[button.tag] = button.isSelected
+        settings?.daysEnabled[button.tag] = button.isSelected
         
         
     }
     override func viewWillDisappear(_ animated: Bool) {
        // self.deregisterFromKeyboardNotifications()
+        
+        Defaults[.settings]? = settings!
+        
     }
     
       @IBAction func timeIntervalSlider(_ sender: UISlider) {
@@ -72,8 +77,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         let formattedDuration = String(format: "%0d:%02d", m, s)
         
-        Defaults[.settings]?.timerInterval = m
-        
+        settings?.timerInterval = m
         intervalLabel.text = formattedDuration
     }
     
@@ -249,29 +253,3 @@ extension UIViewController {
     }
 }
 
-extension UIColor {
-    
-    
-   static func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
-}

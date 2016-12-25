@@ -14,7 +14,7 @@ class WorkTimeViewController: UIViewController {
     @IBOutlet weak var startWorkTime: UIDatePicker!
     @IBOutlet weak var endWorkTime: UIDatePicker!
     
-     var settings = defaults.object(forKey: "Settings") as? TimerSettings
+     var settings = Defaults[.settings]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,14 @@ class WorkTimeViewController: UIViewController {
         
         startWorkTime.date = date9h
         endWorkTime.date = date17h
-        print("Current date is \(now)")
+        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Defaults[.settings] = settings
+        
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,7 +54,7 @@ class WorkTimeViewController: UIViewController {
         
         let date = datePicker.date.removeSeconds()
         
-        Defaults[.settings]?.startTime = date
+        settings?.startTime = date
         
     }
     
@@ -62,7 +68,7 @@ class WorkTimeViewController: UIViewController {
         
         let date = datePicker.date.removeSeconds()
         
-        Defaults[.settings]?.endTime = date
+        settings?.endTime = date
         
     }
     
