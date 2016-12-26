@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Calling our local method to register for local notifications.
-        self.registerForLocalNotifications()
         
         if ( Defaults[.settings] == nil) {
             Defaults[.settings] = TimerSettings()
@@ -42,7 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits
+        
+        // Calling our local method to register for local notifications.
+        self.registerLocalNotifications()
+
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -107,39 +109,68 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func registerForLocalNotifications() {
-        
-        
-        
-        // Specify the notification actions.
-        let willStandAction = UIMutableUserNotificationAction()
-        willStandAction.identifier = "willStand"
-        willStandAction.title = "OK, got it"
-        willStandAction.activationMode = UIUserNotificationActivationMode.background
-        willStandAction.isDestructive = false
-        willStandAction.isAuthenticationRequired = false
-        
-        let willNotStandAction = UIMutableUserNotificationAction()
-        willNotStandAction.identifier = "willNotStand"
-        willNotStandAction.title = "Cannot"
-        willNotStandAction.activationMode = UIUserNotificationActivationMode.background
-        willNotStandAction.isDestructive = false
-        willNotStandAction.isAuthenticationRequired = false
-        
-        
-        // Create a category with the above actions
-        let standingReminderCategory = UIMutableUserNotificationCategory()
-        standingReminderCategory.identifier = "standingReminderCategory"
-        standingReminderCategory.setActions([willNotStandAction, willStandAction], for: UIUserNotificationActionContext.default)
-        standingReminderCategory.setActions([willNotStandAction, willStandAction], for: UIUserNotificationActionContext.minimal)
-        
-        // Register for notification: This will prompt for the user's consent to receive notifications from this app.
-        //let notificationSettings =  UIUserNotificationSettings(types: [.alert, .badge , .sound], categories: NSSet(array:[standingReminderCategory]) as? Set<UIUserNotificationCategory>)
-        //*NOTE*
-        // Registering UIUserNotificationSettings more than once results in previous settings being overwritten.
-        //UIApplication.shared.registerUserNotificationSettings(notificationSettings)
-    }
     
+    func registerLocalNotifications() {
+        
+        
+        // Make sure all values are properly saved in defaults
+        Defaults.synchronize()
+        
+        let scheduler = DLNotificationScheduler()
+        scheduler.cancelAlllNotifications()
+        
+        let standingCategory = DLCategory(categoryIdentifier: "standingReminder")
+        
+        standingCategory.addActionButton(identifier: "willStand", title: "Ok, got it")
+        standingCategory.addActionButton(identifier: "willNotStand", title: "Cannot")
+        
+        scheduler.scheduleCategories(categories: [standingCategory])
+        
+        let settings = Defaults[.settings]
+        
+        let daysEnabled = settings?.daysEnabled
+        
+        var counter = 0
+        
+        
+    
+        var startComponents = DateComponents()
+        
+        startComponents.hour = Calendar.current.component(.hour, from: (settings?.startTime)!)
+        startComponents.minute = Calendar.current.component(.minute, from: (settings?.startTime)!)
+        startComponents.second = 0
+        
+        var endComponents = DateComponents()
+        
+        endComponents.hour = Calendar.current.component(.hour, from: (settings?.endTime)!)
+        endComponents.minute = Calendar.current.component(.minute, from: (settings?.endTime)!)
+        endComponents.second = 0
+        
+        
+        for day in daysEnabled! {
+            
+            
+            if day == true {
+                
+                startComponents.weekday = counter + 2
+                let startDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTime)
+                
+                endComponents.weekday = counter + 2
+                
+                let endDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTime)
+
+                scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
+                
+            }
+            counter+=1
+            
+        }
+        
+        
+        
+        
+        
+    }
     
     
     
@@ -207,6 +238,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
     }
+    
+       
     func requestRecieved()  {
         let alert = SCLAlertView()
         alert.addButton("Stand Up") {

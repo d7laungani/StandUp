@@ -83,3 +83,17 @@ class WorkTimeViewController: UIViewController {
     */
     
 }
+
+extension Date {
+    
+    func removeSeconds() -> Date{
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self)
+        let fullMinuteDate = calendar.date(from: components)!
+        
+        return fullMinuteDate
+        
+    }
+    
+}
