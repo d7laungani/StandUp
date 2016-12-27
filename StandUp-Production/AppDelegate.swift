@@ -12,6 +12,7 @@ import IQKeyboardManagerSwift
 import ChameleonFramework
 import SwiftyUserDefaults
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Calling our local method to register for local notifications.
         self.registerLocalNotifications()
-
+        
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -130,15 +131,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let daysEnabled = settings?.daysEnabled
         
-        var counter = 0
         
         
-    
         var startComponents = DateComponents()
         
         startComponents.hour = Calendar.current.component(.hour, from: (settings?.startTime)!)
         startComponents.minute = Calendar.current.component(.minute, from: (settings?.startTime)!)
         startComponents.second = 0
+        
         
         var endComponents = DateComponents()
         
@@ -146,24 +146,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         endComponents.minute = Calendar.current.component(.minute, from: (settings?.endTime)!)
         endComponents.second = 0
         
-
         
-        for day in daysEnabled! {
+        print(startComponents.debugDescription)
+        print(endComponents.debugDescription)
+        
+        for (index, value) in daysEnabled!.enumerated() {
             
             
-            if day == true {
+            if value == true {
                 
-                startComponents.weekday = counter + 2
-                let startDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTime)
-                
-                endComponents.weekday = counter + 2
-                
-                let endDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTime)
-
-                scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
-                
+                // Check if todays date is the date of scheduling
+                let today = Calendar.current.component(.weekday, from: Date())
+                // It is current date then do something special
+                if ( today == index + 2) {
+                    
+                    // Closest From date
+                    
+                    //let startDate = try! DateInRegion(components: startComponents)
+                    let startDate = Calendar.current.date(bySettingHour: startComponents.hour!, minute: startComponents.minute!, second: 0, of: Date())
+                    
+                    print(Date())
+                    
+                    // Closest To Date
+                    
+                    let endDate = Calendar.current.date(bySettingHour: endComponents.hour!, minute: endComponents.minute!, second: 0, of: Date())
+                    
+                    print(endDate)
+                    
+                    let valid = (startDate! < Date()) && (Date() < endDate!)
+                    
+                    // Go to next day
+                    if (!valid){break}
+                    
+                   // else continue scheduling
+                    
+                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: Date(), toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
+                    
+                    
+                }
+                    
+                // The schedulded date is not today so no problem
+                else {
+                    
+                    
+                    startComponents.weekday = index + 2
+                    let startDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTimePreservingSmallerComponents)
+                    print(startDate.debugDescription)
+                    
+                    endComponents.weekday = index + 2
+                    
+                    let endDate = Calendar.current.nextDate(after: Date(), matching: endComponents, matchingPolicy: Calendar.MatchingPolicy.nextTimePreservingSmallerComponents)
+                    print(endDate.debugDescription)
+                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
+                    
+                }
             }
-            counter+=1
+            
             
         }
         
@@ -173,6 +211,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    
+    func findClosestDate (fromDate: Date,endDate: Date, interval: Int) -> Date {
+        
+        
+        let currentDate = Date()
+        return currentDate
+    }
     
     
     func redirectToPage(_ userInfo:[AnyHashable: Any]!)
@@ -206,15 +251,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.window?.rootViewController?.present(viewControllerToBrRedirectedTo, animated: true, completion: nil)
                     
                     /*
-                    else
-                    {
-                    rootVC?.presentViewController(viewControllerToBrRedirectedTo, animated: true, completion: { () -> Void in
-                    
-                    print("Presented view Controller")
-                    
-                    })
-                    }
-                    */
+                     else
+                     {
+                     rootVC?.presentViewController(viewControllerToBrRedirectedTo, animated: true, completion: { () -> Void in
+                     
+                     print("Presented view Controller")
+                     
+                     })
+                     }
+                     */
                     
                     
                 }
@@ -240,7 +285,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-       
+    
     func requestRecieved()  {
         let alert = SCLAlertView()
         alert.addButton("Stand Up") {
