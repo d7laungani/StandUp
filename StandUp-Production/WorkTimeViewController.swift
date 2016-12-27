@@ -28,8 +28,25 @@ class WorkTimeViewController: UIViewController {
         let date9h = calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now)!
         let date17h = calendar.date(bySettingHour: 17, minute: 0, second: 0, of: now)!
         
-        startWorkTime.date = date9h
-        endWorkTime.date = date17h
+        if (settings?.startTime != date9h) {
+            
+            startWorkTime.date = (settings?.startTime)!
+            
+        } else {
+            startWorkTime.date = date9h
+            
+        }
+        
+        if (settings?.endTime != date17h) {
+            
+            endWorkTime.date = (settings?.endTime)!
+        } else {
+            
+            endWorkTime.date = date17h
+        }
+        
+        
+        
         
     }
     
