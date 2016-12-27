@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		55B199531DF7C9ED00A40C1B /* ABNScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B199521DF7C9ED00A40C1B /* ABNScheduler.swift */; };
 		55B199551DF7C9F600A40C1B /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B199541DF7C9F600A40C1B /* TimerSettings.swift */; };
 		9CF0A784A28D4E629BD45E04 /* Pods_StandUp_Production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */; };
 		FA34B89D1D0FBF350082F616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B89C1D0FBF350082F616 /* AppDelegate.swift */; };
@@ -19,15 +18,17 @@
 		FA34B8B31D0FC09E0082F616 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */; };
 		FA34B8B61D0FC4B60082F616 /* MotionActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */; };
 		FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */; };
+		FA43B4F91E0FA9CA001BBF02 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B4F81E0FA9CA001BBF02 /* UIColor.swift */; };
 		FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */; };
 		FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */; };
 		FA58E68C1D18F61500C75B2D /* WorkTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58E68B1D18F61500C75B2D /* WorkTimeViewController.swift */; };
+		FAA2B3691E10790E00E1C13A /* DLLocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2B3681E10790E00E1C13A /* DLLocalNotifications.swift */; };
+		FAA41E511E0F911B0050649C /* DefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA41E501E0F911B0050649C /* DefaultKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0BB5A822DE48953DDE6024AF /* Pods-StandUp-Production.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandUp-Production.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandUp-Production/Pods-StandUp-Production.release.xcconfig"; sourceTree = "<group>"; };
 		47B205163BEC869283FC8A8E /* Pods-StandUp-Production.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandUp-Production.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandUp-Production/Pods-StandUp-Production.debug.xcconfig"; sourceTree = "<group>"; };
-		55B199521DF7C9ED00A40C1B /* ABNScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABNScheduler.swift; sourceTree = "<group>"; };
 		55B199541DF7C9F600A40C1B /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
 		715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandUp_Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA34B8991D0FBF350082F616 /* StandUp-Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StandUp-Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,10 +42,13 @@
 		FA34B8B21D0FC09E0082F616 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionActivity.swift; sourceTree = "<group>"; };
 		FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		FA43B4F81E0FA9CA001BBF02 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		FA58E6741D1261E800C75B2D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "Pods/../build/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryProcessor.swift; sourceTree = "<group>"; };
 		FA58E6841D152DE200C75B2D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA58E68B1D18F61500C75B2D /* WorkTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeViewController.swift; sourceTree = "<group>"; };
+		FAA2B3681E10790E00E1C13A /* DLLocalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLLocalNotifications.swift; sourceTree = "<group>"; };
+		FAA41E501E0F911B0050649C /* DefaultKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				55B199541DF7C9F600A40C1B /* TimerSettings.swift */,
-				55B199521DF7C9ED00A40C1B /* ABNScheduler.swift */,
 				FA34B8B71D0FDFE50082F616 /* NSDateExtension.swift */,
+				FA43B4F81E0FA9CA001BBF02 /* UIColor.swift */,
+				FAA2B3681E10790E00E1C13A /* DLLocalNotifications.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				FA34B8B51D0FC4B60082F616 /* MotionActivity.swift */,
 				FA58E6761D1268DB00C75B2D /* HistoryProcessor.swift */,
+				FAA41E501E0F911B0050649C /* DefaultKeys.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -281,12 +287,14 @@
 			files = (
 				55B199551DF7C9F600A40C1B /* TimerSettings.swift in Sources */,
 				FA34B8B61D0FC4B60082F616 /* MotionActivity.swift in Sources */,
+				FAA2B3691E10790E00E1C13A /* DLLocalNotifications.swift in Sources */,
 				FA34B8B31D0FC09E0082F616 /* TimerViewController.swift in Sources */,
 				FA58E68C1D18F61500C75B2D /* WorkTimeViewController.swift in Sources */,
-				55B199531DF7C9ED00A40C1B /* ABNScheduler.swift in Sources */,
+				FAA41E511E0F911B0050649C /* DefaultKeys.swift in Sources */,
 				FA34B8B81D0FDFE50082F616 /* NSDateExtension.swift in Sources */,
 				FA58E6771D1268DB00C75B2D /* HistoryProcessor.swift in Sources */,
 				FA34B8A11D0FBF350082F616 /* HistoryViewController.swift in Sources */,
+				FA43B4F91E0FA9CA001BBF02 /* UIColor.swift in Sources */,
 				FA34B89D1D0FBF350082F616 /* AppDelegate.swift in Sources */,
 				FA34B89F1D0FBF350082F616 /* MainViewController.swift in Sources */,
 				FA58E6851D152DE200C75B2D /* SettingsTableViewController.swift in Sources */,
@@ -411,7 +419,7 @@
 				DEVELOPMENT_TEAM = 3FNKL5DKHS;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "StandUp-Production/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-project.StandUp-Production";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,7 +437,7 @@
 				DEVELOPMENT_TEAM = 3FNKL5DKHS;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "StandUp-Production/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-project.StandUp-Production";
 				PRODUCT_NAME = "$(TARGET_NAME)";
