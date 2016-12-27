@@ -510,61 +510,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vk-Uq-7fI">
-                                <rect key="frame" x="0.0" y="349" width="375" height="202"/>
-                                <date key="date" timeIntervalSinceReferenceDate="488149200.783494">
-                                    <!--2016-06-20 21:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="endTimeModified:" destination="5RA-Ml-1ct" eventType="valueChanged" id="PKc-kO-G58"/>
-                                </connections>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUJ-Ho-5p5">
-                                <rect key="frame" x="20" y="81" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="560" id="HSD-Hq-aCw"/>
-                                    <constraint firstAttribute="height" constant="21" id="Xoa-Sh-8Wu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95O-lO-S8b">
-                                <rect key="frame" x="20" y="315" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="9xv-je-lqi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTE-nS-1D8">
-                                <rect key="frame" x="0.0" y="110" width="375" height="192"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="192" id="UJv-kT-406"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="488120400.30902398">
-                                    <!--2016-06-20 13:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="startTimeModified:" destination="5RA-Ml-1ct" eventType="valueChanged" id="O5X-8c-x3A"/>
-                                </connections>
-                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6w-da-Mqk" customClass="TenClock" customModule="_10Clock">
+                                <rect key="frame" x="0.0" y="115" width="375" height="375"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pTE-nS-1D8" firstAttribute="leading" secondItem="IjA-gQ-tvU" secondAttribute="leading" id="0MP-pW-KXr"/>
-                            <constraint firstItem="SUJ-Ho-5p5" firstAttribute="leading" secondItem="95O-lO-S8b" secondAttribute="leading" id="0YJ-td-gQQ"/>
-                            <constraint firstItem="pTE-nS-1D8" firstAttribute="leading" secondItem="9vk-Uq-7fI" secondAttribute="leading" id="44J-cN-o4C"/>
-                            <constraint firstItem="pTE-nS-1D8" firstAttribute="trailing" secondItem="9vk-Uq-7fI" secondAttribute="trailing" id="5Wr-8k-i4p"/>
-                            <constraint firstItem="pTE-nS-1D8" firstAttribute="top" secondItem="SUJ-Ho-5p5" secondAttribute="bottom" constant="8" symbolic="YES" id="FDq-Bv-plj"/>
-                            <constraint firstItem="GEK-4O-0HM" firstAttribute="top" secondItem="9vk-Uq-7fI" secondAttribute="bottom" constant="116" id="G3r-aq-MGj"/>
-                            <constraint firstItem="SUJ-Ho-5p5" firstAttribute="leading" secondItem="IjA-gQ-tvU" secondAttribute="leadingMargin" constant="4" id="MSF-aF-FOh"/>
-                            <constraint firstItem="9vk-Uq-7fI" firstAttribute="top" secondItem="95O-lO-S8b" secondAttribute="bottom" constant="13" id="ObB-jL-xi6"/>
-                            <constraint firstAttribute="trailing" secondItem="pTE-nS-1D8" secondAttribute="trailing" id="dFf-d1-v2T"/>
-                            <constraint firstItem="SUJ-Ho-5p5" firstAttribute="top" secondItem="Ybx-lw-Yf6" secondAttribute="bottom" constant="17" id="f9H-C4-zVl"/>
-                            <constraint firstItem="SUJ-Ho-5p5" firstAttribute="trailing" secondItem="95O-lO-S8b" secondAttribute="trailing" id="r60-oM-o9w"/>
-                            <constraint firstItem="95O-lO-S8b" firstAttribute="top" secondItem="pTE-nS-1D8" secondAttribute="bottom" constant="13" id="xfV-OE-JG1"/>
+                            <constraint firstItem="E6w-da-Mqk" firstAttribute="top" secondItem="Ybx-lw-Yf6" secondAttribute="bottom" constant="51" id="Puo-sY-2s2"/>
+                            <constraint firstItem="E6w-da-Mqk" firstAttribute="leading" secondItem="IjA-gQ-tvU" secondAttribute="leading" id="Qwf-pZ-vlc"/>
+                            <constraint firstItem="GEK-4O-0HM" firstAttribute="top" secondItem="E6w-da-Mqk" secondAttribute="bottom" constant="177" id="UNl-cU-ovB"/>
+                            <constraint firstAttribute="trailing" secondItem="E6w-da-Mqk" secondAttribute="trailing" id="Wsu-cK-grG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vVt-Ox-egR">
@@ -581,8 +537,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="endWorkTime" destination="9vk-Uq-7fI" id="QuH-6e-QBE"/>
-                        <outlet property="startWorkTime" destination="pTE-nS-1D8" id="HpY-Ha-BXp"/>
+                        <outlet property="clock" destination="E6w-da-Mqk" id="srB-9F-RCX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpn-pV-ZXp" userLabel="First Responder" sceneMemberID="firstResponder"/>

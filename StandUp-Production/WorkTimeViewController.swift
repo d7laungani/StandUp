@@ -8,11 +8,15 @@
 
 import UIKit
 import SwiftyUserDefaults
+import _10Clock
 
-class WorkTimeViewController: UIViewController {
+class WorkTimeViewController: UIViewController, TenClockDelegate {
     
     @IBOutlet weak var startWorkTime: UIDatePicker!
     @IBOutlet weak var endWorkTime: UIDatePicker!
+    
+    @IBOutlet var clock: TenClock!
+    
     
      var settings = Defaults[.settings]
     
@@ -23,26 +27,27 @@ class WorkTimeViewController: UIViewController {
         let calendar = Calendar.current
         let now: Date! = Date()
         
-        
+        clock.delegate = self
             
         let date9h = calendar.date(bySettingHour: 9, minute: 0, second: 0, of: now)!
         let date17h = calendar.date(bySettingHour: 17, minute: 0, second: 0, of: now)!
         
         if (settings?.startTime != date9h) {
             
-            startWorkTime.date = (settings?.startTime)!
+            clock.endDate  = (settings?.startTime)!
             
         } else {
-            startWorkTime.date = date9h
+            clock.endDate = date9h
             
         }
         
         if (settings?.endTime != date17h) {
             
-            endWorkTime.date = (settings?.endTime)!
+            clock.startDate = (settings?.endTime)!
+           
         } else {
             
-            endWorkTime.date = date17h
+            clock.startDate = date17h
         }
         
         
@@ -51,7 +56,9 @@ class WorkTimeViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         saveSettings()
+        
     }
     func saveSettings () {
         Defaults[.settings]? = settings!
@@ -64,32 +71,13 @@ class WorkTimeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
    
-    @IBAction func startTimeModified(_ sender: Any) {
-        
-        guard let datePicker = sender as? UIDatePicker else {
-            return
-        }
-        
-        // Remove seconds to ensure correct time
-        
-        let date = datePicker.date.removeSeconds()
-        
-        settings?.startTime = date
-        
-    }
+
     
-    @IBAction func endTimeModified(_ sender: Any) {
-        
-        guard let datePicker = sender as? UIDatePicker else {
-            return
-        }
-        
-        // Remove seconds to ensure correct time
-        
-        let date = datePicker.date.removeSeconds()
-        
-        settings?.endTime = date
-        
+    //Executed for every touch.
+    func timesUpdated(_ clock:TenClock, startDate:Date,  endDate:Date  ) -> (){
+        //...
+        settings?.startTime = clock.endDate
+        settings?.endTime = clock.startDate
     }
     
     /*
@@ -104,16 +92,4 @@ class WorkTimeViewController: UIViewController {
     
 }
 
-extension Date {
-    
-    func removeSeconds() -> Date{
-        
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self)
-        let fullMinuteDate = calendar.date(from: components)!
-        
-        return fullMinuteDate
-        
-    }
-    
-}
+
