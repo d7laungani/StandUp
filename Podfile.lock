@@ -6,6 +6,7 @@ PODS:
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
   - ScrollableGraphView (3.1.0)
+  - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - PermissionScope
   - SCLAlertView
   - ScrollableGraphView
+  - SwiftyUserDefaults
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
+  SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 13cc4380a06cc6130cb0beb54b879f25a804244f
+PODFILE CHECKSUM: fd9fd96a0450beeba2b3c1dc45d1f715167f0302
 
 COCOAPODS: 1.1.1
