@@ -187,7 +187,7 @@
                                     <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="z31-WP-G4f"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVr-4e-shw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="45:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVr-4e-shw">
                                 <rect key="frame" x="105" y="159" width="110" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="yK6-0h-mp6"/>
@@ -196,7 +196,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2L-qH-J6A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2L-qH-J6A">
                                 <rect key="frame" x="191" y="165" width="56" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="zRG-Gi-lra"/>
@@ -248,13 +248,6 @@
                                     <segue destination="P23-vx-eG5" kind="show" id="dyZ-JV-UHy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1T4-qF-G7u">
-                                <rect key="frame" x="145" y="282" width="30" height="30"/>
-                                <state key="normal" title="Set"/>
-                                <connections>
-                                    <action selector="setNotification:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="NIo-l1-E0b"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivate yourself" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOU-Wv-R01">
                                 <rect key="frame" x="31" y="522" width="154" height="20"/>
                                 <constraints>
@@ -267,11 +260,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.30744040012359619" green="0.33168339729309082" blue="0.70145398378372192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HVr-4e-shw" firstAttribute="centerX" secondItem="1T4-qF-G7u" secondAttribute="centerX" id="0HB-rD-AaL"/>
                             <constraint firstItem="1WQ-R8-q9z" firstAttribute="top" secondItem="k2L-qH-J6A" secondAttribute="bottom" constant="84" id="1qO-mB-rc3"/>
                             <constraint firstItem="HVr-4e-shw" firstAttribute="top" secondItem="ncJ-M7-XUq" secondAttribute="bottom" constant="48" id="3fg-BK-W8i"/>
                             <constraint firstItem="FN3-no-bBH" firstAttribute="top" secondItem="1WQ-R8-q9z" secondAttribute="bottom" constant="86" id="5qt-yS-EQI"/>
-                            <constraint firstItem="1WQ-R8-q9z" firstAttribute="top" secondItem="1T4-qF-G7u" secondAttribute="bottom" constant="20" id="7sv-22-uYM"/>
                             <constraint firstItem="HVr-4e-shw" firstAttribute="centerY" secondItem="k2L-qH-J6A" secondAttribute="centerY" id="86v-ch-aH6"/>
                             <constraint firstItem="Tad-hF-mJf" firstAttribute="leading" secondItem="FN3-no-bBH" secondAttribute="trailing" constant="13" id="8Nr-ef-dex"/>
                             <constraint firstItem="enA-bu-mXU" firstAttribute="baseline" secondItem="WBe-X7-0cb" secondAttribute="baseline" id="8Ut-fa-wI7"/>
@@ -292,7 +283,6 @@
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MHw-NY-2fn" secondAttribute="bottom" constant="80" id="SEE-5X-HEH"/>
                             <constraint firstItem="WBe-X7-0cb" firstAttribute="baseline" secondItem="J4G-q3-I1T" secondAttribute="baseline" id="U41-Od-CEI"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="5" id="VDY-6n-h00"/>
-                            <constraint firstItem="1T4-qF-G7u" firstAttribute="top" secondItem="HVr-4e-shw" secondAttribute="bottom" constant="28" id="WAA-gu-37p"/>
                             <constraint firstItem="FN3-no-bBH" firstAttribute="baseline" secondItem="Tad-hF-mJf" secondAttribute="firstBaseline" id="Wra-mK-egC"/>
                             <constraint firstItem="Td1-yc-Q3z" firstAttribute="leading" secondItem="1WQ-R8-q9z" secondAttribute="trailing" constant="31" id="X6f-rv-4Fz"/>
                             <constraint firstItem="1y7-vr-5Ce" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="Y0t-Hu-QQz"/>
@@ -322,13 +312,13 @@
                     </view>
                     <connections>
                         <outlet property="intervalLabel" destination="HVr-4e-shw" id="xfn-Dt-knk"/>
-                        <outletCollection property="daysButtons" destination="Td1-yc-Q3z" collectionClass="NSMutableArray" id="N9A-2f-jFh"/>
-                        <outletCollection property="daysButtons" destination="mKA-EQ-iBX" collectionClass="NSMutableArray" id="EPq-gy-APN"/>
-                        <outletCollection property="daysButtons" destination="J4G-q3-I1T" collectionClass="NSMutableArray" id="w6W-ja-Tzv"/>
-                        <outletCollection property="daysButtons" destination="WBe-X7-0cb" collectionClass="NSMutableArray" id="iF2-9Z-lpa"/>
-                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="BR3-zz-uI3"/>
-                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="esa-AO-qTk"/>
+                        <outlet property="notificationMessage" destination="MHw-NY-2fn" id="z94-3P-yjl"/>
+                        <outlet property="timerSlider" destination="1WQ-R8-q9z" id="3kf-rG-Q6n"/>
                         <outletCollection property="daysButtons" destination="FN3-no-bBH" collectionClass="NSMutableArray" id="yiH-9n-IkW"/>
+                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="tP5-BN-6Sr"/>
+                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="Mvl-pi-7sc"/>
+                        <outletCollection property="daysButtons" destination="WBe-X7-0cb" collectionClass="NSMutableArray" id="R6m-bh-ncy"/>
+                        <outletCollection property="daysButtons" destination="J4G-q3-I1T" collectionClass="NSMutableArray" id="6Dd-1x-6uM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

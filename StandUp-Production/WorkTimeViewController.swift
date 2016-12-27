@@ -34,10 +34,13 @@ class WorkTimeViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        Defaults[.settings] = settings
+        saveSettings()
+    }
+    func saveSettings () {
+        Defaults[.settings]? = settings!
+        Defaults.synchronize()
         
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

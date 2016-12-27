@@ -146,6 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         endComponents.minute = Calendar.current.component(.minute, from: (settings?.endTime)!)
         endComponents.second = 0
         
+
         
         for day in daysEnabled! {
             

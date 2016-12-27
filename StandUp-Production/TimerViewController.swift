@@ -12,37 +12,38 @@ import PermissionScope
 import ChameleonFramework
 import SwiftyUserDefaults
 
+
+
 class TimerViewController: UIViewController, UITextFieldDelegate {
     
     let pscope = PermissionScope()
-    weak var activeField: UITextField?
     
     var settings = Defaults[.settings]
     
     @IBOutlet var daysButtons: [UIButton]!
     
     
+    @IBOutlet weak var timerSlider: UISlider!
     
     @IBOutlet weak var intervalLabel: UILabel!
     
-    @IBOutlet weak var notificationMessage: UITextField!{
+    
+    
+    
+    @IBOutlet weak var notificationMessage: UITextField! {
         didSet {
             notificationMessage.delegate = self
         }
     }
     
     
-    @IBAction func setNotification(_ sender: Any) {
-        self.scheduleLocalNotification()
-        
-    }
-    @IBAction func saveNotificationMessage(_ sender: UITextField) {
+    
+    func doneAction(_ sender : UITextField) {
         
         
         settings?.notificationMessage = sender.text
-        print("text is " + sender.text!)
-        print("updated value is " + (Defaults[.settings]?.notificationMessage)!)
         
+        saveSettings()
         
         
     }
@@ -53,18 +54,19 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        button.isSelected = !button.isSelected;
         settings?.daysEnabled[button.tag] = button.isSelected
+        saveSettings()
         
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-       // self.deregisterFromKeyboardNotifications()
-        
-        Defaults[.settings]? = settings!
+        // self.deregisterFromKeyboardNotifications()
+        saveSettings()
         
     }
     
-      @IBAction func timeIntervalSlider(_ sender: UISlider) {
+    @IBAction func timeIntervalSlider(_ sender: UISlider) {
         
         
         let step: Float = 5
@@ -72,27 +74,42 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         sender.value = roundedValue
         sender.isContinuous = true
         
+        updateIntervalLabel(roundedValue: roundedValue)
+        
+        settings?.timerInterval = Int(roundedValue)
+        saveSettings()
+        
+    }
+    
+    // uppdate slider Label text
+    func updateIntervalLabel (roundedValue:Float) {
         let s: Int = 00
         let m: Int = Int(roundedValue)
         
         let formattedDuration = String(format: "%0d:%02d", m, s)
-        
-        settings?.timerInterval = m
         intervalLabel.text = formattedDuration
+        
+    }
+    
+    func saveSettings () {
+        Defaults[.settings]? = settings!
+        Defaults.synchronize()
+        
     }
     
     
-    @IBAction func startNotification(_ sender: UIButton) {
-        
-        self.scheduleLocalNotification()
-        
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor.flatPurple
         setupUIElements()
+        
         self.hideKeyboardWhenTappedAround()
+        
+        notificationMessage.setCustomDoneTarget(self, action: #selector(self.doneAction(_:)))
+        updateValues()
         
         
         // Set up permissions
@@ -107,15 +124,39 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         // Show dialog with callbacks
         pscope.show({ finished, results in
-            print("got results \(results)")
+            
         }, cancelled: { (results) -> Void in
             print("thing was cancelled")
         })
         
         
-         //self.registerForKeyboardNotifications()
         
     }
+    
+    // Updates values if changed
+    
+    func updateValues () {
+        
+        // Updates interval text label
+        
+        let x = Float((settings?.timerInterval)!)
+        timerSlider.value = x
+        updateIntervalLabel(roundedValue: x)
+        
+        // Update button state
+        
+        for (index, value) in  (settings?.daysEnabled)!.enumerated(){
+            daysButtons[index].isSelected = value
+        }
+        
+        // update notification message
+        
+        if (settings?.notificationMessage != "Why not take a break and walk around a little."){
+            notificationMessage.text = settings?.notificationMessage
+        }
+        
+    }
+    
     func setupUIElements () {
         
         
@@ -127,7 +168,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             button.layer.cornerRadius = 0.5 * button.bounds.size.width
             button.clipsToBounds = true
             button.layer.borderWidth = 2.0
-            //button.layer.borderColor = UIColor.white.cgColor
             button.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
             button.layer.borderColor = contrastColor.cgColor
             
@@ -144,101 +184,9 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         return true;
     }
     
-    func scheduleLocalNotification() {
-        
-        let localNotification = UILocalNotification()
-        localNotification.fireDate = Date(timeIntervalSinceNow: 10)
-        localNotification.repeatInterval = NSCalendar.Unit.day
-        localNotification.alertBody = "Why not take a break and walk around a little."
-        localNotification.alertAction = "View List"
-        localNotification.category = "standingReminderCategory"
-        localNotification.timeZone = Calendar.current.timeZone
-        localNotification.userInfo = ["view" : "alertView"]
-        
-        UIApplication.shared.scheduleLocalNotification(localNotification)
-    }
+  
     
     
-    
-    func fixNotificationDate(_ dateToFix: Date) -> Date {
-        let unitFlags: NSCalendar.Unit = [.second, .hour, .day, .month, .year]
-        var dateComponents = (Calendar.current as NSCalendar).components(unitFlags, from: startTime)
-        dateComponents.second = 0
-        
-        var fixedDate: Date! = Calendar.current.date(from: dateComponents)
-        
-        return fixedDate
-    }
-    func animateTextField(textField: UITextField, up: Bool)
-    {
-        let movementDistance:CGFloat = -130
-        let movementDuration: Double = 0.3
-        
-        var movement:CGFloat = 0
-        if up
-        {
-            movement = movementDistance
-        }
-        else
-        {
-            movement = -movementDistance
-        }
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
-    }
-    
-   
-    
-    /*
-    // Kyeboard moving up and down stuff
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        self.activeField = nil
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.activeField = textField
-    }
-    
-    
-    func registerForKeyboardNotifications()
-    {
-        //Adding notifies on keyboard appearing
-        NotificationCenter.default.addObserver(self, selector: Selector("keyboardDidShow:"), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    
-    func deregisterFromKeyboardNotifications()
-    {
-        //Removing notifies on keyboard appearing
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    func keyboardDidShow(notification: NSNotification) {
-        if let activeField = self.activeField, let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
-            self.scrollView.contentInset = contentInsets
-            self.scrollView.scrollIndicatorInsets = contentInsets
-            var aRect = self.view.frame
-            aRect.size.height -= keyboardSize.size.height
-            if (!aRect.contains(activeField.frame.origin)) {
-                self.scrollView.scrollRectToVisible(activeField.frame, animated: true)
-            }
-        }
-    }
-    
-    func keyboardWillBeHidden(notification: NSNotification) {
-        let contentInsets = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInsets
-        self.scrollView.scrollIndicatorInsets = contentInsets
-    }
-    */
 }
 
 // Put this piece of code anywhere you like
