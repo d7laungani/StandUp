@@ -76,7 +76,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
      
         self.navigationController?.navigationBar.tintColor = UIColor.flatPurple
        
-        self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
+       // self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
         
         // Location Updates Cell
         

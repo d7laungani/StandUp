@@ -11,10 +11,11 @@ import QuartzCore
 import PermissionScope
 import ChameleonFramework
 import SwiftyUserDefaults
+import EFCircularSlider
 
 
 
-class TimerViewController: UIViewController, UITextFieldDelegate {
+class TimerViewController: UIViewController, UITextFieldDelegate{
     
     let pscope = PermissionScope()
     
@@ -23,10 +24,10 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var daysButtons: [UIButton]!
     
     
-    @IBOutlet weak var timerSlider: UISlider!
-    
     @IBOutlet weak var intervalLabel: UILabel!
     
+    var minuteSlider = EFCircularSlider()
+  
     
     
     
@@ -66,20 +67,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func timeIntervalSlider(_ sender: UISlider) {
-        
-        
-        let step: Float = 5
-        let roundedValue = round(sender.value / step) * step
-        sender.value = roundedValue
-        sender.isContinuous = true
-        
-        updateIntervalLabel(roundedValue: roundedValue)
-        
-        settings?.timerInterval = Int(roundedValue)
-        saveSettings()
-        
-    }
     
     // uppdate slider Label text
     func updateIntervalLabel (roundedValue:Float) {
@@ -96,9 +83,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         Defaults.synchronize()
         
     }
-    
-    
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,6 +106,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
         
         
+    
         
         // Show dialog with callbacks
         pscope.show({ finished, results in
@@ -133,14 +119,33 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func minuteDidChange(x: EFCircularSlider ) {
+        
+        let value = x.currentValue
+        
+        let step: Float = 5
+        let roundedValue = round(value / step) * step
+        
+        x.currentValue = roundedValue
+       
+        updateIntervalLabel(roundedValue: roundedValue)
+        
+        settings?.timerInterval = Int(roundedValue)
+        saveSettings()
+
+
+        
+    }
+    
     // Updates values if changed
     
     func updateValues () {
         
+        
         // Updates interval text label
         
         let x = Float((settings?.timerInterval)!)
-        timerSlider.value = x
+        minuteSlider.currentValue = x
         updateIntervalLabel(roundedValue: x)
         
         // Update button state
@@ -175,6 +180,33 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             
             
         }
+        
+        // Timer setup
+        self.view.backgroundColor = UIColor(red: CGFloat(31 / 255.0), green: CGFloat(61 / 255.0), blue: CGFloat(91 / 255.0), alpha: CGFloat(1.0))
+        
+        var minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(140), width: self.view.frame.size.width - 20, height: CGFloat(270))
+        
+      
+        minuteSlider = EFCircularSlider(frame: minuteSliderFrame)
+        minuteSlider.unfilledColor = UIColor(red: CGFloat(23 / 255.0), green: CGFloat(47 / 255.0), blue: CGFloat(70 / 255.0), alpha: CGFloat(1.0))
+        minuteSlider.filledColor = UIColor(red: CGFloat(155 / 255.0), green: CGFloat(211 / 255.0), blue: CGFloat(156 / 255.0), alpha: CGFloat(1.0))
+        
+        minuteSlider.setInnerMarkingLabels(["5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"])
+        
+        minuteSlider.labelFont = UIFont.systemFont(ofSize: CGFloat(14.0))
+        minuteSlider.lineWidth = 8
+        minuteSlider.minimumValue = 0
+        minuteSlider.maximumValue = 60
+
+        //minuteSlider.snapToLabels = true
+        minuteSlider.labelColor = UIColor(red: CGFloat(76 / 255.0), green: CGFloat(111 / 255.0), blue: CGFloat(137 / 255.0), alpha: CGFloat(1.0))
+        minuteSlider.handleType = doubleCircleWithOpenCenter
+        minuteSlider.handleColor = minuteSlider.filledColor
+        
+        self.view.addSubview(minuteSlider)
+     
+        minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
+
         
         
     }

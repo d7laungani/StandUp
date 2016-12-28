@@ -3,6 +3,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - EFCircularSlider (0.1.0)
   - IQKeyboardManagerSwift (4.0.8)
   - PermissionScope (1.1.1)
   - SCLAlertView (0.7.0)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - 10Clock (~> 0.0.19)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - EFCircularSlider (~> 0.1.0)
   - IQKeyboardManagerSwift
   - PermissionScope
   - SCLAlertView
@@ -30,12 +32,13 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   10Clock: 2a4041365787259a1311cd089695550291a063d2
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  EFCircularSlider: 5a4baa272264e845577945c86e23d5d3996d3c37
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: fe8018e93f0c7d348eef855f156c1a6c41cd1823
+PODFILE CHECKSUM: 15be9a099c3201344e6b558bc677283ff0691849
 
 COCOAPODS: 1.1.1
