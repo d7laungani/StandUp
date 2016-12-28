@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '69E0FA8227DEEAEE6FFBD59FF302477E'
-               BlueprintName = 'SCLAlertView'
+               BlueprintIdentifier = '44499E3904192A6313EB1385405D20A3'
+               BlueprintName = 'EFCircularSlider'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SCLAlertView.framework'>
+               BuildableName = 'EFCircularSlider.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
