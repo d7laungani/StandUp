@@ -24,12 +24,10 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var daysButtons: [UIButton]!
     
     
-    @IBOutlet weak var intervalLabel: UILabel!
-    
     var minuteSlider = EFCircularSlider()
   
     
-    
+   var timeLabel:UILabel?
     
     @IBOutlet weak var notificationMessage: UITextField! {
         didSet {
@@ -74,7 +72,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         let m: Int = Int(roundedValue)
         
         let formattedDuration = String(format: "%0d:%02d", m, s)
-        intervalLabel.text = formattedDuration
+        timeLabel?.text = formattedDuration + " mins"
         
     }
     
@@ -84,7 +82,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         
     }
   
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -129,7 +127,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         x.currentValue = roundedValue
        
         updateIntervalLabel(roundedValue: roundedValue)
-        
         settings?.timerInterval = Int(roundedValue)
         saveSettings()
 
@@ -169,8 +166,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
             
             let contrastColor = ContrastColorOf(view.backgroundColor!, returnFlat: false)
             
-            button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
-            button.layer.cornerRadius = 0.5 * button.bounds.size.width
+           // button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+            button.layer.cornerRadius = 0.5 * button.bounds.size.height
             button.clipsToBounds = true
             button.layer.borderWidth = 2.0
             button.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
@@ -184,7 +181,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         // Timer setup
         self.view.backgroundColor = UIColor(red: CGFloat(31 / 255.0), green: CGFloat(61 / 255.0), blue: CGFloat(91 / 255.0), alpha: CGFloat(1.0))
         
-        var minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(140), width: self.view.frame.size.width - 20, height: CGFloat(270))
+        let minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(160), width: self.view.frame.size.width - 20, height: CGFloat(270))
         
       
         minuteSlider = EFCircularSlider(frame: minuteSliderFrame)
@@ -198,11 +195,22 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         minuteSlider.minimumValue = 0
         minuteSlider.maximumValue = 60
 
-        //minuteSlider.snapToLabels = true
+       
         minuteSlider.labelColor = UIColor(red: CGFloat(76 / 255.0), green: CGFloat(111 / 255.0), blue: CGFloat(137 / 255.0), alpha: CGFloat(1.0))
         minuteSlider.handleType = doubleCircleWithOpenCenter
         minuteSlider.handleColor = minuteSlider.filledColor
         
+      
+        // Interval Label Setup
+        
+        let timeLabelFrame = CGRect(x: minuteSlider.center.x, y: minuteSlider.center.y, width: CGFloat(130) , height: CGFloat(100))
+        timeLabel = UILabel(frame: timeLabelFrame)
+        timeLabel?.center = minuteSlider.center
+        timeLabel?.text = "45:00 mins"
+        timeLabel?.textColor = UIColor.white
+        timeLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
+       
+        self.view.addSubview(timeLabel!)
         self.view.addSubview(minuteSlider)
      
         minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)

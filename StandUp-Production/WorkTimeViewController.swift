@@ -21,8 +21,11 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
      var settings = Defaults[.settings]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        setupUI()
         
         let calendar = Calendar.current
         let now: Date! = Date()
@@ -58,6 +61,11 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         
         saveSettings()
+        
+    }
+    func setupUI() {
+         self.view.backgroundColor = UIColor(red: CGFloat(31 / 255.0), green: CGFloat(61 / 255.0), blue: CGFloat(91 / 255.0), alpha: CGFloat(1.0))
+        
         
     }
     func saveSettings () {

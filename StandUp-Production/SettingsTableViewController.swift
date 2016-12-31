@@ -50,8 +50,8 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
                 // Show dialog with callbacks
                 permaScope.show({ finished, results in
                     print("got results \(results)")
-                    }, cancelled: { (results) -> Void in
-                        print("thing was cancelled")
+                }, cancelled: { (results) -> Void in
+                    print("thing was cancelled")
                 })
                 
                 
@@ -73,28 +73,34 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        
         self.navigationController?.navigationBar.tintColor = UIColor.flatPurple
-       
-       // self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
         
-        // Location Updates Cell
-        
-        locationUpdatesLabel.text = "Location Updates Enabled"
+        locationUpdates.isHidden = true
         
         
-        let locationUpdatesSwitch = locationUpdates.contentView.viewWithTag(1) as! UISwitch
-        if PermissionScope().statusLocationAlways() == PermissionStatus.authorized {
-            
-            locationUpdatesSwitch.isOn = true
-        }
+        // self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
         
-        
-        locationUpdates.selectionStyle = UITableViewCellSelectionStyle.none
-        
-        
-        // locationUpdates.taf
-        
+        /*
+         
+         // Location Updates Cell
+         
+         locationUpdatesLabel.text = "Location Updates Enabled"
+         
+         
+         let locationUpdatesSwitch = locationUpdates.contentView.viewWithTag(1) as! UISwitch
+         if PermissionScope().statusLocationAlways() == PermissionStatus.authorized {
+         
+         locationUpdatesSwitch.isOn = true
+         }
+         
+         
+         locationUpdates.selectionStyle = UITableViewCellSelectionStyle.none
+         
+         
+         // locationUpdates.taf
+         
+         */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -113,22 +119,22 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     @IBAction func unwindWithSelectedTime(_ segue:UIStoryboardSegue) {
         
         /*
-        
-        let rootVC = self.navigationController!.topViewController
-        if rootVC!.isKindOfClass(WorkTimeViewController) {
-        performSegueWithIdentifier("saveWorkTime", sender: self)
-        }
-        
-        */
+         
+         let rootVC = self.navigationController!.topViewController
+         if rootVC!.isKindOfClass(WorkTimeViewController) {
+         performSegueWithIdentifier("saveWorkTime", sender: self)
+         }
+         
+         */
         
         if let workTimePickerViewController = segue.source as? WorkTimeViewController,
             
             let startWorkTime =  workTimePickerViewController.startWorkTime , let endWorkTime = workTimePickerViewController.endWorkTime {
-                print("reached here")
-                defaults.set(startWorkTime.date, forKey: "startWorkTimeDate")
-                defaults.set(endWorkTime.date, forKey: "endWorkTimeDate")
-                print(startWorkTime.date)
-                print(endWorkTime.date)
+            print("reached here")
+            defaults.set(startWorkTime.date, forKey: "startWorkTimeDate")
+            defaults.set(endWorkTime.date, forKey: "endWorkTimeDate")
+            print(startWorkTime.date)
+            print(endWorkTime.date)
         }
         
         
@@ -172,73 +178,128 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         controller.dismiss(animated: true, completion: nil)
     }
     
+    // Used to temporarily hide location updates row
+    //******************************************************************************************************************
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            //header height for selected section
+            return 0.1
+        }
+        
+        //keeps all other Headers unaltered
+        return super.tableView(tableView, heightForHeaderInSection: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            //header height for selected section
+            return 0.1
+        }
+        
+        return super.tableView(tableView, heightForFooterInSection: section)
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0  {
+            return ""
+        }
+        
+        return super.tableView(tableView, titleForHeaderInSection: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        if section == 0 {
+            return ""
+        }
+        
+        return super.tableView(tableView, titleForFooterInSection: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var rowHeight:CGFloat = 44.0
+        if (indexPath.section == 0){
+            
+            if(indexPath.row == 0){
+               rowHeight = 0.0
+            }
+        }
+        return rowHeight
+    }
+    
+     //******************************************************************************************************************
     // MARK: - Table view data source
     /*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
-    return 4
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return 0
-    }
-    
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    
-    
-    // Configure the cell...
-    
-    locationUpdates.textLabel?.text = "Location Updates Enabled1"
-    
-    return locationUpdates
-    }
-    
-    
-    
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
+     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+     // #warning Incomplete implementation, return the number of sections
+     return 4
+     }
+     
+     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     // #warning Incomplete implementation, return the number of rows
+     return 0
+     }
+     
+     
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     
+     
+     // Configure the cell...
+     
+     locationUpdates.textLabel?.text = "Location Updates Enabled1"
+     
+     return locationUpdates
+     }
+     
+     
+     
+     // Override to support conditional editing of the table view.
+     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
     
     /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
+     // Override to support editing the table view.
+     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+     // Delete the row from the data source
+     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+     } else if editingStyle == .Insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
     
     /*
-    // MARK: - Navigation
+     // Override to support rearranging the table view.
+     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     
+     }
+     */
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
