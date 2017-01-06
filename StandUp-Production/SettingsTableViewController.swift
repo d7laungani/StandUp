@@ -188,6 +188,12 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             return 0.1
         }
         
+        
+        if section == 1 {
+            //header height for selected section
+            return 0.1
+        }
+        
         //keeps all other Headers unaltered
         return super.tableView(tableView, heightForHeaderInSection: section)
     }
@@ -195,6 +201,11 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
         if section == 0 {
+            //header height for selected section
+            return 0.1
+        }
+        
+        if section == 1 {
             //header height for selected section
             return 0.1
         }
@@ -209,12 +220,19 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             return ""
         }
         
+        if section == 1  {
+            return ""
+        }
+        
         return super.tableView(tableView, titleForHeaderInSection: section)
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         
-        if section == 0 {
+        if section == 0  {
+            return ""
+        }
+        if section == 1 {
             return ""
         }
         
@@ -223,11 +241,23 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var rowHeight:CGFloat = 44.0
-        if (indexPath.section == 0){
+        if (indexPath.section == 0 ){
             
+            
+            /*
             if(indexPath.row == 0){
                rowHeight = 0.0
             }
+            */
+            rowHeight = 0.0
+            
+        }
+        if (indexPath.section == 1){
+            
+            
+                rowHeight = 0.0
+            
+            
         }
         return rowHeight
     }
