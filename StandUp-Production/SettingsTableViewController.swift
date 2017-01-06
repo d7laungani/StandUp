@@ -10,14 +10,19 @@ import UIKit
 import PermissionScope
 import MessageUI
 import ChameleonFramework
+import SwiftyUserDefaults
 
 class CustomCell: UITableViewCell {
     @IBOutlet weak var switchModule: UISwitch!
     
 }
 
-class SettingsTableViewController: UITableViewController,  MFMailComposeViewControllerDelegate {
+class SettingsTableViewController: UITableViewController,  MFMailComposeViewControllerDelegate,  UITextFieldDelegate {
+    
+    
     var permaScope = PermissionScope()
+    
+    var settings = Defaults[.settings]
     
     @IBOutlet weak var locationUpdatesLabel: UILabel!
     
@@ -28,6 +33,38 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
     @IBOutlet weak var feedback: UITableViewCell!
     
     @IBOutlet weak var feedbackCell: UITableViewCell!
+    
+    
+    @IBOutlet weak var notificationMessage: UITextField! {
+        didSet {
+            notificationMessage.delegate = self
+        }
+    }
+    
+    
+    func doneAction(_ sender : UITextField) {
+        
+        
+        settings?.notificationMessage = sender.text
+        print(sender.text)
+        saveSettings()
+        
+        
+    }
+    
+    func saveSettings () {
+        Defaults[.settings]? = settings!
+        Defaults.synchronize()
+        
+    }
+
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    
     @IBAction func locationUpdatesToggle(_ sender: UISwitch) {
         permaScope.viewControllerForAlerts = self
         
@@ -78,6 +115,13 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         
         locationUpdates.isHidden = true
         
+         notificationMessage.setCustomDoneTarget(self, action: #selector(self.doneAction(_:)))
+        // update notification message
+        
+        if (settings?.notificationMessage != "Why not take a break and walk around a little."){
+            notificationMessage.text = settings?.notificationMessage
+        }
+
         
         // self.setThemeUsingPrimaryColor(ContrastColorOf(UIColor.flatPurple, returnFlat: false), withSecondaryColor: UIColor.flatPurple, andContentStyle: .contrast)
         
@@ -107,7 +151,12 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        // self.deregisterFromKeyboardNotifications()
+        saveSettings()
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -188,11 +237,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             return 0.1
         }
         
-        
-        if section == 1 {
-            //header height for selected section
-            return 0.1
-        }
+      
         
         //keeps all other Headers unaltered
         return super.tableView(tableView, heightForHeaderInSection: section)
@@ -205,10 +250,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             return 0.1
         }
         
-        if section == 1 {
-            //header height for selected section
-            return 0.1
-        }
+       
         
         return super.tableView(tableView, heightForFooterInSection: section)
     }
@@ -220,9 +262,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             return ""
         }
         
-        if section == 1  {
-            return ""
-        }
+       
         
         return super.tableView(tableView, titleForHeaderInSection: section)
     }
@@ -232,9 +272,7 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
         if section == 0  {
             return ""
         }
-        if section == 1 {
-            return ""
-        }
+       
         
         return super.tableView(tableView, titleForFooterInSection: section)
     }
@@ -252,13 +290,19 @@ class SettingsTableViewController: UITableViewController,  MFMailComposeViewCont
             rowHeight = 0.0
             
         }
-        if (indexPath.section == 1){
+        
+        if (indexPath.section == 1 ){
             
             
-                rowHeight = 0.0
-            
+            /*
+             if(indexPath.row == 0){
+             rowHeight = 0.0
+             }
+             */
+            rowHeight = 88
             
         }
+
         return rowHeight
     }
     

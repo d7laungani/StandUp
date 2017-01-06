@@ -25,28 +25,22 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
     
     
     var minuteSlider = EFCircularSlider()
-  
     
-   var timeLabel:UILabel?
+    @IBOutlet weak var setNotification: UIButton!
     
-    @IBOutlet weak var notificationMessage: UITextField! {
-        didSet {
-            notificationMessage.delegate = self
-        }
+    @IBOutlet weak var stackView: UIStackView!
+    var timeLabel:UILabel?
+    
+    
+    
+    
+    @IBAction func setNotifications(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Notifications set !", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true){}
     }
-    
-    
-    
-    func doneAction(_ sender : UITextField) {
-        
-        
-        settings?.notificationMessage = sender.text
-        
-        saveSettings()
-        
-        
-    }
-    
     @IBAction func updateDays(_ sender: Any) {
         
         guard let button = sender as? UIButton else {
@@ -81,8 +75,12 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         Defaults.synchronize()
         
     }
-  
-  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateValues()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,8 +89,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         
         self.hideKeyboardWhenTappedAround()
         
-        notificationMessage.setCustomDoneTarget(self, action: #selector(self.doneAction(_:)))
-        updateValues()
         
         
         // Set up permissions
@@ -104,7 +100,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         
         
         
-    
+        
         
         // Show dialog with callbacks
         pscope.show({ finished, results in
@@ -125,12 +121,12 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         let roundedValue = round(value / step) * step
         
         x.currentValue = roundedValue
-       
+        
         updateIntervalLabel(roundedValue: roundedValue)
         settings?.timerInterval = Int(roundedValue)
         saveSettings()
-
-
+        
+        
         
     }
     
@@ -147,26 +143,24 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         
         // Update button state
         
+        print(settings?.daysEnabled)
         for (index, value) in  (settings?.daysEnabled)!.enumerated(){
             daysButtons[index].isSelected = value
+            print(daysButtons[index].tag)
         }
         
-        // update notification message
-        
-        if (settings?.notificationMessage != "Why not take a break and walk around a little."){
-            notificationMessage.text = settings?.notificationMessage
-        }
         
     }
     
     func setupUIElements () {
         
         
+        
         for button in daysButtons {
             
             let contrastColor = ContrastColorOf(view.backgroundColor!, returnFlat: false)
             
-           // button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
+            // button.frame = CGRect(x: 160, y: 100, width: 50, height: 50)
             button.layer.cornerRadius = 0.5 * button.bounds.size.height
             button.clipsToBounds = true
             button.layer.borderWidth = 2.0
@@ -178,29 +172,36 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
             
         }
         
+        // Setup Set Notificaiton button
+        
+        setNotification.layer.cornerRadius = 0.5 * setNotification.bounds.size.height
+        setNotification.clipsToBounds = true
+        setNotification.layer.borderWidth = 2.0
+        setNotification.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
+        //setNotification.layer.borderColor = contrastColor.cgColor
+
+        
+        // Stack View setup
+        
+        stackView.axis = .horizontal
+        
         // Timer setup
         self.view.backgroundColor = UIColor(red: CGFloat(31 / 255.0), green: CGFloat(61 / 255.0), blue: CGFloat(91 / 255.0), alpha: CGFloat(1.0))
         
         let minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(160), width: self.view.frame.size.width - 20, height: CGFloat(270))
-        
-      
         minuteSlider = EFCircularSlider(frame: minuteSliderFrame)
         minuteSlider.unfilledColor = UIColor(red: CGFloat(23 / 255.0), green: CGFloat(47 / 255.0), blue: CGFloat(70 / 255.0), alpha: CGFloat(1.0))
         minuteSlider.filledColor = UIColor(red: CGFloat(155 / 255.0), green: CGFloat(211 / 255.0), blue: CGFloat(156 / 255.0), alpha: CGFloat(1.0))
-        
         minuteSlider.setInnerMarkingLabels(["5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"])
-        
         minuteSlider.labelFont = UIFont.systemFont(ofSize: CGFloat(14.0))
         minuteSlider.lineWidth = 8
         minuteSlider.minimumValue = 0
         minuteSlider.maximumValue = 60
-
-       
         minuteSlider.labelColor = UIColor(red: CGFloat(76 / 255.0), green: CGFloat(111 / 255.0), blue: CGFloat(137 / 255.0), alpha: CGFloat(1.0))
         minuteSlider.handleType = doubleCircleWithOpenCenter
         minuteSlider.handleColor = minuteSlider.filledColor
+        minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
         
-      
         // Interval Label Setup
         
         let timeLabelFrame = CGRect(x: minuteSlider.center.x, y: minuteSlider.center.y, width: CGFloat(130) , height: CGFloat(100))
@@ -209,22 +210,19 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         timeLabel?.text = "45:00 mins"
         timeLabel?.textColor = UIColor.white
         timeLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
-       
+        
+        
         self.view.addSubview(timeLabel!)
         self.view.addSubview(minuteSlider)
-     
-        minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
-
+        
+        
+        
         
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true;
-    }
     
-  
+    
     
     
 }
