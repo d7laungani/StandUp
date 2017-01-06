@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Live Longer by Standing Up Now" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-NY-2fn">
-                                <rect key="frame" x="31" y="569" width="319" height="30"/>
+                                <rect key="frame" x="31" y="569" width="328" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me to stand up every " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-M7-XUq">
                                 <rect key="frame" x="31" y="89" width="262" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="uaD-0d-DDW"/>
+                                    <constraint firstAttribute="height" constant="21" id="Okt-Mf-0ww"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -41,7 +39,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2c-aR-8KB">
                                 <rect key="frame" x="31" y="28" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="C5r-hf-R4p"/>
+                                    <constraint firstAttribute="height" constant="24" id="eMo-9T-9MR"/>
                                 </constraints>
                                 <state key="normal" image="bar-chart-5-64"/>
                                 <connections>
@@ -49,9 +47,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivate yourself" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOU-Wv-R01">
-                                <rect key="frame" x="31" y="534" width="154" height="20"/>
+                                <rect key="frame" x="31" y="536" width="154" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="Mt3-ll-3CS"/>
+                                    <constraint firstAttribute="width" constant="154" id="9eV-Um-n1j"/>
+                                    <constraint firstAttribute="height" constant="18" id="WqY-Ox-BcY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -67,121 +66,110 @@
                                     <segue destination="9kf-yw-482" kind="show" id="eEx-mE-Is6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN3-no-bBH">
-                                <rect key="frame" x="37" y="455" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0P4-gZ-fRY"/>
-                                    <constraint firstAttribute="width" constant="40" id="tij-Eo-0wb"/>
-                                </constraints>
-                                <state key="normal" title="M">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ZE4-cg-HJG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-X7-0cb">
-                                <rect key="frame" x="232" y="455" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="7Xy-xg-xft"/>
-                                </constraints>
-                                <state key="normal" title="Th">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="gzY-5V-rzw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-q3-I1T">
-                                <rect key="frame" x="297" y="455" width="41.5" height="40"/>
-                                <state key="normal" title="F">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="z31-WP-G4f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-hF-mJf">
-                                <rect key="frame" x="102" y="455" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Egz-wC-4Rk"/>
-                                </constraints>
-                                <state key="normal" title="T">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="eis-Bf-sad"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enA-bu-mXU">
-                                <rect key="frame" x="167" y="455" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="XL8-sV-IiS"/>
-                                    <constraint firstAttribute="height" constant="40" id="j6g-Kh-B58"/>
-                                </constraints>
-                                <state key="normal" title="W">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="RHz-nO-e1B"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="50" verticalHuggingPriority="50" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="20h-VD-NVq">
+                                <rect key="frame" x="19" y="458" width="343" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN3-no-bBH">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="3E9-k0-xN0"/>
+                                            <constraint firstAttribute="width" constant="40" id="dcV-1f-y5K"/>
+                                        </constraints>
+                                        <state key="normal" title="M">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ZE4-cg-HJG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-hF-mJf">
+                                        <rect key="frame" x="76" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="nUe-QX-e26"/>
+                                            <constraint firstAttribute="height" constant="40" id="reB-zf-xfZ"/>
+                                        </constraints>
+                                        <state key="normal" title="T">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="eis-Bf-sad"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enA-bu-mXU">
+                                        <rect key="frame" x="151.5" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="VLE-VP-czc"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZrB-kf-hUb"/>
+                                        </constraints>
+                                        <state key="normal" title="W">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="RHz-nO-e1B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-X7-0cb">
+                                        <rect key="frame" x="227.5" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="HVe-Iq-604"/>
+                                            <constraint firstAttribute="width" constant="40" id="flM-cl-hbO"/>
+                                        </constraints>
+                                        <state key="normal" title="Th">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="gzY-5V-rzw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-q3-I1T">
+                                        <rect key="frame" x="303" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="mUe-Hh-jUf"/>
+                                            <constraint firstAttribute="height" constant="40" id="vsp-wl-1W5"/>
+                                        </constraints>
+                                        <state key="normal" title="F">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="z31-WP-G4f"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.30744040012359619" green="0.33168339729309082" blue="0.70145398378372192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="J4G-q3-I1T" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="-20.5" id="22q-lB-TG0"/>
-                            <constraint firstItem="ncJ-M7-XUq" firstAttribute="leading" secondItem="OOU-Wv-R01" secondAttribute="leading" id="2WS-u2-GqP"/>
-                            <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="ncJ-M7-XUq" secondAttribute="leading" id="2Z3-Ja-ca2"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="top" secondItem="WBe-X7-0cb" secondAttribute="top" id="32w-cw-KMP"/>
-                            <constraint firstItem="L2c-aR-8KB" firstAttribute="bottom" secondItem="1y7-vr-5Ce" secondAttribute="bottom" id="41x-pL-D4m"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="baseline" secondItem="Tad-hF-mJf" secondAttribute="baseline" id="5s5-65-J0a"/>
-                            <constraint firstItem="Tad-hF-mJf" firstAttribute="baseline" secondItem="FN3-no-bBH" secondAttribute="firstBaseline" id="7fv-Jn-NWq"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MHw-NY-2fn" secondAttribute="bottom" constant="68" id="8wY-iV-gkD"/>
-                            <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="15" id="DkO-mQ-SlE"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="baseline" secondItem="WBe-X7-0cb" secondAttribute="firstBaseline" id="Eox-U5-8yK"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="leading" secondItem="Tad-hF-mJf" secondAttribute="trailing" constant="25" id="GIr-Ej-WuF"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="leading" secondItem="Tad-hF-mJf" secondAttribute="trailing" constant="25" id="GLH-mV-4Nu"/>
-                            <constraint firstItem="WBe-X7-0cb" firstAttribute="leading" secondItem="enA-bu-mXU" secondAttribute="trailing" constant="25" id="JgE-na-3Aq"/>
-                            <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="Kyo-fY-jC1"/>
-                            <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="1y7-vr-5Ce" secondAttribute="top" id="NFG-md-N8U"/>
-                            <constraint firstItem="ncJ-M7-XUq" firstAttribute="top" secondItem="L2c-aR-8KB" secondAttribute="bottom" constant="37" id="Oge-P3-pRj"/>
-                            <constraint firstItem="OOU-Wv-R01" firstAttribute="top" secondItem="FN3-no-bBH" secondAttribute="bottom" constant="39" id="PlK-Ju-uuv"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="baseline" secondItem="WBe-X7-0cb" secondAttribute="baseline" id="SPZ-Nk-CfO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MHw-NY-2fn" secondAttribute="trailing" constant="9" id="ShF-Hd-cg2"/>
-                            <constraint firstItem="WBe-X7-0cb" firstAttribute="baseline" secondItem="J4G-q3-I1T" secondAttribute="firstBaseline" id="TEc-cW-ova"/>
-                            <constraint firstItem="MHw-NY-2fn" firstAttribute="top" secondItem="OOU-Wv-R01" secondAttribute="bottom" constant="15" id="XqK-SL-mhG"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="top" secondItem="Tad-hF-mJf" secondAttribute="top" id="ZoD-QU-dPY"/>
-                            <constraint firstItem="Tad-hF-mJf" firstAttribute="baseline" secondItem="enA-bu-mXU" secondAttribute="baseline" id="add-tW-8Fh"/>
-                            <constraint firstItem="enA-bu-mXU" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="bgl-XK-fc1"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="21" id="dkj-ga-yMi"/>
-                            <constraint firstItem="WBe-X7-0cb" firstAttribute="leading" secondItem="enA-bu-mXU" secondAttribute="trailing" constant="25" id="exV-wh-FN2"/>
-                            <constraint firstItem="Tad-hF-mJf" firstAttribute="baseline" secondItem="enA-bu-mXU" secondAttribute="firstBaseline" id="fTE-3Z-2OB"/>
-                            <constraint firstItem="Tad-hF-mJf" firstAttribute="leading" secondItem="FN3-no-bBH" secondAttribute="trailing" constant="25" id="jDi-Hu-fBx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ncJ-M7-XUq" secondAttribute="trailing" constant="66" id="pg5-dN-hM2"/>
-                            <constraint firstItem="J4G-q3-I1T" firstAttribute="leading" secondItem="WBe-X7-0cb" secondAttribute="trailing" constant="25" id="pkO-Bd-imX"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="21" id="qHX-w7-KG0"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="21" id="qfH-sT-ETf"/>
-                            <constraint firstItem="Tad-hF-mJf" firstAttribute="top" secondItem="enA-bu-mXU" secondAttribute="top" id="qrf-o0-Adt"/>
-                            <constraint firstItem="1y7-vr-5Ce" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="s20-av-9No"/>
-                            <constraint firstItem="1y7-vr-5Ce" firstAttribute="trailing" secondItem="J4G-q3-I1T" secondAttribute="trailing" constant="20.5" id="u2N-tI-PYf"/>
-                            <constraint firstItem="WBe-X7-0cb" firstAttribute="baseline" secondItem="J4G-q3-I1T" secondAttribute="baseline" id="xdt-ZA-dHj"/>
-                            <constraint firstItem="OOU-Wv-R01" firstAttribute="leading" secondItem="MHw-NY-2fn" secondAttribute="leading" id="ySv-dF-0C4"/>
-                            <constraint firstItem="WBe-X7-0cb" firstAttribute="top" secondItem="J4G-q3-I1T" secondAttribute="top" id="yUs-wS-hxP"/>
-                            <constraint firstItem="FN3-no-bBH" firstAttribute="baseline" secondItem="Tad-hF-mJf" secondAttribute="firstBaseline" id="zhK-cK-Y1N"/>
+                            <constraint firstItem="MHw-NY-2fn" firstAttribute="top" secondItem="OOU-Wv-R01" secondAttribute="bottom" constant="15" id="BYI-p9-d2O"/>
+                            <constraint firstItem="1y7-vr-5Ce" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="EG9-NB-VGq"/>
+                            <constraint firstItem="ncJ-M7-XUq" firstAttribute="top" secondItem="L2c-aR-8KB" secondAttribute="bottom" constant="37" id="G9O-bS-Muv"/>
+                            <constraint firstItem="ncJ-M7-XUq" firstAttribute="leading" secondItem="OOU-Wv-R01" secondAttribute="leading" id="Hea-YS-do0"/>
+                            <constraint firstItem="OOU-Wv-R01" firstAttribute="leading" secondItem="MHw-NY-2fn" secondAttribute="leading" id="Ik4-dT-SDi"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MHw-NY-2fn" secondAttribute="bottom" constant="68" id="Jy8-Cj-1pP"/>
+                            <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="1y7-vr-5Ce" secondAttribute="top" id="P3Z-6l-Iag"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="20h-VD-NVq" secondAttribute="trailing" constant="-3" id="aEK-cK-IWn"/>
+                            <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="cmw-ed-zCM"/>
+                            <constraint firstItem="20h-VD-NVq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="3" id="dcF-sy-bF4"/>
+                            <constraint firstItem="MHw-NY-2fn" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="e9b-Wx-cew"/>
+                            <constraint firstItem="L2c-aR-8KB" firstAttribute="bottom" secondItem="1y7-vr-5Ce" secondAttribute="bottom" id="gy1-Nr-Qtf"/>
+                            <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="15" id="k3w-QR-Gav"/>
+                            <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="ncJ-M7-XUq" secondAttribute="leading" id="r68-2O-wt3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ncJ-M7-XUq" secondAttribute="trailing" constant="66" id="ss2-AA-fh7"/>
+                            <constraint firstItem="OOU-Wv-R01" firstAttribute="top" secondItem="20h-VD-NVq" secondAttribute="bottom" constant="38" id="tRj-FP-NeY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="notificationMessage" destination="MHw-NY-2fn" id="z94-3P-yjl"/>
-                        <outletCollection property="daysButtons" destination="FN3-no-bBH" collectionClass="NSMutableArray" id="yiH-9n-IkW"/>
-                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="tP5-BN-6Sr"/>
-                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="Mvl-pi-7sc"/>
+                        <outlet property="stackView" destination="20h-VD-NVq" id="iUt-eF-31x"/>
                         <outletCollection property="daysButtons" destination="WBe-X7-0cb" collectionClass="NSMutableArray" id="R6m-bh-ncy"/>
+                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="tP5-BN-6Sr"/>
                         <outletCollection property="daysButtons" destination="J4G-q3-I1T" collectionClass="NSMutableArray" id="6Dd-1x-6uM"/>
+                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="Mvl-pi-7sc"/>
+                        <outletCollection property="daysButtons" destination="FN3-no-bBH" collectionClass="NSMutableArray" id="yiH-9n-IkW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533.60000000000002" y="-922.48875562218893"/>
+            <point key="canvasLocation" x="530.39999999999998" y="-927.88605697151434"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6qH-yY-P7Q">
