@@ -145,6 +145,7 @@
                             <constraint firstItem="ncJ-M7-XUq" firstAttribute="leading" secondItem="OOU-Wv-R01" secondAttribute="leading" id="Hea-YS-do0"/>
                             <constraint firstItem="OOU-Wv-R01" firstAttribute="leading" secondItem="MHw-NY-2fn" secondAttribute="leading" id="Ik4-dT-SDi"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MHw-NY-2fn" secondAttribute="bottom" constant="68" id="Jy8-Cj-1pP"/>
+                            <constraint firstItem="20h-VD-NVq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="50" id="LpF-Ie-Zve"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="1y7-vr-5Ce" secondAttribute="top" id="P3Z-6l-Iag"/>
                             <constraint firstAttribute="trailingMargin" secondItem="20h-VD-NVq" secondAttribute="trailing" constant="-3" id="aEK-cK-IWn"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="cmw-ed-zCM"/>
@@ -155,16 +156,17 @@
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="ncJ-M7-XUq" secondAttribute="leading" id="r68-2O-wt3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ncJ-M7-XUq" secondAttribute="trailing" constant="66" id="ss2-AA-fh7"/>
                             <constraint firstItem="OOU-Wv-R01" firstAttribute="top" secondItem="20h-VD-NVq" secondAttribute="bottom" constant="38" id="tRj-FP-NeY"/>
+                            <constraint firstAttribute="trailing" secondItem="20h-VD-NVq" secondAttribute="trailing" constant="50" id="vyk-nN-XMk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="notificationMessage" destination="MHw-NY-2fn" id="z94-3P-yjl"/>
                         <outlet property="stackView" destination="20h-VD-NVq" id="iUt-eF-31x"/>
-                        <outletCollection property="daysButtons" destination="WBe-X7-0cb" collectionClass="NSMutableArray" id="R6m-bh-ncy"/>
-                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="tP5-BN-6Sr"/>
-                        <outletCollection property="daysButtons" destination="J4G-q3-I1T" collectionClass="NSMutableArray" id="6Dd-1x-6uM"/>
-                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="Mvl-pi-7sc"/>
                         <outletCollection property="daysButtons" destination="FN3-no-bBH" collectionClass="NSMutableArray" id="yiH-9n-IkW"/>
+                        <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="vHY-qC-xle"/>
+                        <outletCollection property="daysButtons" destination="enA-bu-mXU" collectionClass="NSMutableArray" id="y3X-mf-eOc"/>
+                        <outletCollection property="daysButtons" destination="WBe-X7-0cb" collectionClass="NSMutableArray" id="aYr-3d-kFA"/>
+                        <outletCollection property="daysButtons" destination="J4G-q3-I1T" collectionClass="NSMutableArray" id="DOe-fw-Ace"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -241,10 +243,10 @@
                             <tableViewSection headerTitle="Notification Settings" id="b8f-zV-en6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yPL-JU-0Nu">
-                                        <rect key="frame" x="0.0" y="156" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="157" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yPL-JU-0Nu" id="bJa-sF-yzW">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alert Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U0-Bf-Byb">
@@ -262,7 +264,7 @@
                             <tableViewSection headerTitle="Timer Settings" id="1Xx-qj-L3s">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="8nc-3g-DJY">
-                                        <rect key="frame" x="0.0" y="256" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="258" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nc-3g-DJY" id="e4l-RK-ECN">
                                             <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
@@ -286,7 +288,7 @@
                             <tableViewSection headerTitle="Contact and Support" id="itM-A0-r38">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="byW-9w-VFR">
-                                        <rect key="frame" x="0.0" y="356" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="359" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="byW-9w-VFR" id="2PX-iU-dCd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
