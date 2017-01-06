@@ -46,12 +46,12 @@ class HistoryProcessor {
         
         let cal = Calendar.current
         
-        var secondsSat = [Int](repeating: 0, count: 31)
+        var secondsSat = [Int](repeating: 0, count: 32)
         
         
         
         
-        var previousPointDate : Date = Date()
+        var previousPointDate : Date = Calendar.current.date(byAdding: .minute, value: -1, to: activities[0].startDate)!
         
         var totalSittingSecs = 0
         
@@ -75,8 +75,11 @@ class HistoryProcessor {
             
         
             
+            // Deals with out of boundary values
             
             if (componentsOfCurrentDate.hour! < 9 || componentsOfCurrentDate.hour! > 17) {
+                
+                // Deals with transition between days
                 if (componentsOfPreviousDate.day != componentsOfCurrentDate.day) {
                     
                     secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
@@ -86,15 +89,16 @@ class HistoryProcessor {
                     isMoving = true
                     
                 }
+                previousPointDate = x.startDate
                 continue;
             }
             
-            
+            // If it is in the correct time period
             
             if ( (x.confidence == .medium) || (x.confidence == .high) ) {
                 
                 
-                
+                // If not moving
                 if ( ( (x.stationary == true) && (isMoving == true) ) || ( (x.automotive == true) && (isMoving == true) ) ){
                     
                     previousPointDate = x.startDate
@@ -103,11 +107,14 @@ class HistoryProcessor {
                     
                 }
                     
+                // If you are moving now then count how long you were sitting till then from the previous time
+                    
                 else if ( (x.stationary == false || x.running == true || x.walking == true || x.cycling == true) && (isMoving == false) ) {
                     
                     
                     secsFrom = abs(previousPointDate.secondsFrom(x.startDate))
                     totalSittingSecs += secsFrom
+                
                     secondsSat[componentsOfCurrentDate.day!] = secondsSat[componentsOfCurrentDate.day!] + secsFrom
                     
                     isMoving = true
@@ -122,6 +129,7 @@ class HistoryProcessor {
             
         }
         
+       
         var hoursSat:[MyTuple] = []
         
         for(index, seconds)in secondsSat.enumerated() {
