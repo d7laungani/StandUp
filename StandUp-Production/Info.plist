@@ -4,10 +4,6 @@
 <dict>
 	<key>NSMotionUsageDescription</key>
 	<string>We need access to your motion data </string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location for some aweome features</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location for some aweome features</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

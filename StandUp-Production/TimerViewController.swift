@@ -110,8 +110,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         
         pscope.addPermission(NotificationsPermission(notificationCategories: nil),
                              message: "We use this to help you live longer")
-        pscope.addPermission(LocationAlwaysPermission(),
-                             message: "We use this to give you more accurate feedback")
+        //pscope.addPermission(LocationAlwaysPermission(),message: "We use this to give you more accurate feedback")
         
         
         
