@@ -50,14 +50,14 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         button.isSelected = !button.isSelected;
         if (button.isSelected) {
             
-           
+            
             //button.setTitleColor(UIColor.brown), for: .selected)
             button.setTitleColor(UIColor.brown, for: .selected)
             button.layer.borderColor = UIColor.brown.cgColor
             
         } else {
             button.layer.borderColor = UIColor.white.cgColor
-
+            
             
             
         }
@@ -148,20 +148,34 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
     // Updates values if changed
     
     func updateValues () {
+        settings = Defaults[.settings]
         
         
         // Updates interval text label
-        
         let x = Float((settings?.timerInterval)!)
         minuteSlider.currentValue = x
         updateIntervalLabel(roundedValue: x)
         
         // Update button state
         
-        print(settings?.daysEnabled)
+        //print(settings?.daysEnabled)
         for (index, value) in  (settings?.daysEnabled)!.enumerated(){
             daysButtons[index].isSelected = value
-            print(daysButtons[index].tag)
+            if (value) {
+                
+                
+                //button.setTitleColor(UIColor.brown), for: .selected)
+                daysButtons[index].setTitleColor(UIColor.brown, for: .selected)
+                daysButtons[index].layer.borderColor = UIColor.brown.cgColor
+                
+            } else {
+                daysButtons[index].layer.borderColor = UIColor.white.cgColor
+                
+                
+                
+            }
+            
+            //print(daysButtons[index].tag)
         }
         
         
@@ -181,7 +195,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
             button.layer.borderWidth = 2.0
             button.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
             button.layer.borderColor = contrastColor.cgColor
-           button.adjustsImageWhenHighlighted = false
+            button.adjustsImageWhenHighlighted = false
             
             
             
@@ -193,8 +207,8 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         setNotification.clipsToBounds = true
         setNotification.layer.borderWidth = 2.0
         setNotification.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
-        //setNotification.layer.borderColor = contrastColor.cgColor
-
+        setNotification.layer.borderColor = UIColor.white.cgColor
+        
         
         // Stack View setup
         
