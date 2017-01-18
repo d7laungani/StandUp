@@ -48,6 +48,21 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         }
         
         button.isSelected = !button.isSelected;
+        if (button.isSelected) {
+            
+           
+            //button.setTitleColor(UIColor.brown), for: .selected)
+            button.setTitleColor(UIColor.brown, for: .selected)
+            button.layer.borderColor = UIColor.brown.cgColor
+            
+        } else {
+            button.layer.borderColor = UIColor.white.cgColor
+
+            
+            
+        }
+        
+        
         settings?.daysEnabled[button.tag] = button.isSelected
         saveSettings()
         
@@ -166,7 +181,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
             button.layer.borderWidth = 2.0
             button.setTitleColor(ContrastColorOf(view.backgroundColor!, returnFlat: false), for: .normal)
             button.layer.borderColor = contrastColor.cgColor
-            
+           button.adjustsImageWhenHighlighted = false
             
             
             

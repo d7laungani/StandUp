@@ -22,11 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Live Longer by Standing Up Now" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHw-NY-2fn">
-                                <rect key="frame" x="31" y="569" width="328" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me to stand up every " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-M7-XUq">
                                 <rect key="frame" x="31" y="89" width="262" height="21"/>
                                 <constraints>
@@ -46,16 +41,6 @@
                                     <segue destination="P23-vx-eG5" kind="show" id="dyZ-JV-UHy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motivate yourself" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOU-Wv-R01">
-                                <rect key="frame" x="31" y="536" width="154" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="9eV-Um-n1j"/>
-                                    <constraint firstAttribute="height" constant="18" id="WqY-Ox-BcY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y7-vr-5Ce">
                                 <rect key="frame" x="334" y="28" width="25" height="24"/>
                                 <state key="normal" image="WSettings" backgroundImage="Settings">
@@ -67,9 +52,9 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="50" verticalHuggingPriority="50" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="20h-VD-NVq">
-                                <rect key="frame" x="19" y="458" width="343" height="40"/>
+                                <rect key="frame" x="50" y="458" width="275" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN3-no-bBH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN3-no-bBH">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3E9-k0-xN0"/>
@@ -82,8 +67,8 @@
                                             <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ZE4-cg-HJG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-hF-mJf">
-                                        <rect key="frame" x="76" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tad-hF-mJf">
+                                        <rect key="frame" x="59" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="nUe-QX-e26"/>
                                             <constraint firstAttribute="height" constant="40" id="reB-zf-xfZ"/>
@@ -95,8 +80,8 @@
                                             <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="eis-Bf-sad"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enA-bu-mXU">
-                                        <rect key="frame" x="151.5" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enA-bu-mXU">
+                                        <rect key="frame" x="117.5" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="VLE-VP-czc"/>
                                             <constraint firstAttribute="width" constant="40" id="ZrB-kf-hUb"/>
@@ -108,8 +93,8 @@
                                             <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="RHz-nO-e1B"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-X7-0cb">
-                                        <rect key="frame" x="227.5" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-X7-0cb">
+                                        <rect key="frame" x="176.5" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HVe-Iq-604"/>
                                             <constraint firstAttribute="width" constant="40" id="flM-cl-hbO"/>
@@ -121,8 +106,8 @@
                                             <action selector="updateDays:" destination="8rJ-Kc-sve" eventType="touchDown" id="gzY-5V-rzw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-q3-I1T">
-                                        <rect key="frame" x="303" y="0.0" width="40" height="40"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-q3-I1T">
+                                        <rect key="frame" x="235" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="mUe-Hh-jUf"/>
                                             <constraint firstAttribute="height" constant="40" id="vsp-wl-1W5"/>
@@ -136,31 +121,40 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqH-XH-Wli">
+                                <rect key="frame" x="152" y="548" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Six-sb-kAR"/>
+                                    <constraint firstAttribute="height" constant="70" id="Xlo-vk-ZXd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Set"/>
+                                <connections>
+                                    <action selector="setNotifications:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="BQC-3P-f7U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.30744040012359619" green="0.33168339729309082" blue="0.70145398378372192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MHw-NY-2fn" firstAttribute="top" secondItem="OOU-Wv-R01" secondAttribute="bottom" constant="15" id="BYI-p9-d2O"/>
                             <constraint firstItem="1y7-vr-5Ce" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="EG9-NB-VGq"/>
                             <constraint firstItem="ncJ-M7-XUq" firstAttribute="top" secondItem="L2c-aR-8KB" secondAttribute="bottom" constant="37" id="G9O-bS-Muv"/>
-                            <constraint firstItem="ncJ-M7-XUq" firstAttribute="leading" secondItem="OOU-Wv-R01" secondAttribute="leading" id="Hea-YS-do0"/>
-                            <constraint firstItem="OOU-Wv-R01" firstAttribute="leading" secondItem="MHw-NY-2fn" secondAttribute="leading" id="Ik4-dT-SDi"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="MHw-NY-2fn" secondAttribute="bottom" constant="68" id="Jy8-Cj-1pP"/>
+                            <constraint firstItem="JqH-XH-Wli" firstAttribute="top" secondItem="20h-VD-NVq" secondAttribute="bottom" constant="50" id="KGV-jY-Asj"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="JqH-XH-Wli" secondAttribute="bottom" constant="49" id="KOg-is-rdG"/>
                             <constraint firstItem="20h-VD-NVq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="50" id="LpF-Ie-Zve"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="1y7-vr-5Ce" secondAttribute="top" id="P3Z-6l-Iag"/>
                             <constraint firstAttribute="trailingMargin" secondItem="20h-VD-NVq" secondAttribute="trailing" constant="-3" id="aEK-cK-IWn"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="cmw-ed-zCM"/>
                             <constraint firstItem="20h-VD-NVq" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="3" id="dcF-sy-bF4"/>
-                            <constraint firstItem="MHw-NY-2fn" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="e9b-Wx-cew"/>
+                            <constraint firstItem="JqH-XH-Wli" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" constant="-0.5" id="gkl-tA-Xpe"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="bottom" secondItem="1y7-vr-5Ce" secondAttribute="bottom" id="gy1-Nr-Qtf"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="15" id="k3w-QR-Gav"/>
                             <constraint firstItem="L2c-aR-8KB" firstAttribute="leading" secondItem="ncJ-M7-XUq" secondAttribute="leading" id="r68-2O-wt3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ncJ-M7-XUq" secondAttribute="trailing" constant="66" id="ss2-AA-fh7"/>
-                            <constraint firstItem="OOU-Wv-R01" firstAttribute="top" secondItem="20h-VD-NVq" secondAttribute="bottom" constant="38" id="tRj-FP-NeY"/>
                             <constraint firstAttribute="trailing" secondItem="20h-VD-NVq" secondAttribute="trailing" constant="50" id="vyk-nN-XMk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="notificationMessage" destination="MHw-NY-2fn" id="z94-3P-yjl"/>
+                        <outlet property="setNotification" destination="JqH-XH-Wli" id="akg-Ge-f68"/>
                         <outlet property="stackView" destination="20h-VD-NVq" id="iUt-eF-31x"/>
                         <outletCollection property="daysButtons" destination="FN3-no-bBH" collectionClass="NSMutableArray" id="yiH-9n-IkW"/>
                         <outletCollection property="daysButtons" destination="Tad-hF-mJf" collectionClass="NSMutableArray" id="vHY-qC-xle"/>
@@ -213,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P2u-jY-rTU" id="3Nh-7d-q81">
-                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-x6-j7y">
@@ -242,32 +236,45 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notification Settings" id="b8f-zV-en6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="yPL-JU-0Nu">
-                                        <rect key="frame" x="0.0" y="157" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="CWC-u8-B93">
+                                        <rect key="frame" x="0.0" y="156" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yPL-JU-0Nu" id="bJa-sF-yzW">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CWC-u8-B93" id="Uxw-gF-M48">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alert Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2U0-Bf-Byb">
-                                                    <rect key="frame" x="26" y="11" width="477" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lah-9c-35E">
+                                                    <rect key="frame" x="25" y="19" width="258" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Live Longer by Standing Up  Now" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1k-sf-wtw">
+                                                    <rect key="frame" x="25" y="48" width="334" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lah-9c-35E" firstAttribute="leading" secondItem="K1k-sf-wtw" secondAttribute="leading" id="IG5-S7-T6u"/>
+                                                <constraint firstItem="lah-9c-35E" firstAttribute="leading" secondItem="Uxw-gF-M48" secondAttribute="leadingMargin" constant="17" id="Lc5-Ot-Lpi"/>
+                                                <constraint firstItem="K1k-sf-wtw" firstAttribute="top" secondItem="lah-9c-35E" secondAttribute="bottom" constant="8" symbolic="YES" id="U9U-xs-b0p"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="K1k-sf-wtw" secondAttribute="trailing" constant="8" id="kqK-wh-r0r"/>
+                                                <constraint firstItem="lah-9c-35E" firstAttribute="top" secondItem="Uxw-gF-M48" secondAttribute="topMargin" constant="11" id="mcb-J1-r9j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lah-9c-35E" secondAttribute="trailing" constant="84" id="sTb-mB-9Kw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Timer Settings" id="1Xx-qj-L3s">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" id="8nc-3g-DJY">
-                                        <rect key="frame" x="0.0" y="258" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="8nc-3g-DJY">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8nc-3g-DJY" id="e4l-RK-ECN">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work Times" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AS-UE-0Ig">
@@ -288,10 +295,10 @@
                             <tableViewSection headerTitle="Contact and Support" id="itM-A0-r38">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="byW-9w-VFR">
-                                        <rect key="frame" x="0.0" y="359" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="404" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="byW-9w-VFR" id="2PX-iU-dCd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzF-Bd-XnE">
@@ -333,11 +340,12 @@
                         <outlet property="feedbackCell" destination="byW-9w-VFR" id="BKJ-fZ-xyc"/>
                         <outlet property="locationUpdates" destination="P2u-jY-rTU" id="5e3-eu-Kg5"/>
                         <outlet property="locationUpdatesLabel" destination="fPE-wQ-ctD" id="Zr0-7D-6rK"/>
+                        <outlet property="notificationMessage" destination="K1k-sf-wtw" id="1Ky-LT-irN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pAT-8h-9fI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="-343"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="-343.17841079460271"/>
         </scene>
         <!--Work Time View Controller-->
         <scene sceneID="1OS-ge-Jia">
