@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if ( Defaults[.settings] == nil) {
             Defaults[.settings] = TimerSettings()
+            Defaults.synchronize()
+            print ("reached here")
+            
+        } else {
+            
+            print ("already exists")
         }
         return true
     }
@@ -39,12 +45,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
     
+   
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits
         
         // Calling our local method to register for local notifications.
-        self.registerLocalNotifications()
+        if #available(iOS 10.0, *) {
+            self.registerLocalNotifications()
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
@@ -111,6 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    @available(iOS 10.0, *)
     func registerLocalNotifications() {
         
         
@@ -131,11 +143,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let daysEnabled = settings?.daysEnabled
         
-        
-        
+      
         var startComponents = DateComponents()
         
         startComponents.hour = Calendar.current.component(.hour, from: (settings?.startTime)!)
+        startComponents.hour = startComponents.hour! - 12
         startComponents.minute = Calendar.current.component(.minute, from: (settings?.startTime)!)
         startComponents.second = 0
         
@@ -143,12 +155,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var endComponents = DateComponents()
         
         endComponents.hour = Calendar.current.component(.hour, from: (settings?.endTime)!)
+        endComponents.hour = endComponents.hour! + 12
         endComponents.minute = Calendar.current.component(.minute, from: (settings?.endTime)!)
         endComponents.second = 0
         
+        //print ("Starting and ending dates are: ")
+        //print(settings?.startTime)
+        //print(settings?.endTime)
         
-        print(startComponents.debugDescription)
-        print(endComponents.debugDescription)
+        
+        //print ("Starting and ending components are:")
+        //print(startComponents.debugDescription)
+        //print(endComponents.debugDescription)
         
         for (index, value) in daysEnabled!.enumerated() {
             
@@ -165,13 +183,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     //let startDate = try! DateInRegion(components: startComponents)
                     let startDate = Calendar.current.date(bySettingHour: startComponents.hour!, minute: startComponents.minute!, second: 0, of: Date())
                     
-                    print(Date())
+                    //print(startDate)
                     
                     // Closest To Date
                     
                     let endDate = Calendar.current.date(bySettingHour: endComponents.hour!, minute: endComponents.minute!, second: 0, of: Date())
                     
-                    print(endDate)
+                    //print(endDate)
                     
                     let valid = (startDate! < Date()) && (Date() < endDate!)
                     
@@ -190,13 +208,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     
                     startComponents.weekday = index + 2
+                    
+                    //print("Starting components are " + startComponents.debugDescription)
                     let startDate = Calendar.current.nextDate(after: Date(), matching: startComponents, matchingPolicy: Calendar.MatchingPolicy.nextTimePreservingSmallerComponents)
                     print(startDate.debugDescription)
-                    
+                    //
                     endComponents.weekday = index + 2
                     
+                    //print("Ending components are " + endComponents.debugDescription)
                     let endDate = Calendar.current.nextDate(after: Date(), matching: endComponents, matchingPolicy: Calendar.MatchingPolicy.nextTimePreservingSmallerComponents)
-                    print(endDate.debugDescription)
+                    //print(endDate.debugDescription)
                     scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
                     
                 }
