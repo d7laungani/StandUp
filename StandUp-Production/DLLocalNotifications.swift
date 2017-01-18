@@ -12,14 +12,16 @@ import UserNotifications
 import MapKit
 
 
+@available(iOS 10.0, *)
 public class DLNotificationScheduler{
     
     
     func cancelAlllNotifications () {
         
         
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
+       
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+       
     }
     
     func cancelNotification (notification: DLNotification) {
@@ -93,7 +95,7 @@ public class DLNotificationScheduler{
             notification.localNotificationRequest = UNNotificationRequest(identifier: notification.identifier!, content: content, trigger: trigger)
             
             let center = UNUserNotificationCenter.current()
-            center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in print ("completed") } )
+            center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in  } )
             
             notification.scheduled = true
             
@@ -109,12 +111,16 @@ public class DLNotificationScheduler{
     
     // You have to manually keep in mind ios 64 notification limit
     
-    func repeatsFromToDate (identifier:String, alertTitle:String, alertBody: String, fromDate: Date, toDate: Date, interval: Double) {
+    func repeatsFromToDate (identifier:String, alertTitle:String, alertBody: String, fromDate: Date, toDate: Date, interval: Double, repeats: Repeats) {
         
         
+        //print("repeating from date : " + fromDate.debugDescription)
+        
+       
+        //print("to Date:" + toDate.debugDescription)
         
         
-        let notification = DLNotification(identifier: identifier, alertTitle: alertTitle, alertBody: alertBody, date: fromDate, repeats: .None)
+        let notification = DLNotification(identifier: identifier, alertTitle: alertTitle, alertBody: alertBody, date: fromDate, repeats: repeats)
         notification.category = "standingCategory"
         
         // Create multiple Notifications
@@ -134,7 +140,7 @@ public class DLNotificationScheduler{
             
             let identifier = identifier + String(i + 1)
             
-            let notification = DLNotification(identifier: identifier, alertTitle: alertTitle, alertBody: alertBody, date: nextDate, repeats: .None)
+            let notification = DLNotification(identifier: identifier, alertTitle: alertTitle, alertBody: alertBody, date: nextDate, repeats: repeats)
             
             notification.category = "standingCategory"
             
@@ -173,7 +179,7 @@ enum Repeats: String {
 
 
 // A wrapper class for creating a Category
-
+@available(iOS 10.0, *)
 public class DLCategory  {
     
     private var actions = [UNNotificationAction]()
@@ -205,7 +211,7 @@ public class DLCategory  {
 
 
 // A wrapper class for creating a User Notification
-
+@available(iOS 10.0, *)
 public class DLNotification {
     
     internal var localNotificationRequest: UNNotificationRequest?
