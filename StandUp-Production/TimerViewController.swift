@@ -28,10 +28,11 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var setNotification: UIButton!
     
-    @IBOutlet weak var stackView: UIStackView!
+
     var timeLabel:UILabel?
     
     
+    @IBOutlet weak var stackView: UIStackView!
     
     
     @IBAction func setNotifications(_ sender: Any) {
@@ -123,7 +124,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
             print("thing was cancelled")
         })
         
-        
+        print(UIDevice().screenType)
         
     }
     
@@ -216,7 +217,13 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         // Timer setup
         self.view.backgroundColor = UIColor(red: CGFloat(31 / 255.0), green: CGFloat(61 / 255.0), blue: CGFloat(91 / 255.0), alpha: CGFloat(1.0))
         
-        let minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(160), width: self.view.frame.size.width - 20, height: CGFloat(270))
+        
+       
+        var minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(160), width: self.view.frame.size.width - 20, height: CGFloat(270))
+        if (UIDevice().screenType == .iPhone5) {
+            minuteSliderFrame = CGRect(x: CGFloat(10), y: CGFloat(130), width: self.view.frame.size.width - 20, height: CGFloat(240))
+            
+        }
         minuteSlider = EFCircularSlider(frame: minuteSliderFrame)
         minuteSlider.unfilledColor = UIColor(red: CGFloat(23 / 255.0), green: CGFloat(47 / 255.0), blue: CGFloat(70 / 255.0), alpha: CGFloat(1.0))
         minuteSlider.filledColor = UIColor(red: CGFloat(155 / 255.0), green: CGFloat(211 / 255.0), blue: CGFloat(156 / 255.0), alpha: CGFloat(1.0))
@@ -228,6 +235,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
         minuteSlider.labelColor = UIColor(red: CGFloat(76 / 255.0), green: CGFloat(111 / 255.0), blue: CGFloat(137 / 255.0), alpha: CGFloat(1.0))
         minuteSlider.handleType = doubleCircleWithOpenCenter
         minuteSlider.handleColor = minuteSlider.filledColor
+        minuteSlider.translatesAutoresizingMaskIntoConstraints = false
         minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
         
         // Interval Label Setup
@@ -252,6 +260,37 @@ class TimerViewController: UIViewController, UITextFieldDelegate{
     
     
     
+    
+}
+
+public extension UIDevice {
+    
+    var iPhone: Bool {
+        return UIDevice().userInterfaceIdiom == .phone
+    }
+    
+    enum ScreenType: String {
+        case iPhone4
+        case iPhone5
+        case iPhone6
+        case iPhone6Plus
+        case Unknown
+    }
+    var screenType: ScreenType {
+        guard iPhone else { return .Unknown}
+        switch UIScreen.main.nativeBounds.height {
+        case 960:
+            return .iPhone4
+        case 1136:
+            return .iPhone5
+        case 1334:
+            return .iPhone6
+        case 2208:
+            return .iPhone6Plus
+        default:
+            return .Unknown
+        }
+    }
     
 }
 
