@@ -198,7 +198,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                    // else continue scheduling
                     
-                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: Date(), toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
+                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: Date(), toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .Weekly)
                     
                     
                 }
@@ -218,7 +218,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     //print("Ending components are " + endComponents.debugDescription)
                     let endDate = Calendar.current.nextDate(after: Date(), matching: endComponents, matchingPolicy: Calendar.MatchingPolicy.nextTimePreservingSmallerComponents)
                     //print(endDate.debugDescription)
-                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60)
+                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .Weekly)
                     
                 }
             }
