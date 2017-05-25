@@ -13,5 +13,11 @@ pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chamel
 pod 'SwiftyUserDefaults'
 pod '10Clock', '~> 0.0.19'
 pod "EFCircularSlider", "~> 0.1.0"
+#pod 'DLLocalNotifications'
+ pod 'SwiftDate'
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'RealmSwift'
+pod 'JLocationKit'
 end
 
