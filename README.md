@@ -2,18 +2,26 @@
 
 Stand Up IOS app (Swift)
 
-This was an app originally created at [CodeRed Hackathon](https://uhcode.red/) in 2015 hosted at University of Houston.
+This was an app originally created at [CodeRed Hackathon](https://uhcode.red/) in 2015 hosted at the University of Houston.
 
-The app has a login controller with a parse backend.
-It takes in data from the position of the iphone and determines if the user is sitting or standing.
-This info is then sent to a server to be processed and stored,which is located at [StandUp Backend](https://github.com/jaybutera/StandUp)
-Unfortunately, this was never completed so the ios app is limited to local storage.
+To run the app open the StandUp.xcworkspace file.
 
-The app correctly detects whether a user is sitting or standing and saves data in an object ready to be sent to a server.
+This application has been revamped and fixed to be deployed on the app store. The link to the app on the app store is:
+https://itunes.apple.com/us/app/stand-up-app-standing-reminder-and-timer/id1196457882?mt=8
 
-To run the app open the StandUp.xcworkspace file because it include cocoapod files and a parse backend.
+Excerpt from iTunes:
 
-It also includes a debug view controller to see in realtime the device motion values and if the app correctly detects if 
-you are sitting or standing.
+The Stand Up App reminder alarm is a fun, easy to use alarm that simplifies reminders. Sitting down for long periods of time is not good for you. Why take the risk and live longer by taking standing breaks. Set when and how often you want alarms and you are set.
 
-Note: Will not work in simulator because device motion is not simulated. You have to use a device to test it.
+* Free and fully functional stand Alarm ! 
+* Set a stand up alarm notification interval as low as five mins to one hour
+* Limit your alarm to only your office location so you are not bothered/reminded at home
+* Easy to use interface
+* Get an approximation of how many hours you have sat during the past week - Looking at past data is important to determining progress
+* Ability to customize the notification message to motivate or remind yourself your way
+
+Technology has made it all too easy for us to spend our lives moving from our car seat to office chair, back to car seat, and then to the couch. With our jobs and commutes, it may seem impossible to switch to an active lifestyle, even if it’s healthier. Why should it be ?
+
+Stand Up is a quick and easy way to solve the problem by allowing you to set reminders for standing up. This is especially useful for situations where you plan on sitting down for prolonged periods of time and don't have the option, or don't wish to stand up all the time like at work so it has a dual purpose as a work break timer as well.
+
+
