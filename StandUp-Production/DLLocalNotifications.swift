@@ -107,6 +107,7 @@ public class DLNotificationScheduler {
                 let popped = DLQueue.queue.pop()
                 var startTime = DateInRegion(absoluteDate:  popped.fireDate!, in: region)
                 print("Notification \(count) scheduled and fire time will be: \(startTime)")
+                scheduleNotification(notification: popped)
                 count += 1
             } else { break }
             
