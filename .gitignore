@@ -30,6 +30,7 @@ xcuserdata
 *sync/
 Icon?
 .tags*
+fastlane/
 
 /Flutter/app.flx
 /Flutter/app.zip
