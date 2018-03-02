@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
-        SKStoreReviewManager.incrementAppRuns()
-        SKStoreReviewManager.askForReview()
+        //SKStoreReviewManager.incrementAppRuns()
+        //SKStoreReviewManager.askForReview()
 
          return true
     }
@@ -217,7 +217,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
                     // else continue scheduling
                     print(settings?.sound)
-                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: Date(), toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .Weekly, category: "standingReminder", sound: (settings?.sound)! )
+                    scheduler.repeatsFromToDate(identifier: "First Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: Date(), toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .weekly, category: "standingReminder", sound: (settings?.sound)! )
 
                 }
 
@@ -233,7 +233,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
                     let endDate = Calendar.current.date(bySettingHour: endComponents.hour!, minute: endComponents.minute!, second: 0, of: dayDate!)
 
-                    scheduler.repeatsFromToDate(identifier: "Second Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .Weekly, category: "standingReminder", sound: (settings?.sound)!)
+                    scheduler.repeatsFromToDate(identifier: "Second Notification", alertTitle: "Stand Up", alertBody: (settings?.notificationMessage)!, fromDate: startDate!, toDate: endDate!, interval: Double((settings?.timerInterval)!) * 60, repeats: .weekly, category: "standingReminder", sound: (settings?.sound)!)
 
                 }
             }

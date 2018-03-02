@@ -18,10 +18,7 @@ public class DLNotificationScheduler {
     
     // Apple allows you to only schedule 64 notifications at a time
     static let maximumScheduledNotifications = 60
-    
-    public init () {
-        
-    }
+
     
     public func cancelAlllNotifications () {
         
@@ -33,7 +30,7 @@ public class DLNotificationScheduler {
     
     public func cancelNotification (notification: DLNotification) {
         
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [(notification.localNotificationRequest?.identifier)!])
+        notification.cancel()
     }
     
     func printAllNotifications () {
@@ -55,24 +52,24 @@ public class DLNotificationScheduler {
         })
     }
     
-    private func convertToNotificationDateComponent (notification: DLNotification, repeatInterval: Repeats   ) -> DateComponents {
+    private func convertToNotificationDateComponent (notification: DLNotification, repeatInterval: RepeatingInterval   ) -> DateComponents {
         
         var newComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, ], from: notification.fireDate!)
         
-        if repeatInterval != .None {
+        if repeatInterval != .none {
             
             switch repeatInterval {
-            case .Minute:
+            case .minute:
                 newComponents = Calendar.current.dateComponents([ .second], from: notification.fireDate!)
-            case .Hourly:
+            case .hourly:
                 newComponents = Calendar.current.dateComponents([ .minute], from: notification.fireDate!)
-            case .Daily:
+            case .daily:
                 newComponents = Calendar.current.dateComponents([.hour, .minute], from: notification.fireDate!)
-            case .Weekly:
+            case .weekly:
                 newComponents = Calendar.current.dateComponents([.hour, .minute, .weekday], from: notification.fireDate!)
-            case .Monthly:
+            case .monthly:
                 newComponents = Calendar.current.dateComponents([.hour, .minute, .day], from: notification.fireDate!)
-            case .Yearly:
+            case .yearly:
                 newComponents = Calendar.current.dateComponents([.hour, .minute, .day, .month], from: notification.fireDate!)
             default:
                 break
@@ -87,35 +84,32 @@ public class DLNotificationScheduler {
         if notification.scheduled {
             return nil
         } else {
-            
             DLQueue.queue.push(notification)
-            
         }
+        
         return notification.identifier
     }
     
-    func scheduleAllNotifications () {
+    public func scheduleAllNotifications () {
         
         let queue = DLQueue.queue.notificationsQueue()
         let region = Region(tz: TimeZoneName.current, cal: CalendarName.current, loc: LocaleName.current)
         
         var count = 0
-        //print(queue.count)
-        for note in queue {
+        for _ in queue {
             
             if count < min(DLNotificationScheduler.maximumScheduledNotifications, MAX_ALLOWED_NOTIFICATIONS) {
                 let popped = DLQueue.queue.pop()
-                var startTime = DateInRegion(absoluteDate:  popped.fireDate!, in: region)
+                let startTime = DateInRegion(absoluteDate:  popped.fireDate!, in: region)
                 print("Notification \(count) scheduled and fire time will be: \(startTime)")
                 scheduleNotification(notification: popped)
                 count += 1
             } else { break }
             
         }
-        // self.printAllNotifications()
     }
     
-    fileprivate func scheduleNotification ( notification: DLNotification) -> String? {
+    public func scheduleNotification ( notification: DLNotification) -> String? {
         
         if notification.scheduled {
             return nil
@@ -125,7 +119,7 @@ public class DLNotificationScheduler {
             
             if (notification.region != nil) {
                 trigger = UNLocationNotificationTrigger(region: notification.region!, repeats: false)
-                if (notification.repeatInterval == .Hourly) {
+                if (notification.repeatInterval == .hourly) {
                     trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: (TimeInterval(3600)), repeats: false)
                     
                 }
@@ -133,7 +127,7 @@ public class DLNotificationScheduler {
             } else {
                 
                 trigger = UNCalendarNotificationTrigger(dateMatching: convertToNotificationDateComponent(notification: notification, repeatInterval: notification.repeatInterval), repeats: notification.repeats)
-                if (notification.repeatInterval == .Hourly) {
+                if (notification.repeatInterval == .hourly) {
                     trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: (TimeInterval(3600)), repeats: false)
                     
                 }
@@ -162,122 +156,7 @@ public class DLNotificationScheduler {
             
             notification.scheduled = true
         }
-        /*
-         // Takes care of case of removing notificaiton form queue to reschedule in future
-         
-         else if notification.hasDataFromBefore  {
-         
-         let center = UNUserNotificationCenter.current()
-         
-         self.scheduledCount(completion: { (count) in
-         print(count)
-         if count >= min(DLNotificationScheduler.maximumScheduledNotifications, MAX_ALLOWED_NOTIFICATIONS) {
-         DLNotificationScheduler.farthestLocalNotification(completion: { farnotification in
-         if let farthestNotification = farnotification {
-         if !(farthestNotification < notification) {
-         farthestNotification.cancel()
-         DLQueue.queue.push(farthestNotification)
-         notification.scheduled = true
-         center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in print ("removed farthestNotificaiton and added less far notification") } )
-         } else {
-         DLQueue.queue.push(notification)
-         print("added a notification to the queue")
-         }
-         }
-         
-         })
-         
-         
-         
-         
-         } else {
-         
-         center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in print ("completed") } )
-         
-         notification.scheduled = true
-         
-         
-         }
-         
-         
-         })
-         return notification.identifier
-         }
-         
-         
-         else {
-         var trigger: UNNotificationTrigger
-         
-         
-         
-         if (notification.region != nil) {
-         trigger = UNLocationNotificationTrigger(region: notification.region!, repeats: false)
-         if (notification.repeatInterval == .Hourly) {
-         trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: (TimeInterval(3600)), repeats: false)
-         
-         }
-         
-         } else{
-         
-         trigger = UNCalendarNotificationTrigger(dateMatching: convertToNotificationDateComponent(notification: notification, repeatInterval: notification.repeatInterval), repeats: notification.repeats)
-         if (notification.repeatInterval == .Hourly) {
-         trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: (TimeInterval(3600)), repeats: false)
-         
-         }
-         
-         }
-         let content = UNMutableNotificationContent()
-         
-         content.title = notification.alertTitle!
-         
-         content.body = notification.alertBody!
-         
-         content.sound = (notification.soundName == nil) ? UNNotificationSound.default() : UNNotificationSound.init(named: notification.soundName!)
-         
-         if !(notification.attachments == nil){ content.attachments = notification.attachments! }
-         
-         if !(notification.launchImageName == nil){ content.launchImageName = notification.launchImageName! }
-         
-         if !(notification.category == nil){ content.categoryIdentifier = notification.category! }
-         
-         notification.localNotificationRequest = UNNotificationRequest(identifier: notification.identifier!, content: content, trigger: trigger)
-         let center = UNUserNotificationCenter.current()
-         
-         self.scheduledCount(completion: { (count) in
-         if count >= min(DLNotificationScheduler.maximumScheduledNotifications, MAX_ALLOWED_NOTIFICATIONS) {
-         DLNotificationScheduler.farthestLocalNotification(completion: { farnotification in
-         if let farthestNotification = farnotification {
-         if !(farthestNotification < notification) {
-         farthestNotification.cancel()
-         DLQueue.queue.push(farthestNotification)
-         notification.scheduled = true
-         center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in print ("removed farthestNotificaiton and added less far notification") } )
-         } else {
-         DLQueue.queue.push(notification)
-         print("added a notification to the queue")
-         }
-         }
-         
-         })
-         
-         
-         
-         
-         } else {
-         
-         center.add(notification.localNotificationRequest!, withCompletionHandler: {(error) in print ("completed") } )
-         
-         notification.scheduled = true
-         
-         
-         }
-         
-         
-         })
-         
-         }
-         
-         */
+    
         return notification.identifier
         
     }
@@ -301,7 +180,7 @@ public class DLNotificationScheduler {
     func saveQueue() -> Bool {
         return DLQueue.queue.save()
     }
-    ///- returns: Count of scheduled UILocalNotification by iOS.
+    ///- returns: Count of scheduled notifications by iOS.
     func scheduledCount(completion: @escaping (Int) -> Void) {
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (localNotifications) in
             completion(localNotifications.count)
@@ -309,16 +188,15 @@ public class DLNotificationScheduler {
         
     }
     
-    ///Instantiates an DLNotification from a UILocalNotification.
-    ///- parameter localNotification: The UILocalNotification to instantiate an ABNotification from.
-    ///- returns: The instantiated ABNotification from the UILocalNotification.
+    //Instantiates an DLNotification from a UILocalNotification.
+
     class func notificationWithUILocalNotification(_ localNotification: UNNotificationRequest) -> DLNotification {
         return DLNotification(request: localNotification)
     }
     
     // You have to manually keep in mind ios 64 notification limit
     
-    public func repeatsFromToDate (identifier: String, alertTitle: String, alertBody: String, fromDate: Date, toDate: Date, interval: Double, repeats: Repeats, category: String = " ", sound: String = " ") {
+    public func repeatsFromToDate (identifier: String, alertTitle: String, alertBody: String, fromDate: Date, toDate: Date, interval: Double, repeats: RepeatingInterval, category: String = " ", sound: String = " ") {
         
         let notification = DLNotification(identifier: identifier, alertTitle: alertTitle, alertBody: alertBody, date: fromDate, repeats: repeats)
         notification.category = category
@@ -356,13 +234,16 @@ public class DLNotificationScheduler {
     
     public func scheduleCategories(categories: [DLCategory]) {
         
-        var categories1 = Set<UNNotificationCategory>()
+        var notificationCategories = Set<UNNotificationCategory>()
         
-        for x in categories {
+        for category in categories {
             
-            categories1.insert(x.categoryInstance!)
+            guard let categoryInstance = category.categoryInstance else { continue }
+            notificationCategories.insert(categoryInstance)
+    
         }
-        UNUserNotificationCenter.current().setNotificationCategories(categories1)
+        
+        UNUserNotificationCenter.current().setNotificationCategories(notificationCategories)
         
     }
     
@@ -370,8 +251,8 @@ public class DLNotificationScheduler {
 
 // Repeating Interval Times
 
-public enum Repeats: String {
-    case None, Minute, Hourly, Daily, Weekly, Monthly, Yearly
+public enum RepeatingInterval: String {
+    case none, minute, hourly, daily, weekly, monthly, yearly
 }
 
 // A wrapper class for creating a Category
@@ -385,7 +266,7 @@ public class DLCategory {
     public init (categoryIdentifier: String) {
         
         identifier = categoryIdentifier
-        actions = [UNNotificationAction] ()
+        actions = [UNNotificationAction]()
         
     }
     
@@ -406,7 +287,7 @@ public class DLNotification {
     
     internal var localNotificationRequest: UNNotificationRequest?
     
-    var repeatInterval: Repeats = .None
+    var repeatInterval: RepeatingInterval = .none
     
     var alertBody: String?
     
@@ -439,20 +320,21 @@ public class DLNotification {
         if let calendarTrigger =  request.trigger as? UNCalendarNotificationTrigger {
             
             self.fireDate = calendarTrigger.nextTriggerDate()
+            
         } else if let  intervalTrigger =  request.trigger as? UNTimeIntervalNotificationTrigger {
             
             self.fireDate = intervalTrigger.nextTriggerDate()
         }
     }
     
-    public init (identifier: String, alertTitle: String, alertBody: String, date: Date?, repeats: Repeats ) {
+    public init (identifier: String, alertTitle: String, alertBody: String, date: Date?, repeats: RepeatingInterval ) {
         
         self.alertBody = alertBody
         self.alertTitle = alertTitle
         self.fireDate = date
         self.repeatInterval = repeats
         self.identifier = identifier
-        if (repeats == .None) {
+        if (repeats == .none) {
             self.repeats = false
         } else {
             self.repeats = true
@@ -460,7 +342,7 @@ public class DLNotification {
         
     }
     
-    public init (identifier: String, alertTitle: String, alertBody: String, date: Date?, repeats: Repeats, soundName: String ) {
+    public init (identifier: String, alertTitle: String, alertBody: String, date: Date?, repeats: RepeatingInterval, soundName: String ) {
         
         self.alertBody = alertBody
         self.alertTitle = alertTitle
@@ -469,7 +351,7 @@ public class DLNotification {
         self.soundName = soundName
         self.identifier = identifier
         
-        if (repeats == .None) {
+        if (repeats == .none) {
             self.repeats = false
         } else {
             self.repeats = true
@@ -496,8 +378,8 @@ public class DLNotification {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [(self.localNotificationRequest?.identifier)!])
         let queue = DLQueue.queue.notificationsQueue()
         var i = 0
-        for note in queue {
-            if self.identifier == note.identifier {
+        for notification in queue {
+            if self.identifier == notification.identifier {
                 DLQueue.queue.removeAtIndex(i)
                 break
             }
@@ -507,6 +389,11 @@ public class DLNotification {
     }
     
 }
+
+
+/// Stuff needed for queing
+
+
 @available(iOS 10.0, *)
 public func <(lhs: DLNotification, rhs: DLNotification) -> Bool {
     return lhs.fireDate?.compare(rhs.fireDate!) == ComparisonResult.orderedAscending

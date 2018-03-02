@@ -196,7 +196,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         minuteSlider.handleType = doubleCircleWithOpenCenter
         minuteSlider.handleColor = minuteSlider.filledColor
         minuteSlider.translatesAutoresizingMaskIntoConstraints = false
-        minuteSlider.preventOverslidingOnStartPoint = true
+        //minuteSlider.preventOverslidingOnStartPoint = true
         minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
 
         // Interval Label Setup

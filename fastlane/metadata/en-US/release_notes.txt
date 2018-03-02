@@ -1,0 +1,3 @@
+Thanks for using Stand Up App - Standing Reminder and Timer ! Releasing updates wipes out our rating, so if you still like Stand Up we'd appreciate you taking a moment to rate it again.
+
+Fixed bug for new users that prevented settings from being saved

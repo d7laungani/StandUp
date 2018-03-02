@@ -24,7 +24,7 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
-
+        print("Hello")
         let calendar = Calendar.current
         clock.delegate = self
 
@@ -81,6 +81,10 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
 
         let endDate = try! DateInRegion(components: cmp)
 
+        print("completed start: ")
+        print(startDate)
+        print("completed end: ")
+        print(endDate)
         settings?.startTime = (startDate?.absoluteDate)!
         settings?.endTime = (endDate?.absoluteDate)!
         saveSettings()
@@ -105,6 +109,7 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
     //Executed for every touch.
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date  ) {
 
+        
     }
 
 }
