@@ -174,10 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let region = Region(tz: TimeZoneName.current, cal: CalendarName.current, loc: LocaleName.current)
 
         let startTime = DateInRegion(absoluteDate:  (settings?.startTime)!, in: region)
-        let endTime = DateInRegion(absoluteDate:  (settings?.endTime)!, in: region)
-
-        print(startTime)
-        print(endTime)
+        var endTime = DateInRegion(absoluteDate:  (settings?.endTime)!, in: region)
 
         var startComponents = startTime.components
         startComponents.second = 0
@@ -186,7 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
         //print ("Starting and ending components are:")
         //print(startComponents.debugDescription)
-        // print(endComponents.debugDescription)
+        //print(endComponents.debugDescription)
 
         for (index, value) in daysEnabled!.enumerated() {
 
@@ -205,9 +202,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     //print(startDate)
 
                     // Closest To Date
-
-                    let endDate = Calendar.current.date(bySettingHour: endComponents.hour!, minute: endComponents.minute!, second: 0, of: Date())
-
+                     let endDate = Calendar.current.date(bySettingHour: endComponents.hour!, minute: endComponents.minute!, second: 0, of: Date())
+                
                     //print(endDate)
 
                     let valid = (startDate! < Date()) && (Date() < endDate!)
@@ -223,7 +219,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
                     // The schedulded date is not today so no problem
                 else {
-
                     startComponents.weekday = index + 2
 
                     let dayDate = Date().next(day: findWeekDay(x: index + 2))
@@ -245,8 +240,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func findWeekDay (x: Int) -> WeekDay {
+        var y = x
+        if (x > 7) {
+            y = x % 7
+        }
 
-        switch (x) {
+        switch (y) {
 
         case 1:
             return WeekDay.sunday

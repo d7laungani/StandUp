@@ -16,7 +16,10 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
     @IBOutlet weak var startWorkTime: UIDatePicker!
     @IBOutlet weak var endWorkTime: UIDatePicker!
     @IBOutlet var clock: TenClock!
-
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    
+    
     var settings = Defaults[.settings]
 
     override func viewDidLoad() {
@@ -58,6 +61,15 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
 
             clock.endDate = (date17h?.absoluteDate)!
         }
+        
+        //Intial Update From, To Label
+        let startDate = try! DateInRegion(absoluteDate:  clock.startDate)
+        let parsed = startDate.string(dateStyle: .short, timeStyle: .short)
+        startTimeLabel.text = parsed.components(separatedBy: ",")[1]
+        let endDate = try! DateInRegion(absoluteDate:  clock.endDate)
+        let parsed1 = endDate.string(dateStyle: .short, timeStyle: .short)
+        endTimeLabel.text = parsed1.components(separatedBy: ",")[1]
+        
 
     }
 
@@ -80,11 +92,7 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
         cmp.minute = Calendar.current.component(.minute, from: clock.endDate)
 
         let endDate = try! DateInRegion(components: cmp)
-
-        print("completed start: ")
-        print(startDate)
-        print("completed end: ")
-        print(endDate)
+        
         settings?.startTime = (startDate?.absoluteDate)!
         settings?.endTime = (endDate?.absoluteDate)!
         saveSettings()
@@ -108,8 +116,18 @@ class WorkTimeViewController: UIViewController, TenClockDelegate {
 
     //Executed for every touch.
     func timesUpdated(_ clock: TenClock, startDate: Date, endDate: Date  ) {
-
         
+        let startDate = try! DateInRegion(absoluteDate: startDate)
+        let parsed = startDate.string(dateStyle: .short, timeStyle: .short)
+        startTimeLabel.text = parsed.components(separatedBy: ",")[1]
+        let endDate = try! DateInRegion(absoluteDate: endDate)
+        let parsed1 = endDate.string(dateStyle: .short, timeStyle: .short)
+        endTimeLabel.text = parsed1.components(separatedBy: ",")[1]
+        let region = Region(tz: TimeZoneName.current, cal: CalendarName.current, loc: LocaleName.current)
+        if (startDate.hour > endDate.hour) {
+            clock.endDate = (try! DateInRegion(components: [ .hour: 23, .minute: 55, .second: 0], fromRegion: region)?.absoluteDate)!
+
+        }
     }
 
 }

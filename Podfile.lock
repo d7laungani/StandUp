@@ -16,7 +16,7 @@ PODS:
   - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
-  - 10Clock (from `https://github.com/joedaniels29/10Clock.git`, branch `master`)
+  - 10Clock (from `https://github.com/d7laungani/10Clock.git`, branch `master`)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Crashlytics
   - EFCircularSlider (~> 0.1.0)
@@ -32,14 +32,14 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   10Clock:
     :branch: master
-    :git: https://github.com/joedaniels29/10Clock.git
+    :git: https://github.com/d7laungani/10Clock.git
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 CHECKOUT OPTIONS:
   10Clock:
-    :commit: 3d9f7d4a1aa434f70d112fd13d5c9f7716990fc3
-    :git: https://github.com/joedaniels29/10Clock.git
+    :commit: 1eb7f2b1e9212d0467c05b380f52c09dc1a1ee4f
+    :git: https://github.com/d7laungani/10Clock.git
   ChameleonFramework:
     :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
     :git: https://github.com/ViccAlexander/Chameleon.git
@@ -58,6 +58,6 @@ SPEC CHECKSUMS:
   SwiftDate: 029be76691ee89176da3a46c7df3415b6734bc5b
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: b8feeb88b36dcad65de10f6985d8acb2d14756f5
+PODFILE CHECKSUM: a42b42d2865194a63bd4c191d3e3061cc0b8f6b2
 
 COCOAPODS: 1.2.1
