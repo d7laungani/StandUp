@@ -75,11 +75,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-
-        if settings == nil { self.minuteSlider.currentValue = 45.0} else { updateValues() }
-
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,23 +96,32 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         })
 
         print(UIDevice().screenType)
+        if settings == nil { self.minuteSlider.currentValue = 45.0} else { updateValues() }
 
     }
 
     func minuteDidChange(x: EFCircularSlider ) {
-
+        
+        
+           // print(x)
+       
         let value = x.currentValue
-
+        
         let step: Float = 5
         let roundedValue = round(value / step) * step
-
+        
+        if (value == roundedValue) {
+            return
+        }
         x.currentValue = roundedValue
+ 
 
         updateIntervalLabel(roundedValue: roundedValue)
 
         settings?.timerInterval = Int(roundedValue)
         saveSettings()
-
+ 
+        
     }
 
     // Updates values if changed
@@ -193,12 +197,12 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         minuteSlider.minimumValue = 0
         minuteSlider.maximumValue = 60
         minuteSlider.labelColor = UIColor(red: CGFloat(76 / 255.0), green: CGFloat(111 / 255.0), blue: CGFloat(137 / 255.0), alpha: CGFloat(1.0))
-        minuteSlider.handleType = doubleCircleWithOpenCenter
+        minuteSlider.handleType = .doubleCircleWithOpenCenter
         minuteSlider.handleColor = minuteSlider.filledColor
         minuteSlider.translatesAutoresizingMaskIntoConstraints = false
         //minuteSlider.preventOverslidingOnStartPoint = true
         minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
-
+    
         // Interval Label Setup
 
         let timeLabelFrame = CGRect(x: minuteSlider.center.x, y: minuteSlider.center.y, width: CGFloat(130), height: CGFloat(100))
