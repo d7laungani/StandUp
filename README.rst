@@ -1,13 +1,14 @@
-# StandUp
+StandUp
+======
 
 Stand Up IOS app (Swift)
 
-This was an app originally created at [CodeRed Hackathon](https://uhcode.red/) in 2015 hosted at the University of Houston.
+This was an app originally created at `CodeRed <https://uhcode.red/>`_. in 2015 hosted at the University of Houston.
 
 To run the app open the StandUp.xcworkspace file.
 
 This application has been revamped and fixed to be deployed on the app store. The link to the app on the app store is:
-https://itunes.apple.com/us/app/stand-up-app-standing-reminder-and-timer/id1196457882?mt=8
+`https://itunes.apple.com/us/app/stand-up-app-standing-reminder-and-timer/id1196457882?mt=8`
 
 Excerpt from iTunes:
 
@@ -24,4 +25,7 @@ Technology has made it all too easy for us to spend our lives moving from our ca
 
 Stand Up is a quick and easy way to solve the problem by allowing you to set reminders for standing up. This is especially useful for situations where you plan on sitting down for prolonged periods of time and don't have the option, or don't wish to stand up all the time like at work so it has a dual purpose as a work break timer as well.
 
+Developed by `Devesh Laungani`_ - `http://deveshlaungani.com`
 
+
+.. _Devesh Laungani: https://github.com/d7laungani
