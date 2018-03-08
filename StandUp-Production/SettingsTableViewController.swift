@@ -88,7 +88,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             saveSettings()
 
         } else {
-             self.settings?.regionNotifications = false
+            self.settings?.regionNotifications = false
             self.locationLabel.text = "Any Location"
             saveSettings()
         }
@@ -117,9 +117,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //settings = realm.objects(TimerSettings.self).first
-
+    
         self.navigationController?.navigationBar.tintColor = UIColor.flatPurple
+    
         if settings?.regionNotifications == true {
             currentLocation = settings?.currentLocation
             var geocoder = CLGeocoder()
@@ -187,7 +187,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
 
         mailComposerVC.setToRecipients(["d7laungani@hotmail.com"])
-        mailComposerVC.setSubject("Feedback for Standup 1.1 ")
+        mailComposerVC.setSubject("Feedback for Standup 1.3 ")
         mailComposerVC.setMessageBody(" ", isHTML: false)
 
         return mailComposerVC

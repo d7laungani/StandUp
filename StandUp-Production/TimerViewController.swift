@@ -12,6 +12,9 @@ import PermissionScope
 import ChameleonFramework
 import SwiftyUserDefaults
 import EFCircularSlider
+import UserNotifications
+import Foundation
+
 
 class TimerViewController: UIViewController, UITextFieldDelegate {
 
@@ -88,22 +91,19 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         pscope.addPermission(NotificationsPermission(notificationCategories: nil),
                              message: "We use this to help you live longer")
 
+        
         // Show dialog with callbacks
         pscope.show({ _, _ in
-
+           UIApplication.shared.registerForRemoteNotifications()
         }, cancelled: { (_) -> Void in
             print("thing was cancelled")
         })
 
         print(UIDevice().screenType)
         if settings == nil { self.minuteSlider.currentValue = 45.0} else { updateValues() }
-
+        
     }
-
     func minuteDidChange(x: EFCircularSlider ) {
-        
-        
-           // print(x)
        
         let value = x.currentValue
         

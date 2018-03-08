@@ -20,4 +20,5 @@ pod 'Fabric'
 pod 'Crashlytics'
 #pod 'RealmSwift'
 pod 'JLocationKit'
+pod 'PushNotifications'
 end

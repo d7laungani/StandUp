@@ -42,12 +42,25 @@
 	<string>Need calendar </string>
 	<key>NSContactsUsageDescription</key>
 	<string>Need cpontacts</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To send you notifications only at your place of work</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To send you notifications only at your place of work</string>
+	<key>NSLocationUsageDescription</key>
+	<string>To send you notifications only at your place of work</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To send you notifications only at your place of work</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need access for sound</string>
 	<key>NSMotionUsageDescription</key>
 	<string>We need access to your motion data </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to save your photos</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
