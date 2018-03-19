@@ -25,7 +25,7 @@ Technology has made it all too easy for us to spend our lives moving from our ca
 
 Stand Up is a quick and easy way to solve the problem by allowing you to set reminders for standing up. This is especially useful for situations where you plan on sitting down for prolonged periods of time and don't have the option, or don't wish to stand up all the time like at work so it has a dual purpose as a work break timer as well.
 
-Developed by `Devesh Laungani`_ - `http://deveshlaungani.com`
+Developed by `Devesh Laungani`_ - `https://deveshlaungani.com`
 
 
 .. _Devesh Laungani: https://github.com/d7laungani
