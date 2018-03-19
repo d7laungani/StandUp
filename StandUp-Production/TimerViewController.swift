@@ -14,6 +14,7 @@ import SwiftyUserDefaults
 import EFCircularSlider
 import UserNotifications
 import Foundation
+import Crashlytics
 
 class TimerViewController: UIViewController, UITextFieldDelegate {
 
@@ -28,6 +29,12 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func setNotifications(_ sender: Any) {
 
+        Answers.logCustomEvent(withName: "Notification Set",
+                                       customAttributes: [
+                                        "Start Time": settings?.startTime.string().components(separatedBy: "at")[1],
+                                        "End Rime": settings?.endTime.string().components(separatedBy: "at")[1],
+                                        "Timer Interval": settings?.timerInterval as! NSInteger])
+        
         let alert = UIAlertController(title: "Notifications set !", message: nil, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)
