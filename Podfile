@@ -21,4 +21,6 @@ pod 'Crashlytics'
 #pod 'RealmSwift'
 pod 'JLocationKit'
 pod 'PushNotifications'
+pod 'SwiftLint'
+
 end

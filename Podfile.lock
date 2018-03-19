@@ -1,12 +1,5 @@
 PODS:
   - 10Clock (0.0.20)
-  - AWSAuthCore (2.6.12):
-    - AWSCore (= 2.6.12)
-  - AWSCore (2.6.12)
-  - AWSMobileClient (2.6.12):
-    - AWSAuthCore (= 2.6.12)
-  - AWSPinpoint (2.6.12):
-    - AWSCore (= 2.6.12)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -21,12 +14,11 @@ PODS:
   - SCLAlertView (0.7.0)
   - ScrollableGraphView (3.1.0)
   - SwiftDate (4.1.7)
+  - SwiftLint (0.25.0)
   - SwiftyUserDefaults (3.0.0)
 
 DEPENDENCIES:
   - 10Clock (from `https://github.com/d7laungani/10Clock.git`, branch `master`)
-  - AWSMobileClient (~> 2.6.6)
-  - AWSPinpoint (~> 2.6.6)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Crashlytics
   - EFCircularSlider
@@ -38,6 +30,7 @@ DEPENDENCIES:
   - SCLAlertView
   - ScrollableGraphView
   - SwiftDate
+  - SwiftLint
   - SwiftyUserDefaults
 
 EXTERNAL SOURCES:
@@ -49,7 +42,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   10Clock:
-    :commit: 1eb7f2b1e9212d0467c05b380f52c09dc1a1ee4f
+    :commit: 8e00530b53e5c92cc4b8e10ff787a7c6337b1bb1
     :git: https://github.com/d7laungani/10Clock.git
   ChameleonFramework:
     :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
@@ -57,10 +50,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   10Clock: 0e4a9ba04afc48c95ac297b8015238df2ae9a178
-  AWSAuthCore: 55376d5a47c2b5cefdd3f78d247e0a5496fc25c4
-  AWSCore: d0d6e4f6831754aaf98058d2306a016ae71510fe
-  AWSMobileClient: 5972fea7b8b7a9eae8790386700b8a7f330f8ee3
-  AWSPinpoint: 10fd600ef232c73a5122551598ba661b1e8582b6
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   EFCircularSlider: 3af1dd6f86eb3eeeeaab0345ef3d6d1c2fc93d17
@@ -72,8 +61,9 @@ SPEC CHECKSUMS:
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
   SwiftDate: 029be76691ee89176da3a46c7df3415b6734bc5b
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
 
-PODFILE CHECKSUM: 84603a20c65c1430df61870bff861231fcd2599d
+PODFILE CHECKSUM: babb7e1929e96ed1dbd4b7e32a7910832ce2bbe2
 
 COCOAPODS: 1.2.1

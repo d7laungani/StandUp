@@ -15,19 +15,17 @@ import EFCircularSlider
 import UserNotifications
 import Foundation
 
-
 class TimerViewController: UIViewController, UITextFieldDelegate {
 
     let pscope = PermissionScope()
     var settings = Defaults[.settings]
     var minuteSlider = EFCircularSlider()
     var timeLabel: UILabel?
-    
+
     @IBOutlet var daysButtons: [UIButton]!
     @IBOutlet weak var setNotification: UIButton!
     @IBOutlet weak var stackView: UIStackView!
-    
-    
+
     @IBAction func setNotifications(_ sender: Any) {
 
         let alert = UIAlertController(title: "Notifications set !", message: nil, preferredStyle: .alert)
@@ -42,7 +40,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         }
 
         button.isSelected = !button.isSelected
-        if (button.isSelected) {
+        if button.isSelected {
             button.setTitleColor(UIColor.brown, for: .selected)
             button.layer.borderColor = UIColor.brown.cgColor
 
@@ -61,7 +59,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
 
     }
 
-    
     // uppdate slider Label text
     func updateIntervalLabel (roundedValue: Float) {
         let s: Int = 00
@@ -78,7 +75,6 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
 
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,12 +82,11 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         setupUIElements()
         settings = Defaults[.settings]
         self.hideKeyboardWhenTappedAround()
-        
+
         // Set up permissions
         pscope.addPermission(NotificationsPermission(notificationCategories: nil),
                              message: "We use this to help you live longer")
 
-        
         // Show dialog with callbacks
         pscope.show({ _, _ in
            UIApplication.shared.registerForRemoteNotifications()
@@ -99,29 +94,26 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
             print("thing was cancelled")
         })
 
-        print(UIDevice().screenType)
         if settings == nil { self.minuteSlider.currentValue = 45.0} else { updateValues() }
-        
+
     }
-    func minuteDidChange(x: EFCircularSlider ) {
-       
-        let value = x.currentValue
-        
+    func minuteDidChange(slider: EFCircularSlider ) {
+
+        let value = slider.currentValue
+
         let step: Float = 5
         let roundedValue = round(value / step) * step
-        
-        if (value == roundedValue) {
+
+        if value == roundedValue {
             return
         }
-        x.currentValue = roundedValue
- 
+        slider.currentValue = roundedValue
 
         updateIntervalLabel(roundedValue: roundedValue)
 
         settings?.timerInterval = Int(roundedValue)
         saveSettings()
- 
-        
+
     }
 
     // Updates values if changed
@@ -137,7 +129,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
 
         for (index, value) in  (settings?.daysEnabled)!.enumerated() {
             daysButtons[index].isSelected = value
-            if (value) {
+            if value {
 
                 //button.setTitleColor(UIColor.brown), for: .selected)
                 daysButtons[index].setTitleColor(UIColor.brown, for: .selected)
@@ -202,7 +194,7 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         minuteSlider.translatesAutoresizingMaskIntoConstraints = false
         //minuteSlider.preventOverslidingOnStartPoint = true
         minuteSlider.addTarget(self, action: #selector(self.minuteDidChange), for: .valueChanged)
-    
+
         // Interval Label Setup
 
         let timeLabelFrame = CGRect(x: minuteSlider.center.x, y: minuteSlider.center.y, width: CGFloat(130), height: CGFloat(100))

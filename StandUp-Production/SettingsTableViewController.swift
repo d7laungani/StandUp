@@ -22,8 +22,6 @@ class CustomCell: UITableViewCell {
 
 class SettingsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate {
 
-    
-
     @IBOutlet weak var soundToggle: UISwitch!
     @IBOutlet weak var locationUpdatesLabel: UILabel!
     @IBOutlet weak var sleepingTimes: UITableViewCell!
@@ -117,9 +115,9 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         self.navigationController?.navigationBar.tintColor = UIColor.flatPurple
-    
+
         if settings?.regionNotifications == true {
             currentLocation = settings?.currentLocation
             var geocoder = CLGeocoder()

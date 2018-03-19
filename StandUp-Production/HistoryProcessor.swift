@@ -63,8 +63,7 @@ class HistoryProcessor {
         var secsFrom = 0
 
         let componentsOfPreviousDate = (cal as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: previousPointDate)
-        
-        
+
         print(startComponents.hour)
         print(endComponents.hour)
         for x in activities {
