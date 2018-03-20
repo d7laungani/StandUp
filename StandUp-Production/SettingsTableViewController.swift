@@ -41,18 +41,16 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
             notificationMessage.delegate = self
         }
     }
-
+    
     func doneAction(_ sender: UITextField) {
-
         settings?.notificationMessage = sender.text
         saveSettings()
-
     }
 
     func saveSettings () {
+        settings?.notificationMessage = notificationMessage.text
         Defaults[.settings]? = settings!
         Defaults.synchronize()
-
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5573B9072051BC61006F9BA1 /* DotEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573B9062051BC61006F9BA1 /* DotEnv.swift */; };
 		55B199551DF7C9F600A40C1B /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B199541DF7C9F600A40C1B /* TimerSettings.swift */; };
-		55BBBBC8204E017200C00CA6 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BBBBC5204E00A700C00CA6 /* awsconfiguration.json */; };
 		55BF358F1EBBCE1D009F7DAE /* DLLocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BF358E1EBBCE1D009F7DAE /* DLLocalNotifications.swift */; };
 		55C1CD4F1EBD2EA800C5619C /* default.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55C1CD4E1EBD2EA800C5619C /* default.wav */; };
 		9CF0A784A28D4E629BD45E04 /* Pods_StandUp_Production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */; };
@@ -34,7 +33,6 @@
 		552FBE13204FA498007F7AA2 /* StandUp-Production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "StandUp-Production.entitlements"; sourceTree = "<group>"; };
 		5573B9062051BC61006F9BA1 /* DotEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotEnv.swift; sourceTree = "<group>"; };
 		55B199541DF7C9F600A40C1B /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
-		55BBBBC5204E00A700C00CA6 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		55BF358E1EBBCE1D009F7DAE /* DLLocalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DLLocalNotifications.swift; sourceTree = "<group>"; };
 		55C1CD4E1EBD2EA800C5619C /* default.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = default.wav; sourceTree = "<group>"; };
 		715D42149A8A0285C3936C53 /* Pods_StandUp_Production.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StandUp_Production.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +153,6 @@
 				FA34B89C1D0FBF350082F616 /* AppDelegate.swift */,
 				FA34B8A71D0FBF350082F616 /* LaunchScreen.storyboard */,
 				FA34B8AA1D0FBF350082F616 /* Info.plist */,
-				55BBBBC5204E00A700C00CA6 /* awsconfiguration.json */,
 				55C1CD4E1EBD2EA800C5619C /* default.wav */,
 			);
 			name = "Supporting Files";
@@ -175,6 +172,7 @@
 				97B74B87D14FA06D11E0B5D7 /* [CP] Embed Pods Frameworks */,
 				9CA3C1760C88FF2C71D579CA /* [CP] Copy Pods Resources */,
 				55C7C9BF1EBC588800C6684F /* ShellScript */,
+				5573B9082051EAB2006F9BA1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -234,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BBBBC8204E017200C00CA6 /* awsconfiguration.json in Resources */,
 				55C1CD4F1EBD2EA800C5619C /* default.wav in Resources */,
 				FA34B8A91D0FBF350082F616 /* LaunchScreen.storyboard in Resources */,
 				FA34B8A61D0FBF350082F616 /* Assets.xcassets in Resources */,
@@ -245,6 +242,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5573B9082051EAB2006F9BA1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		55C7C9BF1EBC588800C6684F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,7 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "StandUp-Production/StandUp-Production.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8878VL7H9L;
 				FRAMEWORK_SEARCH_PATHS = (

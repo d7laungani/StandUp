@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.506025"
+            timestampString = "543268430.823374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "findWeekDay(x:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.50725"
+            timestampString = "543268430.8245749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.5081691"
+            timestampString = "543268430.825518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -198,13 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerViewController.swift"
-            timestampString = "542228947.508733"
+            timestampString = "543263392.4960001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "UIViewController"
-            landmarkType = "21">
+            startingLineNumber = "263"
+            endingLineNumber = "263">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -425,8 +423,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "HistoryProcessor"
-            landmarkType = "3">
+            landmarkName = "getTotalSittingSecs(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -468,11 +466,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.508971"
+            timestampString = "543268430.826472"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "requestRecieved()"
             landmarkType = "7">
          </BreakpointContent>
@@ -484,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.509746"
+            timestampString = "543268430.827136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "findClosestDate(fromDate:endDate:interval:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -500,11 +498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.510698"
+            timestampString = "543268430.82748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "findClosestDate(fromDate:endDate:interval:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -546,11 +544,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.511798"
+            timestampString = "543268430.8277889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -562,11 +560,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.513898"
+            timestampString = "543268430.828051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "findWeekDay(x:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -578,7 +576,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/WorkTimeViewController.swift"
-            timestampString = "541790316.730364"
+            timestampString = "543268430.828324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -594,7 +592,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerSettings.swift"
-            timestampString = "517195967.578941"
+            timestampString = "543268430.8283859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -610,7 +608,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerSettings.swift"
-            timestampString = "515968743.237321"
+            timestampString = "543268430.828426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -626,11 +624,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.514905"
+            timestampString = "543268430.828462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "findWeekDay(x:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -642,11 +640,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/SettingsTableViewController.swift"
-            timestampString = "541978231.814546"
+            timestampString = "543268430.828737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "locationNotificationToggle(_:)"
             landmarkType = "7">
             <Locations>
@@ -690,7 +688,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.51577"
+            timestampString = "543268430.828787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -706,11 +704,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/SettingsTableViewController.swift"
-            timestampString = "541978231.8146909"
+            timestampString = "543268430.829074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "locationNotificationToggle(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -722,7 +720,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.5167331"
+            timestampString = "543268430.8291219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -738,11 +736,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.51758"
+            timestampString = "543268430.829375"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
             <Locations>
@@ -786,11 +784,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.5183851"
+            timestampString = "543268430.829622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -802,11 +800,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/AppDelegate.swift"
-            timestampString = "542228947.519128"
+            timestampString = "543268430.829873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "registerLocalNotifications()"
             landmarkType = "7">
             <Locations>
@@ -850,13 +848,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerViewController.swift"
-            timestampString = "542228947.519703"
+            timestampString = "543263392.50538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
-            landmarkName = "ScreenType"
-            landmarkType = "13">
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "screenType"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
