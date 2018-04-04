@@ -19,8 +19,7 @@ class HistoryViewController: UIViewController {
     let historyProcessor = HistoryProcessor()
 
     @IBOutlet weak var timerBtn: UIButton!
-    @IBOutlet weak var graphView1: UIScrollView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -54,7 +53,7 @@ class HistoryViewController: UIViewController {
     }
 
     func setGraph () {
-
+       
         MotionActivity.getHistoricalData(activityManager) { (activities, error) -> Void in
 
             if (error == nil) {
@@ -64,8 +63,12 @@ class HistoryViewController: UIViewController {
                     let days: [String] = self.processDataForBarChart(final)
                     let values: [Double] = self.processDataForBarChart(final)
 
-                    let graphView = ScrollableGraphView(frame: self.graphView1.frame)
+                    let frame = CGRect(x: 0, y: 80, width: self.view.frame.width, height: self.view.frame.height - 80)
+                    let graphView = ScrollableGraphView(frame: frame)
 
+                    let max = values.max()! + 1
+                    
+                    graphView.rangeMax = max
                     self.setupchartUI(graphView: graphView)
                     graphView.set(data: values, withLabels: days)
 
@@ -74,12 +77,11 @@ class HistoryViewController: UIViewController {
                 }
             }
         }
-
+        
     }
 
     func setupchartUI (graphView: ScrollableGraphView) {
-
-        graphView.rangeMax = 9
+       
         graphView.backgroundFillColor = UIColor.hexStringToUIColor(hex: "#333333")
 
         graphView.lineWidth = 1

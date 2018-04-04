@@ -407,7 +407,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-vm-9kY">
-                                <rect key="frame" x="184" y="528" width="42" height="20.5"/>
+                                <rect key="frame" x="184" y="528.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -425,7 +425,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5w-Oa-kSS">
-                                <rect key="frame" x="184" y="585" width="42" height="20.5"/>
+                                <rect key="frame" x="184" y="585.5" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -492,29 +492,21 @@
                                     <segue destination="8rJ-Kc-sve" kind="show" id="m9X-qU-65m"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1D-8L-0Kp">
-                                <rect key="frame" x="9" y="68" width="357" height="550"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Z1D-8L-0Kp" firstAttribute="top" secondItem="Wzi-ZF-Owo" secondAttribute="bottom" constant="13" id="E8X-Mc-9KL"/>
-                            <constraint firstItem="Z1D-8L-0Kp" firstAttribute="centerX" secondItem="GQX-C3-Cra" secondAttribute="centerX" id="HSS-lf-fC7"/>
-                            <constraint firstItem="Z1D-8L-0Kp" firstAttribute="leading" secondItem="GQX-C3-Cra" secondAttribute="leadingMargin" constant="-7" id="LL7-sp-TTy"/>
                             <constraint firstItem="Wzi-ZF-Owo" firstAttribute="top" secondItem="KE3-Mf-YTq" secondAttribute="bottom" constant="11" id="SCO-Gy-Dp4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wzi-ZF-Owo" secondAttribute="trailing" constant="19" id="h1n-S8-BdI"/>
-                            <constraint firstItem="Z1D-8L-0Kp" firstAttribute="bottom" secondItem="ARD-9C-ihU" secondAttribute="top" id="ivF-YL-ECH"/>
                         </constraints>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="graphView1" destination="Z1D-8L-0Kp" id="jz5-zq-act"/>
                         <outlet property="timerBtn" destination="Wzi-ZF-Owo" id="RFF-vF-skh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5De-td-hox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1327.2" y="-1524.2878560719641"/>
+            <point key="canvasLocation" x="1325.5999999999999" y="-1525.1874062968518"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6dl-Ll-RMH">
@@ -543,6 +535,6 @@
         <image name="timer-64" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vQC-vL-IHl"/>
+        <segue reference="m9X-qU-65m"/>
     </inferredMetricsTieBreakers>
 </document>
