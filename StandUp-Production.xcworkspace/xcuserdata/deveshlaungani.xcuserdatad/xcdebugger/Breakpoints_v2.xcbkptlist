@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.824026"
+            timestampString = "544551109.24808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "processDataForBarChart(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.824464"
+            timestampString = "544551109.248157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "processDataForBarChart(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.824908"
+            timestampString = "544551109.248211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "setGraph()"
             landmarkType = "7">
             <Locations>
@@ -134,7 +134,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.825492"
+            timestampString = "544551109.248305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -198,11 +198,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerViewController.swift"
-            timestampString = "543263392.4960001"
+            timestampString = "544551109.248389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263">
+            startingLineNumber = "286"
+            endingLineNumber = "286">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -212,7 +212,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.8258899"
+            timestampString = "544551109.248677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.8261729"
+            timestampString = "544551109.248731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -244,7 +244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.826395"
+            timestampString = "544551109.248781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.826617"
+            timestampString = "544551109.24883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "setGraph()"
             landmarkType = "7">
          </BreakpointContent>
@@ -276,11 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.826839"
+            timestampString = "544551109.248878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "setupchartUI(graphView:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.827204"
+            timestampString = "544551109.248924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "setupchartUI(graphView:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/HistoryViewController.swift"
-            timestampString = "544545666.827499"
+            timestampString = "544551109.248969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "setupchartUI(graphView:)"
             landmarkType = "7">
             <Locations>
@@ -848,13 +848,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StandUp-Production/TimerViewController.swift"
-            timestampString = "543263392.50538"
+            timestampString = "544551109.249253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "screenType"
-            landmarkType = "24">
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

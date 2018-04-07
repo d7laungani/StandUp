@@ -50,7 +50,10 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         if button.isSelected {
             button.setTitleColor(UIColor.brown, for: .selected)
             button.layer.borderColor = UIColor.brown.cgColor
-
+            let day = mapToDay(x: button.tag)
+            Answers.logCustomEvent(withName: "Day Chosen",
+                                   customAttributes: [
+                                    "Day": day])
         } else {
             button.layer.borderColor = UIColor.white.cgColor
 
@@ -214,6 +217,26 @@ class TimerViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(timeLabel!)
         self.view.addSubview(minuteSlider)
 
+    }
+    
+    func mapToDay (x: Int) -> String {
+        
+        switch (x) {
+        case 0 :
+            return "Mon"
+        case 1 :
+            return "Tues"
+        case 2 :
+            return "Wed"
+            
+        case 3 :
+            return "Thurs"
+        case 4 :
+            return "Fri"
+        default :
+            return "Error"
+        }
+    
     }
 
 }
