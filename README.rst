@@ -30,5 +30,5 @@ In association with `Visbug App Development Agency`_
 
 
 .. _Devesh Laungani: https://github.com/d7laungani
-.. _Visbug App Development Agencyi: https://visbug.com
+.. _Visbug App Development Agency: https://visbug.com
 
